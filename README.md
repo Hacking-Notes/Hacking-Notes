@@ -1,5 +1,5 @@
 ## Howdy! 🖖 I'm LXC, pleased to cyber-meet you!
-Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber security, developing tools, and sharing ideas. I'm not famous yet, so don't expect a huge following. But if you're looking for a slightly paranoid, highly dedicated cyber security expert, join me on my never-ending quest for digital justice. Let's outsmart the bad guys together!
+Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber security, developing tools, and sharing ideas. I'm pretty sure I'm on the FBI's watchlist. So, if you're looking for a cyber security guru with a knack for staying off the grid, you've come to the right place. If you're looking for a slightly paranoid, highly dedicated cyber security enthusiasm, join me on my never-ending quest for digital justice. Let's outsmart the "bad guys" together!
 
 <p align = "center">
   <a href="https://discord.com">
