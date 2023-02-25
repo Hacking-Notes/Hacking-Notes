@@ -2,7 +2,7 @@
 Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber security, developing tools, and sharing ideas. I'm not famous yet, so don't expect a huge following. But if you're looking for a slightly paranoid, highly dedicated cyber security expert, join me on my never-ending quest for digital justice. Let's outsmart the bad guys together!
 
 <p align = "center">
-  <img src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/typing.gif" alt="gif" style="max-width: 5%; display: block;">
+  <img width="600" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/typing.gif" alt="gif">
 </p>
 
 ---
