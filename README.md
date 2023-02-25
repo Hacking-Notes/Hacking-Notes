@@ -15,7 +15,7 @@ Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber secur
 ---
 <p align = "center">
   <a href="https://discord.com">
-  <img width="85%" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/text.png" alt="gif">
+  <img width="95%" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/text.png" alt="gif">
 </p>
 <p align = "center">
   <a href="https://discord.com">
