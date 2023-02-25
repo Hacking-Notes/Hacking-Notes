@@ -1,14 +1,17 @@
-# Hi there 👋
+## Hi 👋 I am LXC! 
+Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber security, developing tools, and sharing ideas. I'm not famous yet, so don't expect a huge following. But if you're looking for a slightly paranoid, highly dedicated cyber security expert, join me on my never-ending quest for digital justice. Let's outsmart the bad guys together!
 
-<h2>hello</h2>
-<p align="center">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode" width="45" height="45"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="bash" width="45" height="45"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="php" width="45" height="45"/>
+- 🌐 Visit my [porfolio website](https://pr2tik1.github.io/) for complete background and contact.
+- 👋 My personal [blog](https://pr2tik1.github.io/blog/)
+- ✍️ [Medium Profile](https://pr2tik1.medium.com/)
+
+---
+<p align = "center">
+  <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
+  <img src = "https://github-readme-streak-stats.herokuapp.com?user=Hacking-Notes&theme=dark&hide_border=true" width = 400>
 </p>
 
-<a href="">
-  <img height="50" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwebstockreview.net%2Fimages%2Fdiscord-icon-png.png&f=1&nofb=1&ipt=98cb385e331bac1ffe5f2a341b9dc4fa42004a7ed33ccd7ecc56bbc36cd8bc6c&ipo=images"/>
-</a>
+---
 
-![Snake animation](https://github.com/thepiyushmalhotra/thepiyushmalhotra/blob/output/github-contribution-grid-snake.svg)
+![image](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.net-model.com%2Fimg%2Flogo-discord.png&f=1&nofb=1&ipt=0b347aa70a05f91f4015e7e1049581eba2f397f35b8f27ebb18ae2190210f8ea&ipo=images)ㅤ
+Contact Me: Discord --> LXC#3100
