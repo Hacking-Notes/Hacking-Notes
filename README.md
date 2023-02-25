@@ -12,4 +12,9 @@ Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber secur
 </p>
 
 ---
-
+<p align = "center">
+  Lets get
+</p>
+<p align = "center">
+  <img width="300" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/discord.png" alt="gif">
+</p>
