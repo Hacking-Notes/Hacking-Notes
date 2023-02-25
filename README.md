@@ -1,9 +1,5 @@
-## Hi 👋 I am LXC! 
+## Howdy! 🖖 I'm LXC, pleased to cyber-meet you!
 Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber security, developing tools, and sharing ideas. I'm not famous yet, so don't expect a huge following. But if you're looking for a slightly paranoid, highly dedicated cyber security expert, join me on my never-ending quest for digital justice. Let's outsmart the bad guys together!
-
-- 🌐 Visit my [porfolio website](https://pr2tik1.github.io/) for complete background and contact.
-- 👋 My personal [blog](https://pr2tik1.github.io/blog/)
-- ✍️ [Medium Profile](https://pr2tik1.medium.com/)
 
 ---
 <p align = "center">
