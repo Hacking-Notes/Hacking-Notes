@@ -12,7 +12,12 @@ Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber secur
   <img src = "https://github-readme-streak-stats.herokuapp.com?user=Hacking-Notes&theme=dark&hide_border=true" width = 400>
 </p>
 
+<p align = "center">
+  <img src = "https://github-readme-stats.vercel.app/api/top-langs/?username=Hacking-Notes&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact&langs_count=10&include_private=true">
+</p>
+
 ---
+
 <p align = "center">
   <a href="https://discord.com">
   <img width="95%" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/text.png" alt="gif">
