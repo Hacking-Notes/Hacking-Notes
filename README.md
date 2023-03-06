@@ -3,9 +3,9 @@ Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber secur
 
 <p align = "center">
   <a href="https://discord.com">
-  <img width="600" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/typing.gif" alt="gif">
+  <img width="600" src="https://user-images.githubusercontent.com/118412415/223001524-a960bc18-f6d6-46c8-a8c8-02b6d7ae5339.gif" alt="gif">
 </p>
-
+  
 ---
 <p align = "center">
   <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
