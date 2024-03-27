@@ -1,5 +1,5 @@
-## Howdy! 🖖 I'm LXC, pleased to cyber-meet you!
-Welcome to the online lair of LXC (aka the Cyber Crusader)! I'm into cyber security, developing tools, and sharing ideas. I'm pretty sure I'm on the FBI's watchlist. So, if you're looking for a cyber security guru with a knack for staying off the grid, you've come to the right place. If you're looking for a slightly paranoid, highly dedicated cyber security enthusiasm, join me on my never-ending quest for digital justice. Let's outsmart the "bad guys" together!
+Hey there! 👋 I'm Alexis Savard, delighted to meet you in the digital realm!
+Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusiast, dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. While I may not be on any watchlist (at least, not yet!), I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
 
 <p align = "center">
   <a href="https://discord.com">
