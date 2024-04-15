@@ -2,11 +2,10 @@
 
 Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusiast, dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
 
-<p align = "center">
-  <a href="https://discord.com">
-  <img width="600" src="https://user-images.githubusercontent.com/118412415/223001524-a960bc18-f6d6-46c8-a8c8-02b6d7ae5339.gif" alt="gif">
-</p>
-  
+
+[![hacking-notes](https://github.com/Hacking-Notes/RedTeam/assets/118412415/1652df89-569f-454a-afa9-60b92f112242)](https://hacking-notes.github.io)
+
+
 ---
 <p align = "center">
   <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
