@@ -23,6 +23,5 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 </p>
 <p align = "center">
   <a href="https://discord.com">
-  <img width="300" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/discord.png" alt="gif">
+  <img width="300" src="https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/8d956e35-3187-422e-9c82-c101c6f2bae7" alt="gif">
   </a>
-</p>
