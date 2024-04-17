@@ -5,7 +5,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 
 [![Hacking-Notes](https://github.com/Hacking-Notes/RedTeam/assets/118412415/1652df89-569f-454a-afa9-60b92f112242)](https://hacking-notes.github.io)
 
-![Hacking-Roadmap](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/9583b781-ec05-4ec2-93af-c8c976479ce0)](https://github.com/hacking-notes/hacking-roadmap)
+[![Hacking-Roadmap](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/9583b781-ec05-4ec2-93af-c8c976479ce0)](https://github.com/hacking-notes/hacking-roadmap)
 
 
 ---
