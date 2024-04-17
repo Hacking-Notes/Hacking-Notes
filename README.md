@@ -2,6 +2,8 @@
 
 Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusiast, dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
 
+## Main Projects
+
 | Hacking Notes | Roadmap to Hacking Mastery |
 | ----- | ------ |
 | Unlock a wealth of hacking wisdom in our GitHub repository. These notes, curated from seasoned experts, offer concise insights into the world of cybersecurity. Perfect for beginners and veterans alike, dive in and elevate your hacking prowess today. | Discover the roadmap to hacking mastery in our GitHub repository. Whether you're a hobbyist, aspiring certifier, or degree seeker, our curated resources and structured paths will guide you. From networking basics to advanced penetration testing, cultivate the hacker mindset and become a cybersecurity expert. Your journey starts here. |
