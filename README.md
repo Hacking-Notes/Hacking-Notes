@@ -3,7 +3,9 @@
 Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusiast, dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
 
 
-[![hacking-notes](https://github.com/Hacking-Notes/RedTeam/assets/118412415/1652df89-569f-454a-afa9-60b92f112242)](https://hacking-notes.github.io)
+[![Hacking-Notes](https://github.com/Hacking-Notes/RedTeam/assets/118412415/1652df89-569f-454a-afa9-60b92f112242)](https://hacking-notes.github.io)
+
+![Hacking-Roadmap](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/9583b781-ec05-4ec2-93af-c8c976479ce0)](https://github.com/hacking-notes/hacking-roadmap)
 
 
 ---
