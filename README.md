@@ -2,6 +2,13 @@
 
 Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusiast, dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
 
+<a href="https://www.linkedin.com/in/alexis-savard/">
+    <img height="30" src="https://cdn2.iconfinder.com/data/icons/social-icon-3/512/social_style_3_in-306.png"/>
+</a>
+<a href="https://medium.com/@hacking-notes">
+    <img height="30" src="https://cdn4.iconfinder.com/data/icons/social-media-rounded-corners/512/Medium_rounded_cr-306.png"/>
+</a>
+
 ## Main Resources
 
 | ---> Hacking Notes (RedTeam & BlueTeam) <--- | ---> Roadmap to Hacking Mastery <--- |
