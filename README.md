@@ -28,25 +28,17 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 
 ## Main Resources
 
-<br>
-
 | ---> Hacking Notes (RedTeam & BlueTeam) <--- | ---> Roadmap to Hacking Mastery <--- |
 | ----- | ------ |
 | Unlock a wealth of hacking wisdom in our GitHub repository. These notes, curated from seasoned experts, offer concise insights into the world of cybersecurity. Perfect for beginners and veterans alike, dive in and elevate your hacking prowess today. | Discover the roadmap to hacking mastery. Whether you're a hobbyist, aspiring certifier, or degree seeker, our curated resources and structured paths will guide you. From networking basics to advanced penetration testing, cultivate the hacker mindset and become a cybersecurity expert. Your journey starts here. |
 | [![Hacking-Notes](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/48f07ef4-a207-49dd-8cdf-f781097605d4)](https://hacking-notes.com) | [![Hacking-Roadmap](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/de338fdb-3f57-4a25-a36f-ce6789a35a09)](https://github.com/Hacking-Notes/Hacker-Roadmap) |
 
-<br>
-
 ---
-
-<br>
 
 <p align = "center">
   <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
   <img src = "https://github-readme-streak-stats.herokuapp.com?user=Hacking-Notes&theme=dark&hide_border=true" width = 400>
 </p>
-
-<br>
 
 ---
 
