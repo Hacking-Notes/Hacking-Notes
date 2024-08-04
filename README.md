@@ -9,6 +9,23 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
     <img height="30" src="https://cdn4.iconfinder.com/data/icons/social-media-rounded-corners/512/Medium_rounded_cr-306.png"/>
 </a>
 
+#### Achievement (Ethically Achieved)
+
+<table>
+  <tr>
+    <th style="text-align:center">🏆 <b>Domain Provider</b> 🏆</th>
+    <th style="text-align:center">🏨 <b>Hotel Chain</b> 🏨</th>
+    <th style="text-align:center">❓ <b>Who's Next</b> ❓</th>
+  </tr>
+  <tr>
+    <td style="text-align:center">Successfully hacked</td>
+    <td style="text-align:center">Successfully hacked</td>
+    <td style="text-align:center">Soon</td>
+  </tr>
+</table>
+
+<br>
+
 ## Main Resources
 
 | ---> Hacking Notes (RedTeam & BlueTeam) <--- | ---> Roadmap to Hacking Mastery <--- |
@@ -17,10 +34,15 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 | [![Hacking-Notes](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/48f07ef4-a207-49dd-8cdf-f781097605d4)](https://hacking-notes.com) | [![Hacking-Roadmap](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/de338fdb-3f57-4a25-a36f-ce6789a35a09)](https://github.com/Hacking-Notes/Hacker-Roadmap) |
 
 ---
+
+<br>
+
 <p align = "center">
   <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
   <img src = "https://github-readme-streak-stats.herokuapp.com?user=Hacking-Notes&theme=dark&hide_border=true" width = 400>
 </p>
+
+<br>
 
 ---
 
