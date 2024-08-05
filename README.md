@@ -5,24 +5,12 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 <a href="https://www.linkedin.com/in/alexis-savard/">
     <img height="30" src="https://cdn2.iconfinder.com/data/icons/social-icon-3/512/social_style_3_in-306.png"/>
 </a>
-<a href="https://medium.com/@hacking-notes">
-    <img height="30" src="https://cdn4.iconfinder.com/data/icons/social-media-rounded-corners/512/Medium_rounded_cr-306.png"/>
+<a href="https://hackerone.com/hacking-notes">
+    <img height="30" src="https://github.com/user-attachments/assets/68a3fb7b-edd2-4975-98db-c726a360c986"/>
 </a>
-
-#### Achievement (Ethically Achieved)
-
-<table>
-  <tr>
-    <th style="text-align:center">🏆 <b>Domain Provider</b> 🏆</th>
-    <th style="text-align:center">🏨 <b>Hotel Chain</b> 🏨</th>
-    <th style="text-align:center">❓ <b>Who's Next</b> ❓</th>
-  </tr>
-  <tr>
-    <td style="text-align:center">Successfully hacked</td>
-    <td style="text-align:center">Successfully hacked</td>
-    <td style="text-align:center">Soon</td>
-  </tr>
-</table>
+<a href="https://medium.com/@hacking-notes">
+    <img height="30" src="https://github.com/user-attachments/assets/c5952b50-cab9-4b3b-97e7-21b6b42102ac"/>
+</a>
 
 <br>
 
