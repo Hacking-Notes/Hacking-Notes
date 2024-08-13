@@ -21,7 +21,14 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 | Unlock a wealth of hacking wisdom in our GitHub repository. These notes, curated from seasoned experts, offer concise insights into the world of cybersecurity. Perfect for beginners and veterans alike, dive in and elevate your hacking prowess today. | Discover the roadmap to hacking mastery. Whether you're a hobbyist, aspiring certifier, or degree seeker, our curated resources and structured paths will guide you. From networking basics to advanced penetration testing, cultivate the hacker mindset and become a cybersecurity expert. Your journey starts here. |
 | [![Hacking-Notes](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/48f07ef4-a207-49dd-8cdf-f781097605d4)](https://hacking-notes.com) | [![Hacking-Roadmap](https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/de338fdb-3f57-4a25-a36f-ce6789a35a09)](https://github.com/Hacking-Notes/Hacker-Roadmap) |
 
+| ---> Collaborative Note-Taking Guide & Tools for Bug Bounty Hunting <--- |
+| ----- |
+| Struggling with chaotic notes? Learn my effective note-taking system, including a specialized tool and structured methodology, designed to enhance productivity and collaboration.
+| [![354929916-50310567-9135-4f51-9d9a-6258e88e0b3d (4)](https://github.com/user-attachments/assets/24cfba8e-89d4-45f8-998c-833653ca09fb)](https://github.com/Hacking-Notes/Collaborative-Note-Taking-Guide-Bug-Bounty-Tools) |
 ---
+
+
+
 
 <p align = "center">
   <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
