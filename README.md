@@ -13,7 +13,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 <br>
 
 <details>
-    <summary>Bug Bounty Contributions</summary>
+    <summary>Bug Bounty Contributions 🐛</summary>
     <br>
     <p><kbd> <br> Domain Providers <br> </kbd>   <kbd> <br> Hotel Chains <br> </kbd></p>
     <p>📒 Discover more about my related work on my <a href="https://bug-bounty.blog/">blog</a>.</p>
