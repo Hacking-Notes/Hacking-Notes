@@ -5,9 +5,6 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 <a href="https://www.linkedin.com/in/alexis-savard/">
     <img height="30" src="https://cdn2.iconfinder.com/data/icons/social-icon-3/512/social_style_3_in-306.png"/>
 </a>
-<a href="https://hackerone.com/hacking-notes">
-    <img height="30" src="https://github.com/user-attachments/assets/68a3fb7b-edd2-4975-98db-c726a360c986"/>
-</a>
 <a href="https://medium.com/@hacking-notes">
     <img height="30" src="https://github.com/user-attachments/assets/c5952b50-cab9-4b3b-97e7-21b6b42102ac"/>
 </a>
@@ -19,8 +16,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
     <summary>Bug Bounty Contributions</summary>
     <br>
     <p><kbd> <br> Domain Provider <br> </kbd>   <kbd> <br> Hotel Chain <br> </kbd></p>
-    <br>
-    <p>Discover more about my related work on my</p><a href="https://bug-bounty.blog/"> blog</a>
+    <p>📒 Discover more about my related work on my <a href="https://bug-bounty.blog/">blog</a>.</p>
 </details>
 
 ## Main Resources
