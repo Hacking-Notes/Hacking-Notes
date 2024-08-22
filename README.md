@@ -13,8 +13,15 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 </a>
 
 <br>
+<br>
 
-
+<details>
+    <summary>Bug Bounty Contributions</summary>
+    <br>
+    <p><kbd> <br> Domain Provider <br> </kbd>   <kbd> <br> Hotel Chain <br> </kbd></p>
+    <br>
+    <p>Discover more about my related work on my</p><a href="https://bug-bounty.blog/"> blog</a>
+</details>
 
 ## Main Resources
 
