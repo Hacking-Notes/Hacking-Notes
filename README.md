@@ -43,7 +43,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
     </td>
     <td>
       <a href="https://github.com/Hacking-Notes/Hacker-Roadmap">
-        <img src="https://github.com/user-attachments/assets/2311e34d-736d-463d-9274-80792438eed6" alt="Hacking-Roadmap">
+        <img src="https://github.com/user-attachments/assets/4a218a6e-243e-4fb2-8133-0b9d5414dcbf" alt="Hacking-Roadmap">
       </a>
     </td>
   </tr>
