@@ -61,7 +61,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
   <tr>
     <td>
       <a href="https://github.com/Hacking-Notes/Note-Taking-Solution-Burp-Suite-Obsidian-Integration">
-        <img src="https://github.com/user-attachments/assets/24cfba8e-89d4-45f8-998c-833653ca09fb" alt="Note-Taking Solution Burp Suite Obsidian Integration">
+        <img src="https://github.com/user-attachments/assets/1926307b-3b38-4b0c-80d3-8a8a242335d4" alt="Note-Taking Solution Burp Suite Obsidian Integration">
       </a>
     </td>
   </tr>
