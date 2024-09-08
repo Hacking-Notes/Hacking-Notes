@@ -51,7 +51,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 
 <table border="1">
   <tr>
-    <th>---> Collaborative Note-Taking Guide & Tools for Bug Bounty Hunting <---</th>
+    <th>---> Streamlined Note-Taking Solution - Burp Suite Obsidian Integration <---</th>
   </tr>
   <tr>
     <td>
