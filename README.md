@@ -60,8 +60,8 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/Hacking-Notes/Collaborative-Note-Taking-Guide-Bug-Bounty-Tools">
-        <img src="https://github.com/user-attachments/assets/24cfba8e-89d4-45f8-998c-833653ca09fb" alt="Collaborative Note-Taking Guide">
+      <a href="https://github.com/Hacking-Notes/Note-Taking-Solution-Burp-Suite-Obsidian-Integration">
+        <img src="https://github.com/user-attachments/assets/24cfba8e-89d4-45f8-998c-833653ca09fb" alt="Note-Taking Solution Burp Suite Obsidian Integration">
       </a>
     </td>
   </tr>
