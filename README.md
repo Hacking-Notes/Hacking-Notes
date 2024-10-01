@@ -38,7 +38,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
   <tr>
     <td>
       <a href="https://hacking-notes.com">
-        <img src="https://github.com/user-attachments/assets/9e7f6ed9-f59a-4fc7-a616-0c2e8f07f1ba" alt="Hacking-Notes">
+        <img src="https://github.com/user-attachments/assets/b8f1ef0e-b401-4a43-bfd7-4b4d6f589581" alt="Hacking-Notes">
       </a>
     </td>
     <td>
