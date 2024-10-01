@@ -67,6 +67,35 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
   </tr>
 </table>
 
+<!--
+<table border="1">
+  <tr>
+    <th>-> Note-Taking Solution - Burp Suite Obsidian Integration <-</th>
+    <th>-> EndPointer (Collaborative Work) <-</th>
+  </tr>
+  <tr>
+    <td>
+Struggling with chaotic notes? Learn my effective note-taking system, including a specialized tool and structured methodology, designed to enhance productivity and collaboration.
+    </td>
+    <td>
+      Soon
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/Hacking-Notes/Note-Taking-Solution-Burp-Suite-Obsidian-Integration">
+        <img src="https://github.com/user-attachments/assets/530ff387-3d83-41e7-858a-2deb13d47e33" alt="Note-Taking Solution Burp Suite Obsidian Integration">
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/">
+        <img src="https://github.com/user-attachments/assets/8408e0a1-cc15-43ff-9724-de4fa01ac1a0" alt="EndPointer">
+      </a>
+    </td>
+  </tr>
+</table>
+-->
+
 ---
 
 
