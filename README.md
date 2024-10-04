@@ -69,7 +69,7 @@ Struggling with chaotic notes? Learn my effective note-taking system, including 
       </a>
     </td>
     <td>
-      <a href="https://github.com/">
+      <a href="https://github.com/AtlasWiki/EndPointer">
         <img src="https://github.com/user-attachments/assets/8408e0a1-cc15-43ff-9724-de4fa01ac1a0" alt="EndPointer">
       </a>
     </td>
