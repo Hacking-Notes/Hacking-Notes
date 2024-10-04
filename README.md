@@ -51,8 +51,8 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 
 <table border="1">
   <tr>
-    <th>-> Note-Taking Solution - Burp Suite Obsidian Integration <-</th>
-    <th>-> EndPointer (Collaborative Work) <-</th>
+    <th>---> Note-Taking Solution - Burp Suite Obsidian Integration <---</th>
+    <th>---> EndPointer (Collaborative Work) <---</th>
   </tr>
   <tr>
     <td>
