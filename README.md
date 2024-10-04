@@ -51,7 +51,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 
 <table border="1">
   <tr>
-    <th>---> Note-Taking Solution - BurpSuite Obsidian Integration <---</th>
+    <th>---> Note Taking - BurpSuite Obsidian Integration <---</th>
     <th>---> EndPointer (Collaborative Work) <---</th>
   </tr>
   <tr>
