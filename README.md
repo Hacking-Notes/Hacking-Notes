@@ -59,7 +59,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 Struggling with chaotic notes? Learn my effective note-taking system, including a specialized tool and structured methodology, designed to enhance productivity and collaboration.
     </td>
     <td>
-      Soon
+      EndPointer is a browser extension for ethical hackers and web developers to find vulnerable endpoints in webpages and linked JavaScript files, including dynamically loaded scripts. It offers customizable scans to enhance web application security.
     </td>
   </tr>
   <tr>
