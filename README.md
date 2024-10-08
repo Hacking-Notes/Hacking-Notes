@@ -39,7 +39,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
   </tr>
   <tr>
     <td>
-      Unlock a wealth of hacking wisdom in our GitHub repository. These notes, curated from seasoned experts, offer concise insights into the world of cybersecurity. Perfect for beginners and veterans alike, dive in and elevate your hacking prowess today.
+      Unlock a wealth of hacking wisdom in my GitHub repository. These notes, curated from seasoned experts, offer concise insights into the world of cybersecurity. Perfect for beginners and veterans alike, dive in and elevate your hacking prowess today.
     </td>
     <td>
       Discover the roadmap to hacking mastery. Whether you're a hobbyist, aspiring certifier, or degree seeker, our curated resources and structured paths will guide you. From networking basics to advanced penetration testing, cultivate the hacker mindset and become a cybersecurity expert. Your journey starts here.
