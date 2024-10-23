@@ -21,7 +21,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 </details>
 
 <details>
-    <summary><img src="https://github.com/user-attachments/assets/d52a4be5-d4b9-4fb4-a704-d730ddae38fa" href="https://github.com/Hacking-Notes/CVE" style="width: 60px" title="CVE Contributions"></summary>
+    <summary><a href="https://github.com/Hacking-Notes/CVE"><img src="https://github.com/user-attachments/assets/d52a4be5-d4b9-4fb4-a704-d730ddae38fa" style="width: 60px" title="CVE Contributions"></a></summary>
     <br>
     <kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> ... <br> </kbd></p>
     <p>Explore my collection of CVE's in my <a href="https://github.com/Hacking-Notes/CVE" target="_blank">repository</a>.</p>
