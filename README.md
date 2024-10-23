@@ -20,15 +20,13 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
     <br>
 </details>
 
-<!--
 <details>
     <summary>CVE Contributions 🐞</summary>
     <br>
-    <kbd> <br> Coming Soon <br> </kbd>
-    <p>Discover more about my related work with my <a href="https://bug-bounty.blog/">blog articles</a>.</p>
+    <kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> ... <br> </kbd></p>
+    <p>Explore my collection of CVEs in my <a href="https://github.com/hacking-notes/cve" target="_blank">repository</a>.</p>
     <br>
 </details>
--->
 
 ## Main Resources
 
