@@ -24,7 +24,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
     <summary>CVE Contributions 🐞</summary>
     <br>
     <kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> Coming Soon <br> </kbd>᲼᲼<kbd> <br> ... <br> </kbd></p>
-    <p>Explore my collection of CVEs in my <a href="https://github.com/hacking-notes/cve" target="_blank">repository</a>.</p>
+    <p>Explore my collection of CVEs in my <a href="https://github.com/Hacking-Notes/CVE" target="_blank">repository</a>.</p>
     <br>
 </details>
 
