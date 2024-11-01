@@ -23,7 +23,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 <details>
     <summary>CVE Contributions <a href="https://github.com/Hacking-Notes/CVE"><img src="https://github.com/user-attachments/assets/d52a4be5-d4b9-4fb4-a704-d730ddae38fa" style="width: 40px" title="CVE Contributions"></a></summary>
     <br>
-    <kbd> <br> CVE-2024-51379 <br> </kbd>᲼᲼<kbd> <br> CVE-2024-51380 <br> </kbd>᲼᲼<kbd> <br> CVE-2024-51381 <br> </kbd>᲼᲼<kbd> <br> CVE-2024-51382 <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE" target="_blank">...</a> <br> </kbd></p>
+    <kbd> <br> <a href="https://github.com/ampache/ampache/security/advisories/GHSA-x979-f6px-7j2w">CVE-2024-51490</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/ampache/ampache/security/advisories/GHSA-4xw5-f7xm-vpw5">CVE-2024-51486</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/ampache/ampache/security/advisories/GHSA-4q69-983r-mwwr">CVE-2024-51489</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://cve.mitre.org/">CVE-2024-51380</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://cve.mitre.org/">CVE-2024-51381</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE" target="_blank">...</a> <br> </kbd></p>
     <p>Explore my collection of CVE's in my <a href="https://github.com/Hacking-Notes/CVE" target="_blank">repository</a>.</p>
     <br>
 </details>
