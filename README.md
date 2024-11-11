@@ -4,10 +4,10 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 
 <a href="https://www.linkedin.com/in/alexis-savard/">
     <img height="42" src="https://cdn2.iconfinder.com/data/icons/social-icon-3/512/social_style_3_in-306.png"/>
-</a>
+</a>᲼
 <a href="https://medium.com/@hacking-notes">
     <img height="42" src="https://github.com/user-attachments/assets/c5952b50-cab9-4b3b-97e7-21b6b42102ac"/>
-</a>
+</a>᲼
 <a href="https://pdfhost.io/v/qt8C5p1dY_Cyber_Security_EN">
     <img height="40" src="https://github.com/user-attachments/assets/8d1e94d4-d0b3-424c-84ca-850304ad3525"/>
 </a>
