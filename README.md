@@ -8,7 +8,7 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
 <a href="https://medium.com/@hacking-notes">
     <img height="42" src="https://github.com/user-attachments/assets/c5952b50-cab9-4b3b-97e7-21b6b42102ac"/>
 </a>᲼
-<a href="https://pdfhost.io/v/qt8C5p1dY_Cyber_Security_EN">
+<a href="https://pdflink.to/alexissavard/">
     <img height="40" src="https://github.com/user-attachments/assets/8d1e94d4-d0b3-424c-84ca-850304ad3525"/>
 </a>
 
