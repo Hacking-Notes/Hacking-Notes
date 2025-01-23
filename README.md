@@ -29,6 +29,14 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
     <br>
 </details>
 
+<details>
+    <summary>Presentation 📚</summary>
+    <br>
+    <kbd> <be> <a href="https://docs.google.com/presentation/d/e/2PACX-1vRMO6K6pJLCcerBBJ9rH4E7feT-9Apo2729WsSnGVRS28yeDQ5slZxwLeoymiMgvX5xAgzI9aFmf2zq/pub?start=false&loop=false&delayms=10000">XSS Chain Reaction</a> <br> </kbd>᲼᲼<kbd> <be> <a href="https://docs.google.com/presentation/d/e/2PACX-1vTMAVTtLcruubk3J2bHyOkL1QPFNrLIaIVN4SPTujTb5Wtsd2kKiEmLyZQwdrlQwfeXBuTug5YfrqxO/pub?start=false&loop=false&delayms=10000">Congestion Pipe Attack</a> <br> </kbd></p>
+    <p>📒 Discover more about my related work with my <a href="https://bug-bounty.blog/">blog articles</a>.</p>
+    <br>
+</details>
+
 ## Main Resources
 
 <table border="1">
