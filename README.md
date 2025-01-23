@@ -33,7 +33,6 @@ Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusias
     <summary>Presentation 📚</summary>
     <br>
     <kbd> <be> <a href="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/Self-XSS.pdf">XSS Chain Reaction</a> <br> </kbd>᲼᲼<kbd> <be> <a href="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/Congestion%20Pipe%20Attack.pdf">Congestion Pipe Attack</a> <br> </kbd></p>
-    <p>📒 Discover more about my related work with my <a href="https://bug-bounty.blog/">blog articles</a>.</p>
     <br>
 </details>
 
