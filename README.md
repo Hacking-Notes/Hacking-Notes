@@ -1,6 +1,6 @@
 ## Welcome
 
-Welcome to my cyber sanctuary! I'm Alexis, a passionate cyber security enthusiast, dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
+Welcome to my cyber sanctuary! I'm Alex, a passionate cyber security enthusiast, dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
 
 <a href="https://medium.com/@hacking-notes">
     <img height="42" src="https://github.com/user-attachments/assets/c5952b50-cab9-4b3b-97e7-21b6b42102ac"/>
