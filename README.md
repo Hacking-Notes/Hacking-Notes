@@ -2,11 +2,6 @@
 
 Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
 
-<a href="https://medium.com/@hacking-notes">
-    <img height="42" src="https://github.com/user-attachments/assets/c5952b50-cab9-4b3b-97e7-21b6b42102ac"/>
-</a>᲼
-
-
 <br>
 <br>
 
@@ -19,7 +14,7 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
 </details>
 
 <details>
-    <summary>CVE Contributions <a href="https://github.com/Hacking-Notes/CVE"><img src="https://github.com/user-attachments/assets/d52a4be5-d4b9-4fb4-a704-d730ddae38fa" style="width: 40px" title="CVE Contributions"></a></summary>
+    <summary>CVE Contributions 🤝</a></summary>
     <br>
     <kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51490.md">CVE-2024-51490</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51486.md">CVE-2024-51486</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51489.md">CVE-2024-51489</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://cve.mitre.org/">CVE-2024-51380</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://cve.mitre.org/">CVE-2024-51381</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE" target="_blank">...</a> <br> </kbd></p>
     <p>Explore my collection of CVE's in my <a href="https://github.com/Hacking-Notes/CVE" target="_blank">repository</a>.</p>
