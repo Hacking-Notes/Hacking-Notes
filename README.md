@@ -1,8 +1,6 @@
 ## Welcome
 
 Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedicated to expanding my knowledge and skills in the field. I'm fueled by a deep desire to learn and explore the intricacies of cyber security. I'm fervently committed to understanding the digital landscape and contributing positively to it. If you're interested in joining me on this journey of discovery and empowerment, let's dive into the world of cyber security together!
-
-<br>
 <br>
 
 <details>
@@ -92,14 +90,3 @@ Struggling with chaotic notes? Learn my effective note-taking system, including 
 <p align = "center">
   <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
 </p>
-
----
-
-<p align = "center">
-  <a href="https://discord.com">
-  <img width="95%" src="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/text.png" alt="gif">
-</p>
-<p align = "center">
-  <a href="https://discord.com">
-  <img width="300" src="https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/5f34c47e-8f9e-40ef-885d-91ee9a6c5989" alt="gif">
-  </a>
