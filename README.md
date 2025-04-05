@@ -40,6 +40,14 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
     <td>
       Discover the roadmap to hacking mastery. Whether you're a hobbyist, aspiring certifier, or degree seeker, our curated resources and structured paths will guide you. From networking basics to advanced penetration testing, cultivate the hacker mindset and become a cybersecurity expert. Your journey starts here.
     </td>
+        <tr>
+    <td>
+        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
+    </td>
+    <td>
+        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
+    </td>
+  </tr>
 </table>
 
 <table border="1">
@@ -53,6 +61,14 @@ Struggling with chaotic notes? Learn my effective note-taking system, including 
     </td>
     <td>
       EndPointer is a browser extension for ethical hackers and web developers to find vulnerable endpoints in webpages and linked JavaScript files, including dynamically loaded scripts. It offers customizable scans to enhance web application security.
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
+    </td>
+    <td>
+        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
     </td>
   </tr>
 </table>
