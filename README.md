@@ -30,8 +30,8 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
 
 <table border="1">
   <tr>
-    <th>---> Hacking Notes (RedTeam & BlueTeam) <---</th>
-    <th>---> Roadmap to Hacking Mastery <---</th>
+    <th>---> <a href="https://hacking-notes.com">Hacking Notes (RedTeam & BlueTeam)</a> <---</th>
+    <th>---> <a href="https://github.com/Hacking-Notes/Hacker-Roadmap">Roadmap to Hacking Mastery</a> <---</th>
   </tr>
   <tr>
     <td>
@@ -40,25 +40,12 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
     <td>
       Discover the roadmap to hacking mastery. Whether you're a hobbyist, aspiring certifier, or degree seeker, our curated resources and structured paths will guide you. From networking basics to advanced penetration testing, cultivate the hacker mindset and become a cybersecurity expert. Your journey starts here.
     </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://hacking-notes.com">
-        <img src="https://github.com/user-attachments/assets/b8f1ef0e-b401-4a43-bfd7-4b4d6f589581" alt="Hacking-Notes">
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/Hacking-Notes/Hacker-Roadmap">
-        <img src="https://github.com/user-attachments/assets/4a218a6e-243e-4fb2-8133-0b9d5414dcbf" alt="Hacking-Roadmap">
-      </a>
-    </td>
-  </tr>
 </table>
 
 <table border="1">
   <tr>
-    <th>---> Note Taking - BurpSuite Obsidian Integration <---</th>
-    <th>---> EndPointer (Collaborative Work) <---</th>
+    <th>---> <a href="https://github.com/Hacking-Notes/Note-Taking-Solution-Burp-Suite-Obsidian-Integration">Note Taking - BurpSuite Obsidian Integration</a> <---</th>
+    <th>---> <a href="https://github.com/AtlasWiki/EndPointer">EndPointer (Collaborative Work)</a> <---</th>
   </tr>
   <tr>
     <td>
@@ -66,18 +53,6 @@ Struggling with chaotic notes? Learn my effective note-taking system, including 
     </td>
     <td>
       EndPointer is a browser extension for ethical hackers and web developers to find vulnerable endpoints in webpages and linked JavaScript files, including dynamically loaded scripts. It offers customizable scans to enhance web application security.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://github.com/Hacking-Notes/Note-Taking-Solution-Burp-Suite-Obsidian-Integration">
-        <img src="https://github.com/user-attachments/assets/530ff387-3d83-41e7-858a-2deb13d47e33" alt="Note-Taking Solution Burp Suite Obsidian Integration">
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/AtlasWiki/EndPointer">
-        <img src="https://github.com/user-attachments/assets/8408e0a1-cc15-43ff-9724-de4fa01ac1a0" alt="EndPointer">
-      </a>
     </td>
   </tr>
 </table>
