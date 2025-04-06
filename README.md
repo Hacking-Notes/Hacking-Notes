@@ -19,13 +19,6 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
     <br>
 </details>
 
-<details>
-    <summary>Presentation 📚</summary>
-    <br>
-    <kbd> <be> <a href="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/Self-XSS.pdf">XSS Chain Reaction</a> <br> </kbd>᲼᲼<kbd> <be> <a href="https://github.com/Hacking-Notes/Hacking-Notes/blob/main/Congestion%20Pipe%20Attack.pdf">Congestion Pipe Attack</a> <br> </kbd></p>
-    <br>
-</details>
-
 ## Main Resources
 
 <table border="1">
