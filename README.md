@@ -46,7 +46,7 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
 <table border="1">
   <tr>
     <th>---> <a href="https://github.com/Hacking-Notes/Note-Taking-Solution-Burp-Suite-Obsidian-Integration">Note Taking - BurpSuite Obsidian Integration</a> <---</th>
-    <th>---> <a href="https://github.com/Hacking-Notes/clickme">Clickme - Multistep Clickjacking Tool</a> <---</th>
+    <th>---> <a href="https://github.com/Hacking-Notes/ClickMe">ClickMe - Multistep Clickjacking Tool</a> <---</th>
   </tr>
   <tr>
     <td>
