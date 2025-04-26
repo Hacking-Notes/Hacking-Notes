@@ -46,14 +46,14 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
 <table border="1">
   <tr>
     <th>---> <a href="https://github.com/Hacking-Notes/Note-Taking-Solution-Burp-Suite-Obsidian-Integration">Note Taking - BurpSuite Obsidian Integration</a> <---</th>
-    <th>---> <a href="https://github.com/AtlasWiki/EndPointer">EndPointer (Collaborative Work)</a> <---</th>
+    <th>---> <a href="https://github.com/Hacking-Notes/clickme">Clickme - Multistep Clickjacking Tool</a> <---</th>
   </tr>
   <tr>
     <td>
 Struggling with chaotic notes? Learn my effective note-taking system, including a specialized tool and structured methodology, designed to enhance productivity and collaboration.
     </td>
     <td>
-      EndPointer is a browser extension for ethical hackers and web developers to find vulnerable endpoints in webpages and linked JavaScript files, including dynamically loaded scripts. It offers customizable scans to enhance web application security.
+      Clickme is a powerful multi-step clickjacking tool designed for security professionals. Create, visualize, and demonstrate complex clickjacking attacks with customizable elements and real-time preview functionality.
     </td>
   </tr>
   <tr>
