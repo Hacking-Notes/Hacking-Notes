@@ -35,10 +35,10 @@ Welcome to my cyber sanctuary! I'm a passionate cyber security enthusiast dedica
     </td>
         <tr>
     <td>
-        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
+        <img src=https://github.com/user-attachments/assets/e628b87e-4e20-4bda-8f12-32a4fcfe56df>
     </td>
     <td>
-        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
+        <img src=https://github.com/user-attachments/assets/7209aa28-1223-4c49-82e1-33bead526f1b>
     </td>
   </tr>
 </table>
@@ -58,18 +58,15 @@ Struggling with chaotic notes? Learn my effective note-taking system, including 
   </tr>
   <tr>
     <td>
-        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
+        <img src=https://github.com/user-attachments/assets/ac4c712a-c7ca-4fad-b912-a91ce412b538>
     </td>
     <td>
-        <img src=https://github.com/user-attachments/assets/22331da2-6172-47c7-a033-1167814cf58a>
+        <img src=https://github.com/user-attachments/assets/393f60c9-6a29-4f99-8d37-6eb8da771bc7>
     </td>
   </tr>
 </table>
 
 ---
-
-
-
 
 <p align = "center">
   <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
