@@ -65,9 +65,3 @@ Struggling with chaotic notes? Learn my effective note-taking system, including 
     </td>
   </tr>
 </table>
-
----
-
-<p align = "center">
-  <img src = "https://github-readme-stats.vercel.app/api?username=Hacking-Notes&show_icons=true&theme=bear" width = 400>
-</p>
