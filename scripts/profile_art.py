@@ -103,7 +103,7 @@ def card(idx, title, cat, desc, meta, icon):
         f'<circle cx="34" cy="37" r="3" fill="{ACCENT}"/>'
         f'<text x="46" y="42" font-family="{MONO}" font-size="12" letter-spacing="2" fill="{FAINT}">{idx}</text>'
         f'<text x="{W-26}" y="42" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{FAINT}">{escape(cat)}</text>'
-        f'<g class="ic" transform="translate({W-46} 88)">{line_icon(icon)}</g>'
+        f'<g transform="translate({W-46} 88)"><g class="ic">{line_icon(icon)}</g></g>'
         f'<text x="30" y="94" font-family="{SANS}" font-size="26" font-weight="700" fill="{INK}">{escape(title)}</text>'
         f'<rect class="u" x="30" y="106" width="46" height="2" rx="1" fill="{ACCENT}"/>'
         f'<text x="30" y="134" font-family="{SANS}" font-size="14.5" fill="{MUTE}">{escape(d1)}</text>'
