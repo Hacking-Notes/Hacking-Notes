@@ -1,27 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="200" viewBox="0 0 560 200" role="img" aria-label="Hacking Notes">
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="280" viewBox="0 0 580 280" role="img" aria-label="Hacking Notes">
 <title>Hacking Notes</title>
 <defs>
-  <radialGradient id="g" cx="0.12" cy="0.15" r="0.9">
-    <stop offset="0" stop-color="#059669" stop-opacity="0.16"/><stop offset="1" stop-color="#059669" stop-opacity="0"/>
-  </radialGradient>
-  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#059669" fill-opacity="0.16"/></pattern>
+  <radialGradient id="cg" cx=".12" cy=".2" r=".9"><stop offset="0" stop-color="#059669" stop-opacity=".16"/><stop offset="1" stop-color="#059669" stop-opacity="0"/></radialGradient>
+  <pattern id="cd" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#059669" fill-opacity=".15"/></pattern>
+  <clipPath id="cf"><rect width="580" height="280" rx="18"/></clipPath>
 </defs>
 <style>
-  .sweep{stroke-dasharray:22 98;animation:sw 5s linear infinite}
-  @keyframes sw{to{stroke-dashoffset:-120}}
-  .blink{animation:bl 1.4s step-end infinite} @keyframes bl{50%{opacity:.25}}
+  .sweep{stroke-dasharray:26 110;animation:sw 5s linear infinite} @keyframes sw{to{stroke-dashoffset:-136}}
+  .blink{animation:bk 1.2s step-end infinite} @keyframes bk{50%{opacity:.2}}
+  .flo{animation:flo 4s ease-in-out infinite} @keyframes flo{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .l1{animation:t1 4s steps(10) infinite}.l2{animation:t2 4s steps(14) infinite}@keyframes t1{0%,100%{width:0}40%{width:48px}}@keyframes t2{0%,100%{width:0}60%{width:62px}}.sp{animation:sp 3s ease-in-out infinite}@keyframes sp{0%,100%{opacity:.5}50%{opacity:1}}
   @media (prefers-reduced-motion: reduce){*{animation:none!important}}
 </style>
-<rect x="1.5" y="1.5" width="557" height="197" rx="16" fill="#ffffff"/>
-<rect x="1.5" y="1.5" width="557" height="197" rx="16" fill="url(#g)"/>
-<rect x="410" y="1.5" width="148" height="197" fill="url(#dots)"/>
-<path d="M17.5 1.5 H542.5 A16 16 0 0 1 558.5 17.5 V182.5 A16 16 0 0 1 542.5 198.5 H17.5 A16 16 0 0 1 1.5 182.5 V17.5 A16 16 0 0 1 17.5 1.5 Z" fill="none" stroke="#059669" stroke-opacity="0.22" stroke-width="1.5"/>
-<path class="sweep" d="M17.5 1.5 H542.5 A16 16 0 0 1 558.5 17.5 V182.5 A16 16 0 0 1 542.5 198.5 H17.5 A16 16 0 0 1 1.5 182.5 V17.5 A16 16 0 0 1 17.5 1.5 Z" pathLength="120" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="34" cy="34" r="5" fill="#ff5f57"/><circle cx="52" cy="34" r="5" fill="#febc2e"/><circle cx="70" cy="34" r="5" fill="#28c840"/>
-<text x="532" y="40" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="22" font-weight="700" fill="#059669" fill-opacity="0.5">//</text>
-<text x="34" y="92" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="28" font-weight="800" fill="#1f2328">Hacking Notes</text>
-<text x="34" y="122" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15.5" fill="#59636e">Red &amp; blue team notes — concise, expert-curated.</text>
-<rect x="34" y="150" width="135" height="27" rx="13" fill="#059669" fill-opacity="0.12" stroke="#059669" stroke-opacity="0.5"/>
-<text x="102" y="169" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#059669">READ THE NOTES</text>
-<text x="185" y="169" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#59636e">cd ~/hacking-notes <tspan class="blink" fill="#059669">_</tspan></text>
+<g clip-path="url(#cf)">
+  <rect width="580" height="280" fill="#ffffff"/>
+  <rect width="580" height="280" fill="url(#cg)"/>
+  <rect x="236" width="344" height="280" fill="url(#cd)"/>
+  <rect width="580" height="40" fill="#f6f8fa"/><circle cx="26" cy="20" r="5.5" fill="#ff5f57"/><circle cx="46" cy="20" r="5.5" fill="#febc2e"/><circle cx="66" cy="20" r="5.5" fill="#28c840"/><text x="290.0" y="25" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#59636e">~/hacking-notes — live</text><circle cx="554" cy="20" r="4" fill="#059669"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
+  <g transform="translate(130 162)"><rect x="-92" y="-66" width="92" height="132" rx="10" fill="#e5484d" fill-opacity=".08" stroke="#e5484d" stroke-opacity=".5"/><rect x="0" y="-66" width="92" height="132" rx="10" fill="#0284c7" fill-opacity=".08" stroke="#0284c7" stroke-opacity=".5"/><line class="sp" x1="0" y1="-66" x2="0" y2="66" stroke="#7c3aed" stroke-width="2"/><text x="-46" y="-44" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" font-weight="700" fill="#e5484d">RED</text><text x="46" y="-44" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" font-weight="700" fill="#0284c7">BLUE</text><rect class="l1" x="-80" y="-18" height="6" rx="3" fill="#e5484d" fill-opacity=".55" style="animation-delay:0.0s"/><rect class="l2" x="12" y="-18" height="6" rx="3" fill="#0284c7" fill-opacity=".55" style="animation-delay:0.0s"/><rect class="l1" x="-80" y="2" height="6" rx="3" fill="#e5484d" fill-opacity=".55" style="animation-delay:0.2s"/><rect class="l2" x="12" y="2" height="6" rx="3" fill="#0284c7" fill-opacity=".55" style="animation-delay:0.2s"/><rect class="l1" x="-80" y="22" height="6" rx="3" fill="#e5484d" fill-opacity=".55" style="animation-delay:0.4s"/><rect class="l2" x="12" y="22" height="6" rx="3" fill="#0284c7" fill-opacity=".55" style="animation-delay:0.4s"/><rect class="l1" x="-80" y="42" height="6" rx="3" fill="#e5484d" fill-opacity=".55" style="animation-delay:0.6000000000000001s"/><rect class="l2" x="12" y="42" height="6" rx="3" fill="#0284c7" fill-opacity=".55" style="animation-delay:0.6000000000000001s"/></g>
+  <text x="258" y="104" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="800" fill="#1f2328">Hacking Notes</text>
+  <text x="260" y="140" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#59636e">Red &amp; blue team notes — concise, expert-</text>
+  <text x="260" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#59636e">curated. The whole methodology, online.</text>
+  <rect x="260" y="212" width="81" height="26" rx="6" fill="#059669" fill-opacity=".10" stroke="#059669" stroke-opacity=".4"/><text x="301" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#059669">RED TEAM</text><rect x="351" y="212" width="89" height="26" rx="6" fill="#059669" fill-opacity=".10" stroke="#059669" stroke-opacity=".4"/><text x="396" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#059669">BLUE TEAM</text>
+  <rect x="260" y="238" width="157" height="26" rx="13" fill="#059669" fill-opacity=".12" stroke="#059669" stroke-opacity=".5"/>
+  <text x="338" y="256" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#059669">★ hacking-notes.com</text>
+</g>
+<path d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" fill="none" stroke="#059669" stroke-opacity=".22" stroke-width="1.5"/>
+<path class="sweep" d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" pathLength="136" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/header.svg" alt="Hacking Notes" width="100%" />
+<img src="assets/hero.svg" alt="Hacking Notes" width="100%" />
 
 <br />
 
@@ -10,6 +10,10 @@
 <a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/Website-hacking--notes.com-0891b2?style=for-the-badge&labelColor=f6f8fa" alt="Website" /></a>
 <a href="https://hacking-notes.medium.com/"><img src="https://img.shields.io/badge/Blog-Medium-7c3aed?style=for-the-badge&logo=medium&logoColor=1f2328&labelColor=f6f8fa" alt="Blog" /></a>
 <a href="https://discord.gg/r68ameNHrD"><img src="https://img.shields.io/badge/Discord-Join-db2777?style=for-the-badge&logo=discord&logoColor=1f2328&labelColor=f6f8fa" alt="Discord" /></a>
+
+<br /><br />
+
+<img src="assets/stats.svg" alt="490+ followers · 19 repos · 12 CVEs · 12+ tools" width="100%" />
 
 </div>
 
@@ -24,83 +28,70 @@ $ cat ~/.motto
 "True power lies in the ability to see what others cannot."
 ```
 
-<details>
-  <summary><b>🐛 &nbsp;Bug Bounty Contributions</b></summary>
-  <br />
-  <kbd> <br> Search Engine <br> </kbd>᲼᲼<kbd> <br> Governments / Municipalities <br> </kbd>᲼᲼<kbd> <br> Domain Providers <br> </kbd>᲼᲼<kbd> <br> Hotel Chains <br> </kbd>᲼᲼<kbd> <br> ... <br> </kbd>
-  <p>📒 Discover more about my related work in my <a href="https://bug-bounty.blog/">blog articles</a>.</p>
-  <br />
-</details>
+<div align="center">
 
-<details>
-  <summary><b>🤝 &nbsp;CVE Contributions</b></summary>
-  <br />
-  <kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51490.md">CVE-2024-51490</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51486.md">CVE-2024-51486</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51489.md">CVE-2024-51489</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://cve.mitre.org/">CVE-2024-51380</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://cve.mitre.org/">CVE-2024-51381</a> <br> </kbd>᲼᲼<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE">...</a> <br> </kbd>
-  <p>Explore my full collection of CVEs in the <a href="https://github.com/Hacking-Notes/CVE">CVE repository</a>.</p>
-  <br />
-</details>
+<img src="assets/skills.svg" alt="Burp Suite · Python · JavaScript · HTTP/2 · XSS · CSRF · SSRF · Recon · …" width="100%" />
+
+</div>
 
 <img src="assets/divider.svg" width="100%" alt="" />
 
-## 🧭 Main Resources
+## 🚀 Featured Projects
 
-<table border="1">
-  <tr>
-    <th>➜ <a href="https://hacking-notes.com">Hacking Notes (RedTeam & BlueTeam)</a> ⬅</th>
-    <th>➜ <a href="https://github.com/Hacking-Notes/Hacker-Roadmap">Roadmap to Hacking Mastery</a> ⬅</th>
-  </tr>
-  <tr>
-    <td>Unlock a wealth of hacking wisdom in my notes. Curated by seasoned experts, they offer concise insights into the world of cybersecurity. Perfect for beginners and veterans alike — dive in and elevate your hacking prowess today.</td>
-    <td>Discover the roadmap to hacking mastery. Whether you're a hobbyist, aspiring certifier, or degree seeker, our curated resources and structured paths will guide you. From networking basics to advanced penetration testing, cultivate the hacker mindset.</td>
-  </tr>
-  <tr>
-    <td><a href="https://hacking-notes.com"><img src="assets/cards/notes.svg" width="100%" alt="Hacking Notes" /></a></td>
-    <td><a href="https://github.com/Hacking-Notes/Hacker-Roadmap"><img src="assets/cards/roadmap.svg" width="100%" alt="Hacker Roadmap" /></a></td>
-  </tr>
-</table>
+<div align="center">
 
-<table border="1">
-  <tr>
-    <th>➜ <a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration">Note Taking - BurpSuite Obsidian Integration</a> ⬅</th>
-    <th>➜ <a href="https://github.com/Hacking-Notes/ClickMe">ClickMe - Multistep Clickjacking Tool</a> ⬅</th>
-  </tr>
-  <tr>
-    <td>Struggling with chaotic notes? Learn my effective note-taking system, including a specialized tool and structured methodology, designed to enhance productivity and collaboration.</td>
-    <td>ClickMe is a powerful multi-step clickjacking tool designed for security professionals. Create, visualize, and demonstrate complex clickjacking attacks with customizable elements and real-time preview.</td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration"><img src="assets/cards/burp-obsidian.svg" width="100%" alt="Burp x Obsidian" /></a></td>
-    <td><a href="https://github.com/Hacking-Notes/ClickMe"><img src="assets/cards/clickme.svg" width="100%" alt="ClickMe" /></a></td>
-  </tr>
-</table>
+<a href="https://hacking-notes.com"><img src="assets/cards/notes.svg" width="49%" alt="Hacking Notes — red & blue team notes" /></a>
+<a href="https://github.com/Hacking-Notes/Hacker-Roadmap"><img src="assets/cards/roadmap.svg" width="49%" alt="Hacker Roadmap" /></a>
+
+<a href="https://github.com/Hacking-Notes/ClickMe"><img src="assets/cards/clickme.svg" width="49%" alt="ClickMe — multi-step clickjacking" /></a>
+<a href="https://github.com/Hacking-Notes/HR-Smuggler"><img src="assets/cards/smuggler.svg" width="49%" alt="HR-Smuggler — HTTP request smuggling" /></a>
+
+<a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration"><img src="assets/cards/obsidian.svg" width="49%" alt="Burp x Obsidian — structured notes" /></a>
+<a href="https://github.com/Hacking-Notes/Subdomain-Takeover"><img src="assets/cards/subtakeover.svg" width="49%" alt="Subdomain Takeover" /></a>
+
+</div>
 
 <img src="assets/divider.svg" width="100%" alt="" />
 
 ## 🧰 The Arsenal
 
-| | Tool | Description |
-| :-: | ---- | ----------- |
-| 🖱 | **[ClickMe](https://github.com/Hacking-Notes/ClickMe)** | Multi-step clickjacking POC framework |
-| 🧬 | **[HR-Smuggler](https://github.com/Hacking-Notes/HR-Smuggler)** | HTTP request smuggling detection (HTTP/1.1 & HTTP/2) |
-| 🌐 | **[Subdomain-Takeover](https://github.com/Hacking-Notes/Subdomain-Takeover)** | Subdomain enumeration & takeover detection |
-| 🕸 | **[Wayback-Crawler](https://github.com/Hacking-Notes/Wayback-Crawler)** | Async subdomain discovery via Wayback + CT logs |
-| 🔎 | **[Endpoint-JS-Explorer](https://github.com/Hacking-Notes/Endpoint-Javascript-Explorer)** | Bookmarklet to extract endpoints from JS |
-| 💤 | **[lazy-js](https://github.com/Hacking-Notes/lazy-js)** | Extract lazy-loaded filenames from webpack maps |
-| 🔑 | **[JWT](https://github.com/Hacking-Notes/jwt)** | Chrome extension for JWT security testing |
-| 🧩 | **[Extensions](https://github.com/Hacking-Notes/Extensions)** | Curated Chrome extensions for hackers |
-| 🔖 | **[Bookmarks](https://github.com/Hacking-Notes/Bookmarks)** | Curated hacker bookmark collection |
+<div align="center">
+
+[![JWT](https://img.shields.io/badge/JWT-auth_testing-0284c7?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/jwt)
+[![lazy-js](https://img.shields.io/badge/lazy--js-webpack_recon-0891b2?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/lazy-js)
+[![Wayback-Crawler](https://img.shields.io/badge/Wayback--Crawler-archive_recon-0891b2?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Wayback-Crawler)
+[![Endpoint-JS](https://img.shields.io/badge/Endpoint--JS-js_endpoints-d97706?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Endpoint-Javascript-Explorer)
+[![DCJ-Action](https://img.shields.io/badge/DCJ--Action-exploit_server-db2777?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/dcj-action)
+
+[![Extensions](https://img.shields.io/badge/Extensions-chrome_toolkit-7c3aed?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Extensions)
+[![Bookmarks](https://img.shields.io/badge/Bookmarks-resources-0891b2?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Bookmarks)
+[![VulnScan](https://img.shields.io/badge/VulnScan-ai_scanner-059669?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/VulnScan)
+[![BSCP](https://img.shields.io/badge/BSCP-exam_guide-d97706?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/BSCP)
+[![CVE](https://img.shields.io/badge/CVE-research-e5484d?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/CVE)
+
+</div>
 
 <img src="assets/divider.svg" width="100%" alt="" />
 
-## 🎓 Certifications & Guides
+## 🎯 Contributions
 
-| | Guide | Description |
-| :-: | ----- | ----------- |
-| 🗺 | **[Hacker-Roadmap](https://github.com/Hacking-Notes/Hacker-Roadmap)** | The complete path from beginner to pro |
-| 🟠 | **[BSCP](https://github.com/Hacking-Notes/BSCP)** | Burp Suite Certified Practitioner exam guidance |
-| 🔴 | **[RedTeam](https://github.com/Hacking-Notes/RedTeam)** | Offensive security notes |
-| 🔷 | **[BlueTeam](https://github.com/Hacking-Notes/BlueTeam)** | Defensive security notes |
-| 🧾 | **[CVE](https://github.com/Hacking-Notes/CVE)** | Documented CVE research |
+<details open>
+  <summary><b>🐛 &nbsp;Bug Bounty</b> &nbsp;—&nbsp; vulnerabilities reported across these sectors</summary>
+  <br />
+  <div align="center">
+  <kbd> <br> Search Engine <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> Governments / Municipalities <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> Domain Providers <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> Hotel Chains <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> ... <br><br> </kbd>
+  </div>
+  <p align="center">📒 More in my <a href="https://bug-bounty.blog/">blog articles</a>.</p>
+</details>
+
+<details>
+  <summary><b>🤝 &nbsp;CVE Research</b> &nbsp;—&nbsp; responsibly disclosed & documented</summary>
+  <br />
+  <div align="center">
+  <kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51490.md">CVE-2024-51490</a> <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51486.md">CVE-2024-51486</a> <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51489.md">CVE-2024-51489</a> <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE">...</a> <br><br> </kbd>
+  </div>
+  <p align="center">🧾 Full collection in the <a href="https://github.com/Hacking-Notes/CVE">CVE repository</a>.</p>
+</details>
 
 <img src="assets/footer.svg" width="100%" alt="" />
 
