@@ -63,15 +63,15 @@ def line_icon(kind, c=None, sw=1.6):
 
 def chip_button(icon, text, accent_icon=True):
     """A rounded hairline pill-button: accent line icon + label. Own link."""
-    H = 44; fs = 14.5
+    H = 36; fs = 13
     tw = len(text) * fs * 0.56
-    W = int(30 + 24 + tw + 22)
+    W = int(24 + 20 + tw + 18)
     ic = ACCENT if accent_icon else INK
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
             f'role="img" aria-label="{escape(text)}"><title>{escape(text)}</title>'
             f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="{(H-2)//2}" fill="{BG}" stroke="{HAIR}"/>'
-            f'<g transform="translate(28 {H/2:.0f})">{line_icon(icon, ic, 1.8)}</g>'
-            f'<text x="48" y="{H/2+5:.0f}" font-family="{SANS}" font-size="{fs}" font-weight="600" fill="{INK}">{escape(text)}</text>'
+            f'<g transform="translate(23 {H/2:.0f}) scale(.82)">{line_icon(icon, ic, 2.0)}</g>'
+            f'<text x="40" y="{H/2+4.5:.0f}" font-family="{SANS}" font-size="{fs}" font-weight="600" fill="{INK}">{escape(text)}</text>'
             f'</svg>')
 
 
