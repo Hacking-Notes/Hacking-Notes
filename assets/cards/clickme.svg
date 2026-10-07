@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="200" viewBox="0 0 560 200" role="img" aria-label="ClickMe">
+<title>ClickMe</title>
+<defs>
+  <radialGradient id="g" cx="0.12" cy="0.15" r="0.9">
+    <stop offset="0" stop-color="#db2777" stop-opacity="0.16"/><stop offset="1" stop-color="#db2777" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#db2777" fill-opacity="0.16"/></pattern>
+</defs>
+<style>
+  .sweep{stroke-dasharray:22 98;animation:sw 5s linear infinite}
+  @keyframes sw{to{stroke-dashoffset:-120}}
+  .blink{animation:bl 1.4s step-end infinite} @keyframes bl{50%{opacity:.25}}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect x="1.5" y="1.5" width="557" height="197" rx="16" fill="#ffffff"/>
+<rect x="1.5" y="1.5" width="557" height="197" rx="16" fill="url(#g)"/>
+<rect x="410" y="1.5" width="148" height="197" fill="url(#dots)"/>
+<path d="M17.5 1.5 H542.5 A16 16 0 0 1 558.5 17.5 V182.5 A16 16 0 0 1 542.5 198.5 H17.5 A16 16 0 0 1 1.5 182.5 V17.5 A16 16 0 0 1 17.5 1.5 Z" fill="none" stroke="#db2777" stroke-opacity="0.22" stroke-width="1.5"/>
+<path class="sweep" d="M17.5 1.5 H542.5 A16 16 0 0 1 558.5 17.5 V182.5 A16 16 0 0 1 542.5 198.5 H17.5 A16 16 0 0 1 1.5 182.5 V17.5 A16 16 0 0 1 17.5 1.5 Z" pathLength="120" fill="none" stroke="#db2777" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="34" cy="34" r="5" fill="#ff5f57"/><circle cx="52" cy="34" r="5" fill="#febc2e"/><circle cx="70" cy="34" r="5" fill="#28c840"/>
+<text x="532" y="40" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="22" font-weight="700" fill="#db2777" fill-opacity="0.5">//</text>
+<text x="34" y="92" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="28" font-weight="800" fill="#1f2328">ClickMe</text>
+<text x="34" y="122" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15.5" fill="#59636e">Multi-step clickjacking POC framework.</text>
+<rect x="34" y="150" width="88" height="27" rx="13" fill="#db2777" fill-opacity="0.12" stroke="#db2777" stroke-opacity="0.5"/>
+<text x="78" y="169" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#db2777">POC TOOL</text>
+<text x="138" y="169" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#59636e">cd ~/clickme <tspan class="blink" fill="#db2777">_</tspan></text>
+</svg>
