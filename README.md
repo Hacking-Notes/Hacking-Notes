@@ -31,38 +31,13 @@ True power lies in the ability to see what others cannot.
 ## Featured Work
 
 <div align="center">
-<table>
-<tr>
-<td width="50%" align="center">
-<a href="https://hacking-notes.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/notes-dark.svg"><img src="assets/cards/notes.svg" width="100%" alt="Hacking Notes" /></picture></a><br/>
-<a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/live-hacking--notes.com-3e63dd?style=flat-square&logo=firefox&logoColor=white" alt="live site" /></a>
-</td>
-<td width="50%" align="center">
-<a href="https://github.com/Hacking-Notes/Hacker-Roadmap"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/roadmap-dark.svg"><img src="assets/cards/roadmap.svg" width="100%" alt="Hacker Roadmap" /></picture></a><br/>
-<a href="https://github.com/Hacking-Notes/Hacker-Roadmap/stargazers"><img src="https://img.shields.io/github/stars/Hacking-Notes/Hacker-Roadmap?style=flat-square&logo=github&label=stars&color=3e63dd" alt="Hacker Roadmap stars" /></a>
-</td>
-</tr>
-<tr>
-<td width="50%" align="center">
-<a href="https://github.com/Hacking-Notes/ClickMe"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/clickme-dark.svg"><img src="assets/cards/clickme.svg" width="100%" alt="ClickMe" /></picture></a><br/>
-<a href="https://github.com/Hacking-Notes/ClickMe/stargazers"><img src="https://img.shields.io/github/stars/Hacking-Notes/ClickMe?style=flat-square&logo=github&label=stars&color=3e63dd" alt="ClickMe stars" /></a>
-</td>
-<td width="50%" align="center">
-<a href="https://github.com/Hacking-Notes/HR-Smuggler"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/smuggler-dark.svg"><img src="assets/cards/smuggler.svg" width="100%" alt="HR-Smuggler" /></picture></a><br/>
-<a href="https://github.com/Hacking-Notes/HR-Smuggler/stargazers"><img src="https://img.shields.io/github/stars/Hacking-Notes/HR-Smuggler?style=flat-square&logo=github&label=stars&color=3e63dd" alt="HR-Smuggler stars" /></a>
-</td>
-</tr>
-<tr>
-<td width="50%" align="center">
-<a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/obsidian-dark.svg"><img src="assets/cards/obsidian.svg" width="100%" alt="Burp x Obsidian" /></picture></a><br/>
-<a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration/stargazers"><img src="https://img.shields.io/github/stars/Hacking-Notes/Burp-Suite-Obsidian-Integration?style=flat-square&logo=github&label=stars&color=3e63dd" alt="Burp x Obsidian stars" /></a>
-</td>
-<td width="50%" align="center">
-<a href="https://github.com/Hacking-Notes/Subdomain-Takeover"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/subtakeover-dark.svg"><img src="assets/cards/subtakeover.svg" width="100%" alt="Subdomain Takeover" /></picture></a><br/>
-<a href="https://github.com/Hacking-Notes/Subdomain-Takeover/stargazers"><img src="https://img.shields.io/github/stars/Hacking-Notes/Subdomain-Takeover?style=flat-square&logo=github&label=stars&color=3e63dd" alt="Subdomain Takeover stars" /></a>
-</td>
-</tr>
-</table>
+
+<a href="https://hacking-notes.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/notes-dark.svg"><img src="assets/cards/notes.svg" width="49%" alt="Hacking Notes" /></picture></a>
+&nbsp;<a href="https://github.com/Hacking-Notes/Hacker-Roadmap"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/roadmap-dark.svg"><img src="assets/cards/roadmap.svg" width="49%" alt="Hacker Roadmap" /></picture></a>
+
+<a href="https://github.com/Hacking-Notes/ClickMe"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/clickme-dark.svg"><img src="assets/cards/clickme.svg" width="49%" alt="ClickMe" /></picture></a>
+&nbsp;<a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/obsidian-dark.svg"><img src="assets/cards/obsidian.svg" width="49%" alt="Burp x Obsidian" /></picture></a>
+
 </div>
 
 <br />
@@ -76,6 +51,8 @@ True power lies in the ability to see what others cannot.
 </div>
 
 <sub>
+  <a href="https://github.com/Hacking-Notes/HR-Smuggler">HR-Smuggler</a> ·
+  <a href="https://github.com/Hacking-Notes/Subdomain-Takeover">Subdomain-Takeover</a> ·
   <a href="https://github.com/Hacking-Notes/jwt">JWT</a> ·
   <a href="https://github.com/Hacking-Notes/lazy-js">lazy-js</a> ·
   <a href="https://github.com/Hacking-Notes/Wayback-Crawler">Wayback-Crawler</a> ·

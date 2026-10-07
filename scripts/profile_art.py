@@ -92,7 +92,21 @@ def hero():
     return svg(W,H,inner,"Hacking Notes — security research")
 
 
-def card(idx, title, cat, desc, meta, icon):
+def star_chip(W, stars, live):
+    if live:
+        txt = "live"; w = len(txt) * 7.2 + 36; x = W - 26 - w
+        return (f'<rect x="{x:.0f}" y="170" width="{w:.0f}" height="22" rx="11" fill="none" stroke="{HAIR}"/>'
+                f'<circle cx="{x+16:.0f}" cy="181" r="3.5" fill="{ACCENT}"/>'
+                f'<text x="{x+27:.0f}" y="185" font-family="{MONO}" font-size="12" fill="{INK}">{txt}</text>')
+    s = f"{stars/1000:.1f}k" if stars >= 1000 else str(stars)
+    w = len(s) * 7.4 + 42; x = W - 26 - w
+    star = (f'<path transform="translate({x+17:.0f} 181) scale(.52)" '
+            f'd="M0 -11 L3.2 -3.4 L11 -2.6 L5.2 2.6 L6.8 10.4 L0 6.2 L-6.8 10.4 L-5.2 2.6 L-11 -2.6 L-3.2 -3.4 Z" fill="{ACCENT}"/>')
+    return (f'<rect x="{x:.0f}" y="170" width="{w:.0f}" height="22" rx="11" fill="none" stroke="{HAIR}"/>'
+            f'{star}<text x="{x+29:.0f}" y="185" font-family="{MONO}" font-size="12" fill="{INK}">{s}</text>')
+
+
+def card(idx, title, cat, desc, meta, icon, stars=None, live=False):
     W, H = 560, 196
     d1,d2 = (desc+["",""])[:2]
     style=('<style>.u{transform-box:fill-box;transform-origin:left;animation:u 5s ease-in-out infinite}'
@@ -109,7 +123,8 @@ def card(idx, title, cat, desc, meta, icon):
         f'<text x="30" y="134" font-family="{SANS}" font-size="14.5" fill="{MUTE}">{escape(d1)}</text>'
         f'<text x="30" y="155" font-family="{SANS}" font-size="14.5" fill="{MUTE}">{escape(d2)}</text>'
         f'<line x1="30" y1="169" x2="{W-26}" y2="169" stroke="{HAIR}"/>'
-        f'<text x="30" y="186" font-family="{MONO}" font-size="11.5" fill="{FAINT}">{escape(meta)}</text>')
+        f'<text x="30" y="185" font-family="{MONO}" font-size="11.5" fill="{FAINT}">{escape(meta)}</text>'
+        + star_chip(W, stars, live))
     return svg(W,H,inner,title)
 
 
@@ -175,14 +190,14 @@ def footer():
     return svg(W,H,inner,"footer")
 
 
-CARDS=[("notes","01","Hacking Notes","RED · BLUE TEAM",["Red & blue team methodology, online —","concise notes curated for practitioners."],"hacking-notes.com","book"),
-       ("roadmap","02","Hacker Roadmap","GUIDE",["Structured paths from zero to pro:","hobbyist, bug bounty, certs & degree."],"github.com/Hacking-Notes/Hacker-Roadmap","map"),
-       ("clickme","03","ClickMe","CLICKJACKING",["Multi-step clickjacking framework —","build, preview and export POCs."],"python · hacking-poc.com","cursor"),
-       ("smuggler","04","HR-Smuggler","REQUEST SMUGGLING",["Detects HTTP request smuggling across","HTTP/1.1 (TE.CL / CL.TE) and HTTP/2."],"python · github.com/Hacking-Notes/HR-Smuggler","split"),
-       ("obsidian","05","Burp × Obsidian","NOTE-TAKING",["Turns Burp output into a linked Obsidian","vault for structured bug-bounty notes."],"burp extension · methodology","graph"),
-       ("subtakeover","06","Subdomain Takeover","RECON",["Enumerates subdomains and flags those","pointing at dangling, claimable services."],"python · github.com/Hacking-Notes/Subdomain-Takeover","tree")]
+# (key, idx, title, cat, desc, meta, icon, stars, live)
+CARDS=[("notes","01","Hacking Notes","RED · BLUE TEAM",["Red & blue team methodology, online —","concise notes curated for practitioners."],"hacking-notes.com","book", None, True),
+       ("roadmap","02","Hacker Roadmap","GUIDE",["Structured paths from zero to pro:","hobbyist, bug bounty, certs & degree."],"github.com/Hacking-Notes/Hacker-Roadmap","map", 1336, False),
+       ("clickme","03","ClickMe","CLICKJACKING",["Multi-step clickjacking framework —","build, preview and export POCs."],"python · hacking-poc.com","cursor", 41, False),
+       ("obsidian","04","Burp × Obsidian","NOTE-TAKING",["Turns Burp output into a linked Obsidian","vault for structured bug-bounty notes."],"burp extension · methodology","graph", 51, False)]
 
-ARSENAL=[("JWT","chrome · auth testing"),("lazy-js","chrome · webpack recon"),("Wayback-Crawler","python · archive recon"),
+ARSENAL=[("HR-Smuggler","python · request smuggling"),("Subdomain-Takeover","python · takeover recon"),
+         ("JWT","chrome · auth testing"),("lazy-js","chrome · webpack recon"),("Wayback-Crawler","python · archive recon"),
          ("Endpoint-JS Explorer","bookmarklet · js endpoints"),("DCJ-Action","python · exploit server"),("Extensions","curated chrome toolkit"),
          ("Bookmarks","curated resources"),("VulnScan","python · ai scanner"),("BSCP","burp · exam guide"),("CVE","research · disclosures")]
 
@@ -196,8 +211,8 @@ def build(sfx):
     wr(f"skills{sfx}.svg", capabilities())
     wr(f"bugbounty{sfx}.svg", bugbounty())
     wr(f"footer{sfx}.svg", footer())
-    for key,idx,title,cat,desc,meta,icon in CARDS:
-        wr(f"cards/{key}{sfx}.svg", card(idx,title,cat,desc,meta,icon))
+    for key,idx,title,cat,desc,meta,icon,stars,live in CARDS:
+        wr(f"cards/{key}{sfx}.svg", card(idx,title,cat,desc,meta,icon,stars,live))
     wr(f"arsenal{sfx}.svg", index("THE ARSENAL", ARSENAL))
     wr(f"cve{sfx}.svg", index("CVE RESEARCH", CVES, right_note="15 DISCLOSED · 3 PENDING"))
 
