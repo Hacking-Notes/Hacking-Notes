@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="160" viewBox="0 0 1200 160" role="img" aria-label="Profile stats">
+<title>Profile stats</title>
+<style>
+  .tile{opacity:0;animation:up .7s ease-out forwards}
+  @keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .num{transform-box:fill-box;transform-origin:left center;animation:pop .7s cubic-bezier(.2,1.3,.4,1) both}
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+  .bar{transform-box:fill-box;transform-origin:left;animation:fill 1s ease-out .3s both}
+  @keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect x="1" y="1" width="1198" height="158" rx="16" fill="#15161a" stroke="#2a2b30"/>
+
+  <g class="tile" style="animation-delay:0.00s">
+    <g transform="translate(30 76.0) scale(1.05)" stroke-width="2.4"><circle cx="0" cy="-6" r="7" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M-12 14 C-12 2 12 2 12 14" fill="none" stroke="#3dd68c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="64" y="66" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="44" font-weight="800" fill="#3dd68c" class="num" style="animation-delay:0.00s">490+</text>
+    <text x="64" y="100" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" letter-spacing="1.5" fill="#8b8e96">FOLLOWERS</text>
+    <rect x="62" y="114" width="150" height="3" rx="1.5" fill="#2a2b30"/>
+    <rect x="62" y="114" width="150" height="3" rx="1.5" fill="#3dd68c" class="bar" style="animation-delay:0.00s"/>
+  </g><line x1="300" y1="40" x2="300" y2="120" stroke="#2a2b30"/>
+  <g class="tile" style="animation-delay:0.18s">
+    <g transform="translate(330 76.0) scale(1.05)" stroke-width="2.4"><path d="M-11 -14 H9 A3 3 0 0 1 12 -11 V14 H-8 A3 3 0 0 1 -11 11 Z" fill="none" stroke="#5b7cfa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M-11 9 H9" fill="none" stroke="#5b7cfa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M-6 -14 V6" fill="none" stroke="#5b7cfa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="364" y="66" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="44" font-weight="800" fill="#5b7cfa" class="num" style="animation-delay:0.18s">19</text>
+    <text x="364" y="100" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" letter-spacing="1.5" fill="#8b8e96">PUBLIC REPOS</text>
+    <rect x="362" y="114" width="150" height="3" rx="1.5" fill="#2a2b30"/>
+    <rect x="362" y="114" width="150" height="3" rx="1.5" fill="#5b7cfa" class="bar" style="animation-delay:0.18s"/>
+  </g><line x1="600" y1="40" x2="600" y2="120" stroke="#2a2b30"/>
+  <g class="tile" style="animation-delay:0.36s">
+    <g transform="translate(630 76.0) scale(1.05)" stroke-width="2.4"><path d="M0 -15 L13 -10 V2 C13 11 0 16 0 16 C0 16 -13 11 -13 2 V-10 Z" fill="none" stroke="#ff6369" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M-5 0 L-1 5 L6 -5" fill="none" stroke="#ff6369" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="664" y="66" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="44" font-weight="800" fill="#ff6369" class="num" style="animation-delay:0.36s">15</text>
+    <text x="664" y="100" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" letter-spacing="1.5" fill="#8b8e96">CVEs DISCLOSED</text>
+    <rect x="662" y="114" width="150" height="3" rx="1.5" fill="#2a2b30"/>
+    <rect x="662" y="114" width="150" height="3" rx="1.5" fill="#ff6369" class="bar" style="animation-delay:0.36s"/>
+  </g><line x1="900" y1="40" x2="900" y2="120" stroke="#2a2b30"/>
+  <g class="tile" style="animation-delay:0.54s">
+    <g transform="translate(930 76.0) scale(1.05)" stroke-width="2.4"><path d="M6 -10 A7 7 0 1 0 12 -2 L2 8 L-9 13 L-12 10 L-7 -1 Z" fill="none" stroke="#9a7cf0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="964" y="66" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="44" font-weight="800" fill="#9a7cf0" class="num" style="animation-delay:0.54s">12+</text>
+    <text x="964" y="100" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" letter-spacing="1.5" fill="#8b8e96">TOOLS SHIPPED</text>
+    <rect x="962" y="114" width="150" height="3" rx="1.5" fill="#2a2b30"/>
+    <rect x="962" y="114" width="150" height="3" rx="1.5" fill="#9a7cf0" class="bar" style="animation-delay:0.54s"/>
+  </g>
+</svg>

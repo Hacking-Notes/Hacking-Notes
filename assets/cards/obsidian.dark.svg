@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="280" viewBox="0 0 580 280" role="img" aria-label="Burp × Obsidian">
+<title>Burp × Obsidian</title>
+<defs>
+  <radialGradient id="cg" cx=".12" cy=".2" r=".9"><stop offset="0" stop-color="#9a7cf0" stop-opacity=".16"/><stop offset="1" stop-color="#9a7cf0" stop-opacity="0"/></radialGradient>
+  <pattern id="cd" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#9a7cf0" fill-opacity=".15"/></pattern>
+  <clipPath id="cf"><rect width="580" height="280" rx="18"/></clipPath>
+</defs>
+<style>
+  .sweep{stroke-dasharray:26 110;animation:sw 5s linear infinite} @keyframes sw{to{stroke-dashoffset:-136}}
+  .blink{animation:bk 1.2s step-end infinite} @keyframes bk{50%{opacity:.2}}
+  .flo{animation:flo 4s ease-in-out infinite} @keyframes flo{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .no{animation:no 3s ease-in-out infinite}@keyframes no{0%,100%{opacity:.6}50%{opacity:1}}.ed{stroke-dasharray:4 6;animation:ed 1.4s linear infinite}@keyframes ed{to{stroke-dashoffset:-20}}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<g clip-path="url(#cf)">
+  <rect width="580" height="280" fill="#15161a"/>
+  <rect width="580" height="280" fill="url(#cg)"/>
+  <rect x="236" width="344" height="280" fill="url(#cd)"/>
+  <rect width="580" height="40" fill="#1a1b1f"/><circle cx="26" cy="20" r="5.5" fill="#ff5f57"/><circle cx="46" cy="20" r="5.5" fill="#febc2e"/><circle cx="66" cy="20" r="5.5" fill="#28c840"/><text x="290.0" y="25" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#8b8e96">~/burp-obsidian</text><circle cx="554" cy="20" r="4" fill="#9a7cf0"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
+  <g transform="translate(130 162)"><line class="ed" x1="0" y1="0" x2="-66" y2="-34" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><line class="ed" x1="0" y1="0" x2="60" y2="-40" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><line class="ed" x1="0" y1="0" x2="-54" y2="40" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><line class="ed" x1="0" y1="0" x2="58" y2="36" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><line class="ed" x1="0" y1="0" x2="10" y2="-66" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><line class="ed" x1="0" y1="0" x2="0" y2="62" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><line class="ed" x1="-66" y1="-34" x2="-54" y2="40" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><line class="ed" x1="60" y1="-40" x2="58" y2="36" stroke="#9a7cf0" stroke-opacity=".5" stroke-width="1.6"/><circle class="no" style="animation-delay:0.0s" cx="0" cy="0" r="13" fill="#9a7cf0" fill-opacity="0.35" stroke="#9a7cf0" stroke-width="2"/><circle class="no" style="animation-delay:0.25s" cx="-66" cy="-34" r="8" fill="#9a7cf0" fill-opacity="0.22" stroke="#9a7cf0" stroke-width="2"/><circle class="no" style="animation-delay:0.5s" cx="60" cy="-40" r="8" fill="#9a7cf0" fill-opacity="0.22" stroke="#9a7cf0" stroke-width="2"/><circle class="no" style="animation-delay:0.75s" cx="-54" cy="40" r="8" fill="#9a7cf0" fill-opacity="0.22" stroke="#9a7cf0" stroke-width="2"/><circle class="no" style="animation-delay:1.0s" cx="58" cy="36" r="8" fill="#9a7cf0" fill-opacity="0.22" stroke="#9a7cf0" stroke-width="2"/><circle class="no" style="animation-delay:1.25s" cx="10" cy="-66" r="7" fill="#9a7cf0" fill-opacity="0.22" stroke="#9a7cf0" stroke-width="2"/><circle class="no" style="animation-delay:1.5s" cx="0" cy="62" r="7" fill="#9a7cf0" fill-opacity="0.22" stroke="#9a7cf0" stroke-width="2"/></g>
+  <text x="258" y="104" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="800" fill="#eceef0">Burp × Obsidian</text>
+  <text x="260" y="140" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#8b8e96">Turn Burp output into a linked Obsidian</text>
+  <text x="260" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#8b8e96">vault. Structured bug-bounty note-taking.</text>
+  <rect x="260" y="212" width="52" height="26" rx="6" fill="#9a7cf0" fill-opacity=".10" stroke="#9a7cf0" stroke-opacity=".4"/><text x="286" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#9a7cf0">BURP</text><rect x="322" y="212" width="59" height="26" rx="6" fill="#9a7cf0" fill-opacity=".10" stroke="#9a7cf0" stroke-opacity=".4"/><text x="351" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#9a7cf0">NOTES</text>
+  <rect x="260" y="238" width="115" height="26" rx="13" fill="#9a7cf0" fill-opacity=".12" stroke="#9a7cf0" stroke-opacity=".5"/>
+  <text x="318" y="256" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#9a7cf0">★ methodology</text>
+</g>
+<path d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" fill="none" stroke="#9a7cf0" stroke-opacity=".22" stroke-width="1.5"/>
+<path class="sweep" d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" pathLength="136" fill="none" stroke="#9a7cf0" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

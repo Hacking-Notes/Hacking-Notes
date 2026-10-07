@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="280" viewBox="0 0 580 280" role="img" aria-label="HR-Smuggler">
+<title>HR-Smuggler</title>
+<defs>
+  <radialGradient id="cg" cx=".12" cy=".2" r=".9"><stop offset="0" stop-color="#ff6369" stop-opacity=".16"/><stop offset="1" stop-color="#ff6369" stop-opacity="0"/></radialGradient>
+  <pattern id="cd" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#ff6369" fill-opacity=".15"/></pattern>
+  <clipPath id="cf"><rect width="580" height="280" rx="18"/></clipPath>
+</defs>
+<style>
+  .sweep{stroke-dasharray:26 110;animation:sw 5s linear infinite} @keyframes sw{to{stroke-dashoffset:-136}}
+  .blink{animation:bk 1.2s step-end infinite} @keyframes bk{50%{opacity:.2}}
+  .flo{animation:flo 4s ease-in-out infinite} @keyframes flo{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .pkt{animation:pk 3s ease-in-out infinite}@keyframes pk{0%{transform:translateX(0);opacity:0}30%{opacity:1}70%{transform:translateX(60px);opacity:1}100%{transform:translateX(66px);opacity:0}}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<g clip-path="url(#cf)">
+  <rect width="580" height="280" fill="#15161a"/>
+  <rect width="580" height="280" fill="url(#cg)"/>
+  <rect x="236" width="344" height="280" fill="url(#cd)"/>
+  <rect width="580" height="40" fill="#1a1b1f"/><circle cx="26" cy="20" r="5.5" fill="#ff5f57"/><circle cx="46" cy="20" r="5.5" fill="#febc2e"/><circle cx="66" cy="20" r="5.5" fill="#28c840"/><text x="290.0" y="25" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#8b8e96">~/hr-smuggler</text><circle cx="554" cy="20" r="4" fill="#ff6369"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
+  <g transform="translate(130 162)"><rect x="-88" y="-50" width="96" height="100" rx="8" fill="#15161a" stroke="#2a2b30" stroke-width="2"/><text x="-40" y="-30" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#eceef0">POST /</text><text x="-40" y="-10" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9" fill="#8b8e96">CL: 6</text><text x="-40" y="6" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9" fill="#8b8e96">TE: chunk</text><rect x="-80" y="18" width="80" height="22" rx="4" fill="#ff6369" fill-opacity=".10" stroke="#ff6369" stroke-opacity=".5"/><text x="-40" y="33" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9" fill="#ff6369">smuggled</text><g class="pkt"><rect x="6" y="18" width="80" height="22" rx="4" fill="#ff6369" fill-opacity=".14" stroke="#ff6369"/><text x="46" y="33" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9" font-weight="700" fill="#ff6369">GET /admin</text></g><path d="M8 -20 h70" stroke="#ff6369" stroke-opacity=".4" stroke-dasharray="3 4"/></g>
+  <text x="258" y="104" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="800" fill="#eceef0">HR-Smuggler</text>
+  <text x="260" y="140" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#8b8e96">Detects HTTP request smuggling —</text>
+  <text x="260" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#8b8e96">HTTP/1.1 (TE.CL / CL.TE) and HTTP/2.</text>
+  <rect x="260" y="212" width="81" height="26" rx="6" fill="#ff6369" fill-opacity=".10" stroke="#ff6369" stroke-opacity=".4"/><text x="301" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#ff6369">HTTP/1.1</text><rect x="351" y="212" width="66" height="26" rx="6" fill="#ff6369" fill-opacity=".10" stroke="#ff6369" stroke-opacity=".4"/><text x="384" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#ff6369">HTTP/2</text>
+  <rect x="260" y="238" width="80" height="26" rx="13" fill="#ff6369" fill-opacity=".12" stroke="#ff6369" stroke-opacity=".5"/>
+  <text x="300" y="256" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#ff6369">★ python</text>
+</g>
+<path d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" fill="none" stroke="#ff6369" stroke-opacity=".22" stroke-width="1.5"/>
+<path class="sweep" d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" pathLength="136" fill="none" stroke="#ff6369" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

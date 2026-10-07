@@ -6,10 +6,10 @@
 
 <br />
 
-<a href="https://github.com/Hacking-Notes"><img src="https://img.shields.io/github/followers/Hacking-Notes?style=for-the-badge&logo=github&logoColor=1f2328&label=Followers&labelColor=f6f8fa&color=059669" alt="Followers" /></a>
-<a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/Website-hacking--notes.com-0891b2?style=for-the-badge&labelColor=f6f8fa" alt="Website" /></a>
-<a href="https://hacking-notes.medium.com/"><img src="https://img.shields.io/badge/Blog-Medium-7c3aed?style=for-the-badge&logo=medium&logoColor=1f2328&labelColor=f6f8fa" alt="Blog" /></a>
-<a href="https://discord.gg/r68ameNHrD"><img src="https://img.shields.io/badge/Discord-Join-db2777?style=for-the-badge&logo=discord&logoColor=1f2328&labelColor=f6f8fa" alt="Discord" /></a>
+<a href="https://github.com/Hacking-Notes"><img src="https://img.shields.io/github/followers/Hacking-Notes?style=for-the-badge&logo=github&logoColor=1c2024&label=Followers&labelColor=f7f8f9&color=3e63dd" alt="Followers" /></a>
+<a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/Website-hacking--notes.com-d6409f?style=for-the-badge&labelColor=f7f8f9" alt="Website" /></a>
+<a href="https://hacking-notes.medium.com/"><img src="https://img.shields.io/badge/Blog-Medium-6e56cf?style=for-the-badge&logo=medium&logoColor=1c2024&labelColor=f7f8f9" alt="Blog" /></a>
+<a href="https://discord.gg/r68ameNHrD"><img src="https://img.shields.io/badge/Discord-Join-0e7490?style=for-the-badge&logo=discord&logoColor=1c2024&labelColor=f7f8f9" alt="Discord" /></a>
 
 <br /><br />
 

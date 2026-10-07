@@ -18,6 +18,26 @@ BG="#ffffff"; PANEL="#ffffff"; LINE="#d0d7de"; TEXT="#1f2328"; MUTED="#59636e"; 
 GREEN="#059669"; CYAN="#0891b2"; BLUE="#0284c7"; PURPLE="#7c3aed"; MAGENTA="#db2777"; AMBER="#d97706"; RED="#e5484d"
 RM = "@media (prefers-reduced-motion: reduce){*{animation:none!important}}"
 
+THEMES = {
+  # white canvas; hacking-poc.com identity (blue/pink/purple) rendered in a
+  # refined, designer-grade ramp (Radix step-9/10) — not flat primary swatches
+  "light": dict(BG="#ffffff", PANEL="#ffffff", LINE="#d8dce1", TEXT="#1c2024", MUTED="#60646c", BAR="#f7f8f9",
+                GREEN="#30a46c", CYAN="#0e7490", BLUE="#3e63dd", PURPLE="#6e56cf", MAGENTA="#d6409f", AMBER="#bf7d16", RED="#e5484d"),
+  # hacking-poc.com dark canvas; same refined identity, tuned brighter for dark
+  "dark":  dict(BG="#0a0a0a", PANEL="#15161a", LINE="#2a2b30", TEXT="#eceef0", MUTED="#8b8e96", BAR="#1a1b1f",
+                GREEN="#3dd68c", CYAN="#3aa6c7", BLUE="#5b7cfa", PURPLE="#9a7cf0", MAGENTA="#e85aa8", AMBER="#d9a441", RED="#ff6369"),
+}
+# primary accent + title gradient stops (brand = blue -> pink -> purple)
+PRIMARY = "#059669"; TITLE_STOPS = None
+
+def use(theme):
+    globals().update(THEMES[theme])
+    g = globals()
+    if theme == "dark":   # brand: blue primary, blue->pink->purple title
+        g["PRIMARY"] = g["BLUE"]; g["TITLE_STOPS"] = [g["BLUE"], g["MAGENTA"], g["PURPLE"]]
+    else:                 # light: indigo primary, brand indigo->rose->violet title
+        g["PRIMARY"] = g["BLUE"]; g["TITLE_STOPS"] = [g["BLUE"], g["MAGENTA"], g["PURPLE"]]
+
 
 def w(name, svg):
     p = A / name
@@ -68,6 +88,8 @@ def hero():
     n = len(sub); subw = n*22*0.6; subx=(W-subw)/2
     chips = ["OFFENSE","DEFENSE","TOOLS","CVEs"]
     cols = [RED, BLUE, PURPLE, AMBER]
+    st = TITLE_STOPS or [GREEN, CYAN, BLUE, PURPLE]
+    tistops = "".join(f'<stop offset="{i/(len(st)-1):.3f}" stop-color="{c}"/>' for i,c in enumerate(st))
     gap=210; start=W/2-gap*(len(chips)-1)/2; dots=""
     for i,(ch,col) in enumerate(zip(chips,cols)):
         cx=start+i*gap; lw=len(ch)*7.4
@@ -78,18 +100,18 @@ def hero():
 <svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Hacking Notes">
 <title>Hacking Notes</title>
 <defs>
-  <linearGradient id="ti" x1="0" x2="1"><stop offset="0" stop-color="{GREEN}"/><stop offset=".33" stop-color="{CYAN}"/><stop offset=".66" stop-color="{BLUE}"/><stop offset="1" stop-color="{PURPLE}"/>
+  <linearGradient id="ti" x1="0" x2="1">{tistops}
     <animateTransform attributeName="gradientTransform" type="translate" values="-0.3 0;0.3 0;-0.3 0" dur="8s" repeatCount="indefinite"/></linearGradient>
-  <radialGradient id="gl" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="{GREEN}" stop-opacity=".10"/><stop offset="1" stop-color="{GREEN}" stop-opacity="0"/></radialGradient>
-  <linearGradient id="sc" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="{CYAN}" stop-opacity="0"/><stop offset=".5" stop-color="{CYAN}" stop-opacity=".10"/><stop offset="1" stop-color="{CYAN}" stop-opacity="0"/></linearGradient>
-  <pattern id="gr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="{GREEN}" stroke-opacity=".10" stroke-width="1"/><animateTransform attributeName="patternTransform" type="translate" from="0 0" to="0 40" dur="4s" repeatCount="indefinite"/></pattern>
+  <radialGradient id="gl" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="{PRIMARY}" stop-opacity=".10"/><stop offset="1" stop-color="{PRIMARY}" stop-opacity="0"/></radialGradient>
+  <linearGradient id="sc" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="{MAGENTA}" stop-opacity="0"/><stop offset=".5" stop-color="{MAGENTA}" stop-opacity=".10"/><stop offset="1" stop-color="{MAGENTA}" stop-opacity="0"/></linearGradient>
+  <pattern id="gr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="{PRIMARY}" stroke-opacity=".10" stroke-width="1"/><animateTransform attributeName="patternTransform" type="translate" from="0 0" to="0 40" dur="4s" repeatCount="indefinite"/></pattern>
   <linearGradient id="fd" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".32" stop-color="#fff"/><stop offset=".82" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
   <mask id="fm"><rect width="{W}" height="{H}" fill="url(#fd)"/></mask>
   <clipPath id="fr"><rect width="{W}" height="{H}" rx="20"/></clipPath>
   <clipPath id="ty"><rect class="typer" x="{subx:.1f}" y="250" width="{subw:.1f}" height="40"/></clipPath>
 </defs>
 <style>
-  .rain{{font-family:{MONO};font-size:15px;fill:{GREEN};animation:fall linear infinite}}
+  .rain{{font-family:{MONO};font-size:15px;fill:{PRIMARY};animation:fall linear infinite}}
   @keyframes fall{{from{{transform:translateY(-460px)}}to{{transform:translateY(460px)}}}}
   .scan{{animation:scn 6s linear infinite}} @keyframes scn{{from{{transform:translateY(-160px)}}to{{transform:translateY({H}px)}}}}
   .typer{{transform-box:fill-box;transform-origin:left;animation:ty 9s steps({n},end) infinite}}
@@ -110,18 +132,18 @@ def hero():
   <g mask="url(#fm)">{''.join(rain)}</g>
   <rect width="{W}" height="{H}" fill="url(#gl)"/>
   <rect class="scan" width="{W}" height="160" fill="url(#sc)"/>
-  <g class="badge"><rect x="{W/2-140}" y="66" width="280" height="30" rx="15" fill="{GREEN}" fill-opacity=".08" stroke="{GREEN}" stroke-opacity=".45"/>
-    <text x="{W/2}" y="86" text-anchor="middle" font-family="{MONO}" font-size="13" letter-spacing="3" fill="{GREEN}">[ SECURITY RESEARCHER ]</text></g>
+  <g class="badge"><rect x="{W/2-140}" y="66" width="280" height="30" rx="15" fill="{PRIMARY}" fill-opacity=".08" stroke="{PRIMARY}" stroke-opacity=".45"/>
+    <text x="{W/2}" y="86" text-anchor="middle" font-family="{MONO}" font-size="13" letter-spacing="3" fill="{PRIMARY}">[ SECURITY RESEARCHER ]</text></g>
   <g font-family="{SANS}" font-size="88" font-weight="800" text-anchor="middle" letter-spacing="5">
     <text class="g1" x="{W/2}" y="215" fill="{MAGENTA}">{title}</text>
     <text class="g2" x="{W/2}" y="215" fill="{CYAN}">{title}</text>
     <text x="{W/2}" y="215" fill="url(#ti)">{title}</text>
   </g>
   <g clip-path="url(#ty)"><text x="{subx:.1f}" y="279" font-family="{MONO}" font-size="22" fill="{TEXT}" xml:space="preserve">{escape(sub)}</text></g>
-  <rect class="cur" x="{subx+2:.1f}" y="259" width="12" height="26" fill="{GREEN}"/>
+  <rect class="cur" x="{subx+2:.1f}" y="259" width="12" height="26" fill="{PRIMARY}"/>
   <path d="M{W/2-430} 346 H{W/2+430}" stroke="{LINE}"/>
   {dots}
-  <rect x="1" y="1" width="{W-2}" height="{H-2}" rx="20" fill="none" stroke="{GREEN}" stroke-opacity=".25"/>
+  <rect x="1" y="1" width="{W-2}" height="{H-2}" rx="20" fill="none" stroke="{PRIMARY}" stroke-opacity=".25"/>
 </g>
 </svg>"""
 
@@ -315,7 +337,7 @@ def skills():
 <svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Skills and techniques">
 <title>Skills</title>
 <defs>
-  <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset=".06" stop-color="#fff" stop-opacity="0"/><stop offset=".94" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
+  <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="{BG}"/><stop offset=".06" stop-color="{BG}" stop-opacity="0"/><stop offset=".94" stop-color="{BG}" stop-opacity="0"/><stop offset="1" stop-color="{BG}"/></linearGradient>
 </defs>
 <style>
   .mq{{animation:mq {span/55:.0f}s linear infinite}} @keyframes mq{{from{{transform:translateX(0)}}to{{transform:translateX(-{span:.0f}px)}}}}
@@ -412,25 +434,33 @@ def cve_panel():
 </svg>"""
 
 
-def main():
-    w("hero.svg", hero())
-    w("stats.svg", stats())
-    w("skills.svg", skills())
-    w("bugbounty.svg", bugbounty())
-    w("cve.svg", cve_panel())
+def build_all(sfx=""):
+    w(f"hero{sfx}.svg", hero())
+    w(f"stats{sfx}.svg", stats())
+    w(f"skills{sfx}.svg", skills())
+    w(f"bugbounty{sfx}.svg", bugbounty())
+    w(f"cve{sfx}.svg", cve_panel())
     TOOLS=[("jwt","JWT","auth testing","key",BLUE),("lazy-js","lazy-js","webpack recon","layers",CYAN),
            ("wayback","Wayback-Crawler","archive recon","clock",CYAN),("endpoint","Endpoint-JS","js endpoints","target",AMBER),
            ("dcj","DCJ-Action","exploit server","cursor",MAGENTA),("extensions","Extensions","chrome toolkit","puzzle",PURPLE),
            ("bookmarks","Bookmarks","resources","bookmark",CYAN),("vulnscan","VulnScan","ai scanner","radar",GREEN),
            ("bscp","BSCP","exam guide","cert",AMBER),("cve","CVE","research","shield",RED)]
     for key,name,tag,ic,c in TOOLS:
-        w(f"tools/{key}.svg", tool_tile(name, tag, ic, c))
-    w("cards/notes.svg",   card("~/hacking-notes — live","Hacking Notes",["Red & blue team notes — concise, expert-","curated. The whole methodology, online."],["RED TEAM","BLUE TEAM"],"★ hacking-notes.com",GREEN,m_notes()))
-    w("cards/roadmap.svg", card("~/hacker-roadmap","Hacker Roadmap",["Structured paths from zero to pro — hobbyist,","bug bounty, certs & a cheap degree route."],["5 PATHS","GUIDE"],"★ start here",CYAN,m_roadmap()))
-    w("cards/clickme.svg", card("~/clickme — poc","ClickMe",["Multi-step clickjacking framework. Build,","preview & export complex POCs."],["CLICKJACKING","POC"],"★ live demo",MAGENTA,m_clickme()))
-    w("cards/smuggler.svg",card("~/hr-smuggler","HR-Smuggler",["Detects HTTP request smuggling —","HTTP/1.1 (TE.CL / CL.TE) and HTTP/2."],["HTTP/1.1","HTTP/2"],"★ python",RED,m_smuggler()))
-    w("cards/obsidian.svg",card("~/burp-obsidian","Burp × Obsidian",["Turn Burp output into a linked Obsidian","vault. Structured bug-bounty note-taking."],["BURP","NOTES"],"★ methodology",PURPLE,m_obsidian()))
-    w("cards/subtakeover.svg",card("~/subdomain-takeover","Subdomain Takeover",["Enumerate subdomains and flag the ones","pointing at dangling, claimable services."],["RECON","TAKEOVER"],"★ python",GREEN,m_subtakeover()))
+        w(f"tools/{key}{sfx}.svg", tool_tile(name, tag, ic, c))
+    w(f"cards/notes{sfx}.svg",   card("~/hacking-notes — live","Hacking Notes",["Red & blue team notes — concise, expert-","curated. The whole methodology, online."],["RED TEAM","BLUE TEAM"],"★ hacking-notes.com",GREEN,m_notes()))
+    w(f"cards/roadmap{sfx}.svg", card("~/hacker-roadmap","Hacker Roadmap",["Structured paths from zero to pro — hobbyist,","bug bounty, certs & a cheap degree route."],["5 PATHS","GUIDE"],"★ start here",CYAN,m_roadmap()))
+    w(f"cards/clickme{sfx}.svg", card("~/clickme — poc","ClickMe",["Multi-step clickjacking framework. Build,","preview & export complex POCs."],["CLICKJACKING","POC"],"★ live demo",MAGENTA,m_clickme()))
+    w(f"cards/smuggler{sfx}.svg",card("~/hr-smuggler","HR-Smuggler",["Detects HTTP request smuggling —","HTTP/1.1 (TE.CL / CL.TE) and HTTP/2."],["HTTP/1.1","HTTP/2"],"★ python",RED,m_smuggler()))
+    w(f"cards/obsidian{sfx}.svg",card("~/burp-obsidian","Burp × Obsidian",["Turn Burp output into a linked Obsidian","vault. Structured bug-bounty note-taking."],["BURP","NOTES"],"★ methodology",PURPLE,m_obsidian()))
+    w(f"cards/subtakeover{sfx}.svg",card("~/subdomain-takeover","Subdomain Takeover",["Enumerate subdomains and flag the ones","pointing at dangling, claimable services."],["RECON","TAKEOVER"],"★ python",GREEN,m_subtakeover()))
+
+def main():
+    import sys
+    mode = sys.argv[1] if len(sys.argv) > 1 else "both"
+    if mode in ("light","both"):
+        use("light"); build_all("")
+    if mode in ("dark","both"):
+        use("dark"); build_all(".dark")
 
 if __name__ == "__main__":
     main()

@@ -8,9 +8,9 @@
 <rect x="1.5" y="1.5" width="357" height="147" rx="16" fill="url(#g)"/>
 <rect x="26" y="26" width="56" height="56" rx="14" fill="#e5484d" fill-opacity=".10" stroke="#e5484d" stroke-opacity=".45"/>
 <g class="flo"><g transform="translate(54 54) scale(1.05)"><path d="M0 -15 L13 -10 V2 C13 11 0 16 0 16 C0 16 -13 11 -13 2 V-10 Z" fill="none" stroke="#e5484d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M-5 0 L-1 5 L6 -5" fill="none" stroke="#e5484d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g></g>
-<text x="100" y="52" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" font-weight="800" fill="#1f2328">CVE</text>
-<text x="100" y="76" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#59636e">research</text>
-<text x="26" y="118" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#59636e">$ git clone <tspan class="bk" fill="#e5484d">_</tspan></text>
+<text x="100" y="52" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" font-weight="800" fill="#1c2024">CVE</text>
+<text x="100" y="76" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#60646c">research</text>
+<text x="26" y="118" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#60646c">$ git clone <tspan class="bk" fill="#e5484d">_</tspan></text>
 <path d="M17.5 1.5 H342.5 A16 16 0 0 1 358.5 17.5 V132.5 A16 16 0 0 1 342.5 148.5 H17.5 A16 16 0 0 1 1.5 132.5 V17.5 A16 16 0 0 1 17.5 1.5 Z" fill="none" stroke="#e5484d" stroke-opacity=".2" stroke-width="1.5"/>
 <path class="sweep" d="M17.5 1.5 H342.5 A16 16 0 0 1 358.5 17.5 V132.5 A16 16 0 0 1 342.5 148.5 H17.5 A16 16 0 0 1 1.5 132.5 V17.5 A16 16 0 0 1 17.5 1.5 Z" pathLength="124" fill="none" stroke="#e5484d" stroke-width="2.5" stroke-linecap="round"/>
 </svg>
