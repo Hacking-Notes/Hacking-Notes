@@ -2,18 +2,14 @@
 
 <div align="center">
 
-<img src="assets/hero.svg" alt="Hacking Notes" width="100%" />
+<img src="assets/hero.svg" alt="Hacking Notes — security research" width="100%" />
 
 <br />
 
-<a href="https://github.com/Hacking-Notes"><img src="https://img.shields.io/github/followers/Hacking-Notes?style=for-the-badge&logo=github&logoColor=1c2024&label=Followers&labelColor=f7f8f9&color=3e63dd" alt="Followers" /></a>
-<a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/Website-hacking--notes.com-d6409f?style=for-the-badge&labelColor=f7f8f9" alt="Website" /></a>
-<a href="https://hacking-notes.medium.com/"><img src="https://img.shields.io/badge/Blog-Medium-6e56cf?style=for-the-badge&logo=medium&logoColor=1c2024&labelColor=f7f8f9" alt="Blog" /></a>
-<a href="https://discord.gg/r68ameNHrD"><img src="https://img.shields.io/badge/Discord-Join-0e7490?style=for-the-badge&logo=discord&logoColor=1c2024&labelColor=f7f8f9" alt="Discord" /></a>
-
-<br /><br />
-
-<img src="assets/stats.svg" alt="490+ followers · 19 repos · 12 CVEs · 12+ tools" width="100%" />
+<a href="https://github.com/Hacking-Notes"><img src="https://img.shields.io/github/followers/Hacking-Notes?style=flat-square&logo=github&logoColor=15171a&label=followers&labelColor=ffffff&color=3e63dd" alt="Followers" /></a>
+&nbsp;<a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/website-hacking--notes.com-15171a?style=flat-square&labelColor=ffffff" alt="Website" /></a>
+&nbsp;<a href="https://hacking-notes.medium.com/"><img src="https://img.shields.io/badge/blog-medium-15171a?style=flat-square&labelColor=ffffff" alt="Blog" /></a>
+&nbsp;<a href="https://discord.gg/r68ameNHrD"><img src="https://img.shields.io/badge/discord-join-15171a?style=flat-square&labelColor=ffffff" alt="Discord" /></a>
 
 </div>
 
@@ -21,70 +17,69 @@
 
 ```console
 $ whoami
-Passionate cyber security enthusiast — building tools, breaking apps,
-and documenting the path from script kiddie to security professional.
+Security researcher. I build offensive tooling, document red & blue
+team methodology, and disclose vulnerabilities responsibly.
 
 $ cat ~/.motto
-"True power lies in the ability to see what others cannot."
+True power lies in the ability to see what others cannot.
 ```
 
+<img src="assets/skills.svg" alt="Capabilities" width="100%" />
+
+<br />
+
+## Featured Work
+
 <div align="center">
 
-<img src="assets/skills.svg" alt="Burp Suite · Python · JavaScript · HTTP/2 · XSS · CSRF · SSRF · Recon · …" width="100%" />
+<a href="https://hacking-notes.com"><img src="assets/cards/notes.svg" width="49%" alt="Hacking Notes" /></a>
+&nbsp;<a href="https://github.com/Hacking-Notes/Hacker-Roadmap"><img src="assets/cards/roadmap.svg" width="49%" alt="Hacker Roadmap" /></a>
+
+<a href="https://github.com/Hacking-Notes/ClickMe"><img src="assets/cards/clickme.svg" width="49%" alt="ClickMe" /></a>
+&nbsp;<a href="https://github.com/Hacking-Notes/HR-Smuggler"><img src="assets/cards/smuggler.svg" width="49%" alt="HR-Smuggler" /></a>
+
+<a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration"><img src="assets/cards/obsidian.svg" width="49%" alt="Burp x Obsidian" /></a>
+&nbsp;<a href="https://github.com/Hacking-Notes/Subdomain-Takeover"><img src="assets/cards/subtakeover.svg" width="49%" alt="Subdomain Takeover" /></a>
 
 </div>
 
-<img src="assets/divider.svg" width="100%" alt="" />
+<br />
 
-## 🚀 Featured Projects
+## The Arsenal
 
 <div align="center">
 
-<a href="https://hacking-notes.com"><img src="assets/cards/notes.svg" width="49%" alt="Hacking Notes — red & blue team notes" /></a>
-<a href="https://github.com/Hacking-Notes/Hacker-Roadmap"><img src="assets/cards/roadmap.svg" width="49%" alt="Hacker Roadmap" /></a>
-
-<a href="https://github.com/Hacking-Notes/ClickMe"><img src="assets/cards/clickme.svg" width="49%" alt="ClickMe — multi-step clickjacking" /></a>
-<a href="https://github.com/Hacking-Notes/HR-Smuggler"><img src="assets/cards/smuggler.svg" width="49%" alt="HR-Smuggler — HTTP request smuggling" /></a>
-
-<a href="https://github.com/Hacking-Notes/Burp-Suite-Obsidian-Integration"><img src="assets/cards/obsidian.svg" width="49%" alt="Burp x Obsidian — structured notes" /></a>
-<a href="https://github.com/Hacking-Notes/Subdomain-Takeover"><img src="assets/cards/subtakeover.svg" width="49%" alt="Subdomain Takeover" /></a>
+<a href="https://github.com/Hacking-Notes?tab=repositories"><img src="assets/arsenal.svg" width="100%" alt="The Arsenal — 10 tools" /></a>
 
 </div>
 
-<img src="assets/divider.svg" width="100%" alt="" />
+<sub>
+  <a href="https://github.com/Hacking-Notes/jwt">JWT</a> ·
+  <a href="https://github.com/Hacking-Notes/lazy-js">lazy-js</a> ·
+  <a href="https://github.com/Hacking-Notes/Wayback-Crawler">Wayback-Crawler</a> ·
+  <a href="https://github.com/Hacking-Notes/Endpoint-Javascript-Explorer">Endpoint-JS Explorer</a> ·
+  <a href="https://github.com/Hacking-Notes/dcj-action">DCJ-Action</a> ·
+  <a href="https://github.com/Hacking-Notes/Extensions">Extensions</a> ·
+  <a href="https://github.com/Hacking-Notes/Bookmarks">Bookmarks</a> ·
+  <a href="https://github.com/Hacking-Notes/VulnScan">VulnScan</a> ·
+  <a href="https://github.com/Hacking-Notes/BSCP">BSCP</a> ·
+  <a href="https://github.com/Hacking-Notes/CVE">CVE</a>
+</sub>
 
-## 🧰 The Arsenal
+<br />
+<br />
 
-<div align="center">
+## Contributions
 
-<a href="https://github.com/Hacking-Notes/jwt"><img src="assets/tools/jwt.svg" width="19%" alt="JWT" /></a>
-<a href="https://github.com/Hacking-Notes/lazy-js"><img src="assets/tools/lazy-js.svg" width="19%" alt="lazy-js" /></a>
-<a href="https://github.com/Hacking-Notes/Wayback-Crawler"><img src="assets/tools/wayback.svg" width="19%" alt="Wayback-Crawler" /></a>
-<a href="https://github.com/Hacking-Notes/Endpoint-Javascript-Explorer"><img src="assets/tools/endpoint.svg" width="19%" alt="Endpoint-JS" /></a>
-<a href="https://github.com/Hacking-Notes/dcj-action"><img src="assets/tools/dcj.svg" width="19%" alt="DCJ-Action" /></a>
+<img src="assets/bugbounty.svg" width="100%" alt="Bug bounty — reported across sectors" />
 
-<a href="https://github.com/Hacking-Notes/Extensions"><img src="assets/tools/extensions.svg" width="19%" alt="Extensions" /></a>
-<a href="https://github.com/Hacking-Notes/Bookmarks"><img src="assets/tools/bookmarks.svg" width="19%" alt="Bookmarks" /></a>
-<a href="https://github.com/Hacking-Notes/VulnScan"><img src="assets/tools/vulnscan.svg" width="19%" alt="VulnScan" /></a>
-<a href="https://github.com/Hacking-Notes/BSCP"><img src="assets/tools/bscp.svg" width="19%" alt="BSCP" /></a>
-<a href="https://github.com/Hacking-Notes/CVE"><img src="assets/tools/cve.svg" width="19%" alt="CVE" /></a>
-
-</div>
-
-<img src="assets/divider.svg" width="100%" alt="" />
-
-## 🎯 Contributions
-
-<div align="center">
-
-<a href="https://bug-bounty.blog/"><img src="assets/bugbounty.svg" width="100%" alt="Bug bounty contributions" /></a>
-
-<br /><br />
+<br />
 
 <a href="https://github.com/Hacking-Notes/CVE"><img src="assets/cve.svg" width="100%" alt="CVE research — 15 disclosed" /></a>
 
-</div>
+<br />
+<br />
 
 <img src="assets/footer.svg" width="100%" alt="" />
 
-<div align="right"><a href="#top">⬆ back to top</a></div>
+<div align="right"><sub><a href="#top">↑ back to top</a></sub></div>

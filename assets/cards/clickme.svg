@@ -1,30 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="580" height="280" viewBox="0 0 580 280" role="img" aria-label="ClickMe">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="196" viewBox="0 0 560 196" role="img" aria-label="ClickMe">
 <title>ClickMe</title>
-<defs>
-  <radialGradient id="cg" cx=".12" cy=".2" r=".9"><stop offset="0" stop-color="#d6409f" stop-opacity=".16"/><stop offset="1" stop-color="#d6409f" stop-opacity="0"/></radialGradient>
-  <pattern id="cd" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#d6409f" fill-opacity=".15"/></pattern>
-  <clipPath id="cf"><rect width="580" height="280" rx="18"/></clipPath>
-</defs>
 <style>
-  .sweep{stroke-dasharray:26 110;animation:sw 5s linear infinite} @keyframes sw{to{stroke-dashoffset:-136}}
-  .blink{animation:bk 1.2s step-end infinite} @keyframes bk{50%{opacity:.2}}
-  .flo{animation:flo 4s ease-in-out infinite} @keyframes flo{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-  .rip{transform-box:fill-box;transform-origin:center;animation:rip 2.4s ease-out infinite}@keyframes rip{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.8);opacity:0}}.cur{animation:cur 2.4s ease-in-out infinite}@keyframes cur{0%{transform:translate(28px,30px)}45%,100%{transform:translate(6px,8px)}}
+  .u{transform-box:fill-box;transform-origin:left;animation:u 5s ease-in-out infinite}
+  @keyframes u{0%{transform:scaleX(0)}45%,90%{transform:scaleX(1)}100%{transform:scaleX(0)}}
   @media (prefers-reduced-motion: reduce){*{animation:none!important}}
 </style>
-<g clip-path="url(#cf)">
-  <rect width="580" height="280" fill="#ffffff"/>
-  <rect width="580" height="280" fill="url(#cg)"/>
-  <rect x="236" width="344" height="280" fill="url(#cd)"/>
-  <rect width="580" height="40" fill="#f7f8f9"/><circle cx="26" cy="20" r="5.5" fill="#ff5f57"/><circle cx="46" cy="20" r="5.5" fill="#febc2e"/><circle cx="66" cy="20" r="5.5" fill="#28c840"/><text x="290.0" y="25" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#60646c">~/clickme — poc</text><circle cx="554" cy="20" r="4" fill="#d6409f"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
-  <g transform="translate(130 162)"><rect x="-74" y="-54" width="118" height="92" rx="8" fill="#ffffff" stroke="#d8dce1" stroke-width="2"/><rect x="-74" y="-54" width="118" height="18" rx="8" fill="#f7f8f9"/><rect x="-52" y="-30" width="74" height="42" rx="6" fill="#d6409f" fill-opacity=".10" stroke="#d6409f" stroke-opacity=".6" stroke-dasharray="4 4"/><text x="-15" y="-4" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10" fill="#d6409f">CLICK</text><circle class="rip" cx="-6" cy="4" r="12" fill="none" stroke="#d6409f" stroke-width="2"/><g class="cur"><path d="M0 0 L0 20 L5 15 L9 23 L12 21 L8 14 L15 14 Z" fill="#1c2024" stroke="#fff" stroke-width="1"/></g></g>
-  <text x="258" y="104" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="800" fill="#1c2024">ClickMe</text>
-  <text x="260" y="140" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#60646c">Multi-step clickjacking framework. Build,</text>
-  <text x="260" y="162" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#60646c">preview &amp; export complex POCs.</text>
-  <rect x="260" y="212" width="111" height="26" rx="6" fill="#d6409f" fill-opacity=".10" stroke="#d6409f" stroke-opacity=".4"/><text x="315" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#d6409f">CLICKJACKING</text><rect x="381" y="212" width="44" height="26" rx="6" fill="#d6409f" fill-opacity=".10" stroke="#d6409f" stroke-opacity=".4"/><text x="403" y="229" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#d6409f">POC</text>
-  <rect x="260" y="238" width="101" height="26" rx="13" fill="#d6409f" fill-opacity=".12" stroke="#d6409f" stroke-opacity=".5"/>
-  <text x="310" y="256" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" font-weight="700" letter-spacing=".5" fill="#d6409f">★ live demo</text>
-</g>
-<path d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" fill="none" stroke="#d6409f" stroke-opacity=".22" stroke-width="1.5"/>
-<path class="sweep" d="M19.5 1.5 H560.5 A18 18 0 0 1 578.5 19.5 V260.5 A18 18 0 0 1 560.5 278.5 H19.5 A18 18 0 0 1 1.5 260.5 V19.5 A18 18 0 0 1 19.5 1.5 Z" pathLength="136" fill="none" stroke="#d6409f" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="0.5" y="0.5" width="559" height="195" rx="8" fill="#ffffff" stroke="#e6e8eb"/>
+<rect x="0.5" y="0.5" width="3" height="195" fill="#3e63dd"/>
+<text x="30" y="42" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" letter-spacing="2" fill="#9aa1ab">03</text>
+<text x="534" y="42" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="2" fill="#9aa1ab">CLICKJACKING</text>
+<g transform="translate(514 86)"><path d="M-9 -11 L9 -2 L1 1 L6 12 L2 14 L-3 3 L-9 8 Z" fill="none" stroke="#15171a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="30" y="92" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#15171a">ClickMe</text>
+<rect class="u" x="30" y="104" width="46" height="2" fill="#3e63dd"/>
+<text x="30" y="132" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#6b7280">Multi-step clickjacking framework —</text>
+<text x="30" y="153" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14.5" fill="#6b7280">build, preview and export POCs.</text>
+<line x1="30" y1="168" x2="534" y2="168" stroke="#e6e8eb"/>
+<text x="30" y="185" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11.5" fill="#9aa1ab">python · hacking-poc.com</text>
 </svg>

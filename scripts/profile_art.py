@@ -1,466 +1,193 @@
 #!/usr/bin/env python3
-"""Animated SVG art for the Hacking-Notes GitHub profile README.
+"""Hacking-Notes profile art — editorial / minimal direction.
 
-Every file is a standalone SVG using only inline CSS / SMIL animation, which is
-all GitHub's image sandbox allows (no <script>, no external fonts/images).
-Run:  python3 scripts/profile_art.py   (writes into assets/)
+Near-monochrome (ink on white), a single restrained indigo accent used only as
+hairlines and markers, precise line icons, hairline rules, typographic index
+lists, and quiet slow motion. Standalone animated SVGs (inline CSS only — all
+GitHub's image sandbox allows). Run:  python3 scripts/profile_art.py
 """
-import random
 from pathlib import Path
 from xml.sax.saxutils import escape
 
-ROOT = Path(__file__).resolve().parent.parent
-A = ROOT / "assets"
+A = Path(__file__).resolve().parent.parent / "assets"
 
-MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
-SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
-BG="#ffffff"; PANEL="#ffffff"; LINE="#d0d7de"; TEXT="#1f2328"; MUTED="#59636e"; BAR="#f6f8fa"
-GREEN="#059669"; CYAN="#0891b2"; BLUE="#0284c7"; PURPLE="#7c3aed"; MAGENTA="#db2777"; AMBER="#d97706"; RED="#e5484d"
-RM = "@media (prefers-reduced-motion: reduce){*{animation:none!important}}"
-
-THEMES = {
-  # white canvas; hacking-poc.com identity (blue/pink/purple) rendered in a
-  # refined, designer-grade ramp (Radix step-9/10) — not flat primary swatches
-  "light": dict(BG="#ffffff", PANEL="#ffffff", LINE="#d8dce1", TEXT="#1c2024", MUTED="#60646c", BAR="#f7f8f9",
-                GREEN="#30a46c", CYAN="#0e7490", BLUE="#3e63dd", PURPLE="#6e56cf", MAGENTA="#d6409f", AMBER="#bf7d16", RED="#e5484d"),
-  # hacking-poc.com dark canvas; same refined identity, tuned brighter for dark
-  "dark":  dict(BG="#0a0a0a", PANEL="#15161a", LINE="#2a2b30", TEXT="#eceef0", MUTED="#8b8e96", BAR="#1a1b1f",
-                GREEN="#3dd68c", CYAN="#3aa6c7", BLUE="#5b7cfa", PURPLE="#9a7cf0", MAGENTA="#e85aa8", AMBER="#d9a441", RED="#ff6369"),
-}
-# primary accent + title gradient stops (brand = blue -> pink -> purple)
-PRIMARY = "#059669"; TITLE_STOPS = None
-
-def use(theme):
-    globals().update(THEMES[theme])
-    g = globals()
-    if theme == "dark":   # brand: blue primary, blue->pink->purple title
-        g["PRIMARY"] = g["BLUE"]; g["TITLE_STOPS"] = [g["BLUE"], g["MAGENTA"], g["PURPLE"]]
-    else:                 # light: indigo primary, brand indigo->rose->violet title
-        g["PRIMARY"] = g["BLUE"]; g["TITLE_STOPS"] = [g["BLUE"], g["MAGENTA"], g["PURPLE"]]
+MONO="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
+SANS="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
+INK="#15171a"; MUTE="#6b7280"; FAINT="#9aa1ab"; HAIR="#e6e8eb"; BG="#ffffff"; ACCENT="#3e63dd"
+RM="@media (prefers-reduced-motion: reduce){*{animation:none!important}}"
 
 
 def w(name, svg):
     p = A / name
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(svg.strip() + "\n", encoding="utf-8")
-    print("wrote", p.relative_to(ROOT))
+    print("wrote assets/" + name)
 
 
-def window_chrome(W, fname, c):
-    return (f'<rect width="{W}" height="40" fill="{BAR}"/>'
-            f'<circle cx="26" cy="20" r="5.5" fill="#ff5f57"/><circle cx="46" cy="20" r="5.5" fill="#febc2e"/><circle cx="66" cy="20" r="5.5" fill="#28c840"/>'
-            f'<text x="{W/2}" y="25" text-anchor="middle" font-family="{MONO}" font-size="12.5" fill="{MUTED}">{escape(fname)}</text>'
-            f'<circle cx="{W-26}" cy="20" r="4" fill="{c}"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>')
-
-
-def icon(kind, c, sw=2.4):
-    s = f'fill="none" stroke="{c}" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round"'
-    if kind=="user":   return f'<circle cx="0" cy="-6" r="7" {s}/><path d="M-12 14 C-12 2 12 2 12 14" {s}/>'
-    if kind=="repo":   return f'<path d="M-11 -14 H9 A3 3 0 0 1 12 -11 V14 H-8 A3 3 0 0 1 -11 11 Z" {s}/><path d="M-11 9 H9" {s}/><path d="M-6 -14 V6" {s}/>'
-    if kind=="shield": return f'<path d="M0 -15 L13 -10 V2 C13 11 0 16 0 16 C0 16 -13 11 -13 2 V-10 Z" {s}/><path d="M-5 0 L-1 5 L6 -5" {s}/>'
-    if kind=="wrench": return f'<path d="M6 -10 A7 7 0 1 0 12 -2 L2 8 L-9 13 L-12 10 L-7 -1 Z" {s}/>'
-    if kind=="bug":    return f'<ellipse cx="0" cy="3" rx="8" ry="11" {s}/><circle cx="0" cy="-11" r="4.5" {s}/><path d="M-8 -3 H-15 M8 -3 H15 M-8 4 H-15 M8 4 H15 M-7 11 L-13 15 M7 11 L13 15" {s}/>'
-    if kind=="key":    return f'<circle cx="-6" cy="-6" r="7" {s}/><path d="M-1 -1 L12 12 M8 12 L12 12 L12 8 M5 8 L8 8 L8 5" {s}/>'
-    if kind=="layers": return f'<path d="M0 -13 L14 -5 L0 3 L-14 -5 Z" {s}/><path d="M-14 1 L0 9 L14 1" {s}/><path d="M-14 7 L0 15 L14 7" {s}/>'
-    if kind=="clock":  return f'<circle cx="0" cy="0" r="13" {s}/><path d="M0 -7 V0 L6 4" {s}/><path d="M-13 -9 A17 17 0 0 1 -7 -13" {s}/>'
-    if kind=="target": return f'<circle cx="0" cy="0" r="13" {s}/><circle cx="0" cy="0" r="6" {s}/><path d="M0 -16 V-11 M0 11 V16 M-16 0 H-11 M11 0 H16" {s}/>'
-    if kind=="cursor": return f'<path d="M-8 -10 L8 -2 L0 1 L5 11 L1 13 L-3 3 L-9 7 Z" {s}/>'
-    if kind=="puzzle": return f'<path d="M-13 -13 H-3 A3 3 0 0 1 3 -13 H13 V-3 A3 3 0 0 1 13 3 V13 H3 A3 3 0 0 0 -3 13 H-13 V3 A3 3 0 0 0 -13 -3 Z" {s}/>'
-    if kind=="bookmark":return f'<path d="M-9 -14 H9 V15 L0 7 L-9 15 Z" {s}/>'
-    if kind=="radar":  return f'<circle cx="0" cy="0" r="13" {s}/><path d="M0 0 L11 -6" {s}/><path d="M0 0 L0 -13" {s} stroke-opacity=".5"/><circle cx="6" cy="-3" r="1.6" fill="{c}" stroke="none"/>'
-    if kind=="cert":   return f'<rect x="-13" y="-12" width="26" height="18" rx="3" {s}/><circle cx="0" cy="-3" r="4" {s}/><path d="M-3 1 L-5 12 L0 9 L5 12 L3 1" {s}/>'
+def line_icon(kind, c=INK, sw=1.6):
+    s=f'fill="none" stroke="{c}" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round"'
+    if kind=="cursor": return f'<path d="M-9 -11 L9 -2 L1 1 L6 12 L2 14 L-3 3 L-9 8 Z" {s}/>'
+    if kind=="split":  return f'<path d="M-12 -10 H12 M-12 0 H3 M-12 10 H12" {s}/><path d="M7 -3 L13 1 L7 5" {s}/>'
+    if kind=="tree":   return f'<path d="M0 -12 V-4 M0 -4 H-11 V2 M0 -4 H11 V2 M0 -4 V2" {s}/><circle cx="0" cy="-12" r="2.4" {s}/><circle cx="-11" cy="6" r="2.4" {s}/><circle cx="0" cy="6" r="2.4" {s}/><circle cx="11" cy="6" r="2.4" {s}/>'
+    if kind=="graph":  return f'<circle cx="0" cy="0" r="3" {s}/><circle cx="-11" cy="-8" r="2.2" {s}/><circle cx="12" cy="-6" r="2.2" {s}/><circle cx="8" cy="10" r="2.2" {s}/><path d="M0 0 L-11 -8 M0 0 L12 -6 M0 0 L8 10" {s}/>'
+    if kind=="book":   return f'<path d="M-11 -11 H9 A2 2 0 0 1 11 -9 V12 H-9 A2 2 0 0 1 -11 10 Z" {s}/><path d="M-11 8 H9 M-4 -11 V8" {s}/>'
+    if kind=="map":    return f'<path d="M-12 -8 L-4 -11 L4 -8 L12 -11 V9 L4 12 L-4 9 L-12 12 Z" {s}/><path d="M-4 -11 V9 M4 -8 V12" {s}/>'
     return ""
 
 
-# ------------------------------------------------------------------ hero
 def hero():
-    W, H = 1200, 460
-    rnd = random.Random(7)
-    rain = []
-    for i in range(36):
-        x = 16 + i * 33 + rnd.randint(-5, 5)
-        chars = "".join(rnd.choice("01") for _ in range(24))
-        dur = rnd.uniform(7, 15); dl = -rnd.uniform(0, dur)
-        tsp = "".join(f'<tspan x="{x}" dy="19">{ch}</tspan>' for ch in chars)
-        rain.append(f'<text class="rain" style="animation-duration:{dur:.1f}s;animation-delay:{dl:.1f}s" opacity="{rnd.uniform(0.05,0.16):.2f}">{tsp}</text>')
-    title = "HACKING NOTES"
-    sub = "> red team · blue team · bug bounty · research"
-    n = len(sub); subw = n*22*0.6; subx=(W-subw)/2
-    chips = ["OFFENSE","DEFENSE","TOOLS","CVEs"]
-    cols = [RED, BLUE, PURPLE, AMBER]
-    st = TITLE_STOPS or [GREEN, CYAN, BLUE, PURPLE]
-    tistops = "".join(f'<stop offset="{i/(len(st)-1):.3f}" stop-color="{c}"/>' for i,c in enumerate(st))
-    gap=210; start=W/2-gap*(len(chips)-1)/2; dots=""
-    for i,(ch,col) in enumerate(zip(chips,cols)):
-        cx=start+i*gap; lw=len(ch)*7.4
-        dots+=(f'<g class="dot" style="animation-delay:{i*.3:.2f}s">'
-               f'<circle cx="{cx-lw/2-12:.0f}" cy="388" r="5" fill="{col}"/>'
-               f'<text x="{cx-lw/2:.0f}" y="393" font-family="{MONO}" font-size="13" letter-spacing="1" fill="{MUTED}">{ch}</text></g>')
+    W, H = 1200, 300
+    eyebrow = "SECURITY RESEARCH — OFFENSE · DEFENSE · RESEARCH"
+    sub = "building tools · breaking apps · documenting the craft"
+    subw = len(sub) * 15 * 0.6
+    meta = [("19", "REPOSITORIES"), ("15", "CVES DISCLOSED"), ("2022", "ACTIVE SINCE")]
+    mrows = ""
+    for i, (num, lab) in enumerate(meta):
+        y = 96 + i * 46
+        mrows += (f'<text x="1140" y="{y}" text-anchor="end" font-family="{SANS}" font-size="22" font-weight="700" fill="{INK}">{num}</text>'
+                  f'<text x="1140" y="{y+16}" text-anchor="end" font-family="{MONO}" font-size="10.5" letter-spacing="1.5" fill="{FAINT}">{lab}</text>')
     return f"""
-<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Hacking Notes">
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Hacking Notes — security research">
 <title>Hacking Notes</title>
-<defs>
-  <linearGradient id="ti" x1="0" x2="1">{tistops}
-    <animateTransform attributeName="gradientTransform" type="translate" values="-0.3 0;0.3 0;-0.3 0" dur="8s" repeatCount="indefinite"/></linearGradient>
-  <radialGradient id="gl" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="{PRIMARY}" stop-opacity=".10"/><stop offset="1" stop-color="{PRIMARY}" stop-opacity="0"/></radialGradient>
-  <linearGradient id="sc" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="{MAGENTA}" stop-opacity="0"/><stop offset=".5" stop-color="{MAGENTA}" stop-opacity=".10"/><stop offset="1" stop-color="{MAGENTA}" stop-opacity="0"/></linearGradient>
-  <pattern id="gr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="{PRIMARY}" stroke-opacity=".10" stroke-width="1"/><animateTransform attributeName="patternTransform" type="translate" from="0 0" to="0 40" dur="4s" repeatCount="indefinite"/></pattern>
-  <linearGradient id="fd" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".32" stop-color="#fff"/><stop offset=".82" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-  <mask id="fm"><rect width="{W}" height="{H}" fill="url(#fd)"/></mask>
-  <clipPath id="fr"><rect width="{W}" height="{H}" rx="20"/></clipPath>
-  <clipPath id="ty"><rect class="typer" x="{subx:.1f}" y="250" width="{subw:.1f}" height="40"/></clipPath>
-</defs>
 <style>
-  .rain{{font-family:{MONO};font-size:15px;fill:{PRIMARY};animation:fall linear infinite}}
-  @keyframes fall{{from{{transform:translateY(-460px)}}to{{transform:translateY(460px)}}}}
-  .scan{{animation:scn 6s linear infinite}} @keyframes scn{{from{{transform:translateY(-160px)}}to{{transform:translateY({H}px)}}}}
-  .typer{{transform-box:fill-box;transform-origin:left;animation:ty 9s steps({n},end) infinite}}
-  @keyframes ty{{0%{{transform:scaleX(0)}}45%,90%{{transform:scaleX(1)}}100%{{transform:scaleX(0)}}}}
-  .cur{{animation:cu 9s steps({n},end) infinite,bl 1s step-end infinite}}
-  @keyframes cu{{0%{{transform:translateX(0)}}45%,90%{{transform:translateX({subw:.1f}px)}}100%{{transform:translateX(0)}}}}
-  @keyframes bl{{50%{{opacity:0}}}}
-  .g1{{animation:g1 5s infinite}} .g2{{animation:g2 5s infinite}}
-  @keyframes g1{{0%,88%,100%{{transform:translate(0,0);opacity:0}}90%{{transform:translate(-5px,2px);opacity:.75}}93%{{transform:translate(4px,-2px);opacity:.75}}96%{{transform:translate(-2px,0);opacity:.5}}}}
-  @keyframes g2{{0%,88%,100%{{transform:translate(0,0);opacity:0}}90%{{transform:translate(5px,-2px);opacity:.75}}93%{{transform:translate(-4px,2px);opacity:.75}}96%{{transform:translate(2px,0);opacity:.5}}}}
-  .dot{{animation:pu 2.4s ease-in-out infinite}} @keyframes pu{{0%,100%{{opacity:.55}}50%{{opacity:1}}}}
-  .badge{{animation:pu 3s ease-in-out infinite}}
+  .rule{{transform-box:fill-box;transform-origin:left;animation:rule 6s ease-in-out infinite}}
+  @keyframes rule{{0%{{transform:scaleX(.1)}}50%{{transform:scaleX(1)}}100%{{transform:scaleX(.1)}}}}
+  .cur{{animation:bl 1.1s step-end infinite}} @keyframes bl{{50%{{opacity:0}}}}
   {RM}
 </style>
-<g clip-path="url(#fr)">
-  <rect width="{W}" height="{H}" fill="{BG}"/>
-  <rect width="{W}" height="{H}" fill="url(#gr)" mask="url(#fm)"/>
-  <g mask="url(#fm)">{''.join(rain)}</g>
-  <rect width="{W}" height="{H}" fill="url(#gl)"/>
-  <rect class="scan" width="{W}" height="160" fill="url(#sc)"/>
-  <g class="badge"><rect x="{W/2-140}" y="66" width="280" height="30" rx="15" fill="{PRIMARY}" fill-opacity=".08" stroke="{PRIMARY}" stroke-opacity=".45"/>
-    <text x="{W/2}" y="86" text-anchor="middle" font-family="{MONO}" font-size="13" letter-spacing="3" fill="{PRIMARY}">[ SECURITY RESEARCHER ]</text></g>
-  <g font-family="{SANS}" font-size="88" font-weight="800" text-anchor="middle" letter-spacing="5">
-    <text class="g1" x="{W/2}" y="215" fill="{MAGENTA}">{title}</text>
-    <text class="g2" x="{W/2}" y="215" fill="{CYAN}">{title}</text>
-    <text x="{W/2}" y="215" fill="url(#ti)">{title}</text>
-  </g>
-  <g clip-path="url(#ty)"><text x="{subx:.1f}" y="279" font-family="{MONO}" font-size="22" fill="{TEXT}" xml:space="preserve">{escape(sub)}</text></g>
-  <rect class="cur" x="{subx+2:.1f}" y="259" width="12" height="26" fill="{PRIMARY}"/>
-  <path d="M{W/2-430} 346 H{W/2+430}" stroke="{LINE}"/>
-  {dots}
-  <rect x="1" y="1" width="{W-2}" height="{H-2}" rx="20" fill="none" stroke="{PRIMARY}" stroke-opacity=".25"/>
-</g>
+<rect width="{W}" height="{H}" fill="{BG}"/>
+<text x="62" y="86" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">{eyebrow}</text>
+<rect class="rule" x="62" y="98" width="150" height="2" fill="{ACCENT}"/>
+<text x="58" y="186" font-family="{SANS}" font-size="74" letter-spacing="-1" fill="{INK}"><tspan font-weight="800">Hacking</tspan> <tspan font-weight="300" fill="{MUTE}">Notes</tspan></text>
+<text x="62" y="228" font-family="{MONO}" font-size="15" fill="{MUTE}">{escape(sub)}</text>
+<rect class="cur" x="{62+subw+6:.0f}" y="216" width="8" height="16" fill="{ACCENT}"/>
+<line x1="980" y1="70" x2="980" y2="210" stroke="{HAIR}"/>
+{mrows}
+<line x1="62" y1="268" x2="1140" y2="268" stroke="{HAIR}"/>
 </svg>"""
 
 
-# ------------------------------------------------------------------ stats strip
-def stats():
-    W, H = 1200, 160
-    tiles = [("490+","FOLLOWERS","user",GREEN),("19","PUBLIC REPOS","repo",BLUE),
-             ("15","CVEs DISCLOSED","shield",RED),("12+","TOOLS SHIPPED","wrench",PURPLE)]
-    tw = W/4; parts=""
-    for i,(num,lab,ic,c) in enumerate(tiles):
-        cx = tw*i + tw/2
-        parts += f"""
-  <g class="tile" style="animation-delay:{i*.18:.2f}s">
-    <g transform="translate({cx-120:.0f} {H/2-4}) scale(1.05)" stroke-width="2.4">{icon(ic,c)}</g>
-    <text x="{cx-86:.0f}" y="{H/2-14:.0f}" font-family="{SANS}" font-size="44" font-weight="800" fill="{c}" class="num" style="animation-delay:{i*.18:.2f}s">{num}</text>
-    <text x="{cx-86:.0f}" y="{H/2+20:.0f}" font-family="{MONO}" font-size="13" letter-spacing="1.5" fill="{MUTED}">{lab}</text>
-    <rect x="{cx-88:.0f}" y="{H/2+34:.0f}" width="150" height="3" rx="1.5" fill="{LINE}"/>
-    <rect x="{cx-88:.0f}" y="{H/2+34:.0f}" width="150" height="3" rx="1.5" fill="{c}" class="bar" style="animation-delay:{i*.18:.2f}s"/>
-  </g>"""
-        if i < 3:
-            parts += f'<line x1="{tw*(i+1):.0f}" y1="40" x2="{tw*(i+1):.0f}" y2="{H-40}" stroke="{LINE}"/>'
-    return f"""
-<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Profile stats">
-<title>Profile stats</title>
-<style>
-  .tile{{opacity:0;animation:up .7s ease-out forwards}}
-  @keyframes up{{from{{opacity:0;transform:translateY(14px)}}to{{opacity:1;transform:translateY(0)}}}}
-  .num{{transform-box:fill-box;transform-origin:left center;animation:pop .7s cubic-bezier(.2,1.3,.4,1) both}}
-  @keyframes pop{{from{{transform:scale(.4);opacity:0}}to{{transform:scale(1);opacity:1}}}}
-  .bar{{transform-box:fill-box;transform-origin:left;animation:fill 1s ease-out .3s both}}
-  @keyframes fill{{from{{transform:scaleX(0)}}to{{transform:scaleX(1)}}}}
-  {RM}
-</style>
-<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="16" fill="{PANEL}" stroke="{LINE}"/>
-{parts}
-</svg>"""
-
-
-# ------------------------------------------------------------------ project card
-def card(fname, title, desc, tags, pill, c, motif):
-    W, H = 580, 280
-    def rp(x,y,w_,h_,r):
-        return (f"M{x+r} {y} H{x+w_-r} A{r} {r} 0 0 1 {x+w_} {y+r} V{y+h_-r} A{r} {r} 0 0 1 {x+w_-r} {y+h_} "
-                f"H{x+r} A{r} {r} 0 0 1 {x} {y+h_-r} V{y+r} A{r} {r} 0 0 1 {x+r} {y} Z")
-    border = rp(1.5,1.5,W-3,H-3,18)
-    d1,d2 = (desc+["",""])[:2]
-    chips=""; x=260
-    for t in tags:
-        cw=len(t)*7.4+22
-        chips+=(f'<rect x="{x:.0f}" y="212" width="{cw:.0f}" height="26" rx="6" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".4"/>'
-                f'<text x="{x+cw/2:.0f}" y="229" text-anchor="middle" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing=".5" fill="{c}">{escape(t)}</text>')
-        x+=cw+10
-    pw=len(pill)*7+24
+def card(idx, title, cat, desc, meta, icon):
+    W, H = 560, 196
+    d1, d2 = (desc + ["", ""])[:2]
     return f"""
 <svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{escape(title)}">
 <title>{escape(title)}</title>
-<defs>
-  <radialGradient id="cg" cx=".12" cy=".2" r=".9"><stop offset="0" stop-color="{c}" stop-opacity=".16"/><stop offset="1" stop-color="{c}" stop-opacity="0"/></radialGradient>
-  <pattern id="cd" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="{c}" fill-opacity=".15"/></pattern>
-  <clipPath id="cf"><rect width="{W}" height="{H}" rx="18"/></clipPath>
-</defs>
 <style>
-  .sweep{{stroke-dasharray:26 110;animation:sw 5s linear infinite}} @keyframes sw{{to{{stroke-dashoffset:-136}}}}
-  .blink{{animation:bk 1.2s step-end infinite}} @keyframes bk{{50%{{opacity:.2}}}}
-  .flo{{animation:flo 4s ease-in-out infinite}} @keyframes flo{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-4px)}}}}
-  {motif['css']}
+  .u{{transform-box:fill-box;transform-origin:left;animation:u 5s ease-in-out infinite}}
+  @keyframes u{{0%{{transform:scaleX(0)}}45%,90%{{transform:scaleX(1)}}100%{{transform:scaleX(0)}}}}
   {RM}
 </style>
-<g clip-path="url(#cf)">
-  <rect width="{W}" height="{H}" fill="{PANEL}"/>
-  <rect width="{W}" height="{H}" fill="url(#cg)"/>
-  <rect x="236" width="{W-236}" height="{H}" fill="url(#cd)"/>
-  {window_chrome(W, fname, c)}
-  <g transform="translate(130 162)">{motif['svg']}</g>
-  <text x="258" y="104" font-family="{SANS}" font-size="30" font-weight="800" fill="{TEXT}">{escape(title)}</text>
-  <text x="260" y="140" font-family="{SANS}" font-size="14.5" fill="{MUTED}">{escape(d1)}</text>
-  <text x="260" y="162" font-family="{SANS}" font-size="14.5" fill="{MUTED}">{escape(d2)}</text>
-  {chips}
-  <rect x="260" y="{H-42}" width="{pw:.0f}" height="26" rx="13" fill="{c}" fill-opacity=".12" stroke="{c}" stroke-opacity=".5"/>
-  <text x="{260+pw/2:.0f}" y="{H-24}" text-anchor="middle" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing=".5" fill="{c}">{escape(pill)}</text>
-</g>
-<path d="{border}" fill="none" stroke="{c}" stroke-opacity=".22" stroke-width="1.5"/>
-<path class="sweep" d="{border}" pathLength="136" fill="none" stroke="{c}" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="8" fill="{BG}" stroke="{HAIR}"/>
+<rect x="0.5" y="0.5" width="3" height="{H-1}" fill="{ACCENT}"/>
+<text x="30" y="42" font-family="{MONO}" font-size="12" letter-spacing="2" fill="{FAINT}">{idx}</text>
+<text x="{W-26}" y="42" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{FAINT}">{escape(cat)}</text>
+<g transform="translate({W-46} 86)">{line_icon(icon)}</g>
+<text x="30" y="92" font-family="{SANS}" font-size="26" font-weight="700" fill="{INK}">{escape(title)}</text>
+<rect class="u" x="30" y="104" width="46" height="2" fill="{ACCENT}"/>
+<text x="30" y="132" font-family="{SANS}" font-size="14.5" fill="{MUTE}">{escape(d1)}</text>
+<text x="30" y="153" font-family="{SANS}" font-size="14.5" fill="{MUTE}">{escape(d2)}</text>
+<line x1="30" y1="168" x2="{W-26}" y2="168" stroke="{HAIR}"/>
+<text x="30" y="185" font-family="{MONO}" font-size="11.5" fill="{FAINT}">{escape(meta)}</text>
 </svg>"""
 
 
-# -------- motifs (centred on 0,0, ~190 box) ----------
-def m_notes():
-    # red | blue split screen with typing lines
-    css=(".l1{animation:t1 4s steps(10) infinite}.l2{animation:t2 4s steps(14) infinite}"
-         "@keyframes t1{0%,100%{width:0}40%{width:48px}}@keyframes t2{0%,100%{width:0}60%{width:62px}}"
-         ".sp{animation:sp 3s ease-in-out infinite}@keyframes sp{0%,100%{opacity:.5}50%{opacity:1}}")
-    g=(f'<rect x="-92" y="-66" width="92" height="132" rx="10" fill="{RED}" fill-opacity=".08" stroke="{RED}" stroke-opacity=".5"/>'
-       f'<rect x="0" y="-66" width="92" height="132" rx="10" fill="{BLUE}" fill-opacity=".08" stroke="{BLUE}" stroke-opacity=".5"/>'
-       f'<line class="sp" x1="0" y1="-66" x2="0" y2="66" stroke="{PURPLE}" stroke-width="2"/>'
-       f'<text x="-46" y="-44" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="700" fill="{RED}">RED</text>'
-       f'<text x="46" y="-44" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="700" fill="{BLUE}">BLUE</text>')
-    for i,y in enumerate((-18,2,22,42)):
-        g+=f'<rect class="l1" x="-80" y="{y}" height="6" rx="3" fill="{RED}" fill-opacity=".55" style="animation-delay:{i*.2}s"/>'
-        g+=f'<rect class="l2" x="12" y="{y}" height="6" rx="3" fill="{BLUE}" fill-opacity=".55" style="animation-delay:{i*.2}s"/>'
-    return {"css":css,"svg":g}
-
-def m_roadmap():
-    pts=[(-78,36),(-36,-6),(8,30),(50,-14),(84,20)]
-    c=CYAN; css=(".nd{animation:nd 4s ease-in-out infinite}@keyframes nd{0%,100%{opacity:.4}50%{opacity:1}}"
-                 ".ln{stroke-dasharray:6 8;animation:ln 1s linear infinite}@keyframes ln{to{stroke-dashoffset:-14}}")
-    path="M"+" L".join(f"{x} {y}" for x,y in pts)
-    g=f'<path d="{path}" fill="none" stroke="{LINE}" stroke-width="3"/><path class="ln" d="{path}" fill="none" stroke="{c}" stroke-width="3"/>'
-    for i,(x,y) in enumerate(pts):
-        last = i==len(pts)-1
-        g+=(f'<g class="nd" style="animation-delay:{i*.35}s"><circle cx="{x}" cy="{y}" r="{11 if last else 9}" fill="{PANEL}" stroke="{c}" stroke-width="2.5"/>'
-            f'<text x="{x}" y="{y+4}" text-anchor="middle" font-family="{MONO}" font-size="10" font-weight="700" fill="{c}">{i+1}</text></g>')
-    g+=f'<text x="84" y="-28" text-anchor="middle" font-family="{MONO}" font-size="11" fill="{c}">★</text>'
-    return {"css":css,"svg":g}
-
-def m_clickme():
-    c=MAGENTA
-    css=(".rip{transform-box:fill-box;transform-origin:center;animation:rip 2.4s ease-out infinite}"
-         "@keyframes rip{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.8);opacity:0}}"
-         ".cur{animation:cur 2.4s ease-in-out infinite}@keyframes cur{0%{transform:translate(28px,30px)}45%,100%{transform:translate(6px,8px)}}")
-    g=(f'<rect x="-74" y="-54" width="118" height="92" rx="8" fill="{PANEL}" stroke="{LINE}" stroke-width="2"/>'
-       f'<rect x="-74" y="-54" width="118" height="18" rx="8" fill="{BAR}"/>'
-       f'<rect x="-52" y="-30" width="74" height="42" rx="6" fill="{MAGENTA}" fill-opacity=".10" stroke="{MAGENTA}" stroke-opacity=".6" stroke-dasharray="4 4"/>'
-       f'<text x="-15" y="-4" text-anchor="middle" font-family="{MONO}" font-size="10" fill="{MAGENTA}">CLICK</text>'
-       f'<circle class="rip" cx="-6" cy="4" r="12" fill="none" stroke="{c}" stroke-width="2"/>'
-       f'<g class="cur"><path d="M0 0 L0 20 L5 15 L9 23 L12 21 L8 14 L15 14 Z" fill="{TEXT}" stroke="#fff" stroke-width="1"/></g>')
-    return {"css":css,"svg":g}
-
-def m_smuggler():
-    c=RED
-    css=(".pkt{animation:pk 3s ease-in-out infinite}@keyframes pk{0%{transform:translateX(0);opacity:0}30%{opacity:1}70%{transform:translateX(60px);opacity:1}100%{transform:translateX(66px);opacity:0}}")
-    g=(f'<rect x="-88" y="-50" width="96" height="100" rx="8" fill="{PANEL}" stroke="{LINE}" stroke-width="2"/>'
-       f'<text x="-40" y="-30" text-anchor="middle" font-family="{MONO}" font-size="11" font-weight="700" fill="{TEXT}">POST /</text>'
-       f'<text x="-40" y="-10" text-anchor="middle" font-family="{MONO}" font-size="9" fill="{MUTED}">CL: 6</text>'
-       f'<text x="-40" y="6" text-anchor="middle" font-family="{MONO}" font-size="9" fill="{MUTED}">TE: chunk</text>'
-       f'<rect x="-80" y="18" width="80" height="22" rx="4" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".5"/>'
-       f'<text x="-40" y="33" text-anchor="middle" font-family="{MONO}" font-size="9" fill="{c}">smuggled</text>'
-       f'<g class="pkt"><rect x="6" y="18" width="80" height="22" rx="4" fill="{c}" fill-opacity=".14" stroke="{c}"/><text x="46" y="33" text-anchor="middle" font-family="{MONO}" font-size="9" font-weight="700" fill="{c}">GET /admin</text></g>'
-       f'<path d="M8 -20 h70" stroke="{c}" stroke-opacity=".4" stroke-dasharray="3 4"/>')
-    return {"css":css,"svg":g}
-
-def m_obsidian():
-    c=PURPLE
-    nodes=[(0,0,13),(-66,-34,8),(60,-40,8),(-54,40,8),(58,36,8),(10,-66,7),(0,62,7)]
-    edges=[(0,1),(0,2),(0,3),(0,4),(0,5),(0,6),(1,3),(2,4)]
-    css=(".no{animation:no 3s ease-in-out infinite}@keyframes no{0%,100%{opacity:.6}50%{opacity:1}}"
-         ".ed{stroke-dasharray:4 6;animation:ed 1.4s linear infinite}@keyframes ed{to{stroke-dashoffset:-20}}")
-    g=""
-    for a,b in edges:
-        g+=f'<line class="ed" x1="{nodes[a][0]}" y1="{nodes[a][1]}" x2="{nodes[b][0]}" y2="{nodes[b][1]}" stroke="{c}" stroke-opacity=".5" stroke-width="1.6"/>'
-    for i,(x,y,r) in enumerate(nodes):
-        g+=f'<circle class="no" style="animation-delay:{i*.25}s" cx="{x}" cy="{y}" r="{r}" fill="{c}" fill-opacity="{.22 if i else .35}" stroke="{c}" stroke-width="2"/>'
-    return {"css":css,"svg":g}
-
-def m_subtakeover():
-    c=GREEN
-    css=(".dng{animation:dng 2.6s ease-in-out infinite}@keyframes dng{0%,100%{opacity:.5}50%{opacity:1}}"
-         ".brk{stroke-dasharray:5 5;animation:brk 1s linear infinite}@keyframes brk{to{stroke-dashoffset:-20}}")
-    g=(f'<rect x="-40" y="-64" width="80" height="26" rx="6" fill="{c}" fill-opacity=".12" stroke="{c}" stroke-opacity=".6"/>'
-       f'<text x="0" y="-47" text-anchor="middle" font-family="{MONO}" font-size="10" font-weight="700" fill="{c}">target.com</text>'
-       f'<path d="M0 -38 V-20 M0 -20 H-60 V-6 M0 -20 H0 V-6 M0 -20 H64 V-6" fill="none" stroke="{LINE}" stroke-width="2"/>')
-    subs=[(-60,"www",c,False),(0,"dev",c,False),(64,"api",RED,True)]
-    for x,name,col,bad in subs:
-        g+=f'<rect x="{x-32}" y="-6" width="64" height="24" rx="6" fill="{col}" fill-opacity=".10" stroke="{col}" stroke-opacity=".6"/>'
-        g+=f'<text x="{x}" y="10" text-anchor="middle" font-family="{MONO}" font-size="10" fill="{col}">{name}</text>'
-        if bad:
-            g+=(f'<path class="brk" d="M{x} 18 V40" stroke="{RED}" stroke-width="2"/>'
-                f'<g class="dng"><circle cx="{x}" cy="54" r="12" fill="{RED}" fill-opacity=".12" stroke="{RED}" stroke-width="2"/>'
-                f'<text x="{x}" y="58" text-anchor="middle" font-family="{SANS}" font-size="14" font-weight="800" fill="{RED}">!</text></g>'
-                f'<text x="{x}" y="76" text-anchor="middle" font-family="{MONO}" font-size="9" fill="{RED}">dangling</text>')
-    return {"css":css,"svg":g}
+def index(title, rows, right_note=None):
+    W = 1160; top = 74; rh = 46; H = top + rh * len(rows) + 18
+    body = f'<text x="30" y="40" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">{escape(title)}</text>'
+    if right_note:
+        body += f'<text x="{W-30}" y="40" text-anchor="end" font-family="{MONO}" font-size="12" letter-spacing="1.5" fill="{FAINT}">{escape(right_note)}</text>'
+    body += f'<line x1="30" y1="56" x2="{W-30}" y2="56" stroke="{INK}" stroke-opacity=".85"/>'
+    for i, (name, tag) in enumerate(rows):
+        y = top + i * rh + 28
+        body += (f'<text x="30" y="{y}" font-family="{MONO}" font-size="12" fill="{FAINT}">{i+1:02d}</text>'
+                 f'<text x="74" y="{y}" font-family="{SANS}" font-size="18" font-weight="600" fill="{INK}">{escape(name)}</text>'
+                 f'<text x="{W-30}" y="{y}" text-anchor="end" font-family="{MONO}" font-size="12.5" fill="{MUTE}">{escape(tag)}</text>')
+        if i < len(rows) - 1:
+            body += f'<line x1="30" y1="{top+i*rh+rh}" x2="{W-30}" y2="{top+i*rh+rh}" stroke="{HAIR}"/>'
+    return f"""
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{escape(title)}">
+<title>{escape(title)}</title><rect width="{W}" height="{H}" fill="{BG}"/>{body}</svg>"""
 
 
-# ------------------------------------------------------------------ skills marquee
 def skills():
-    W, H = 1200, 76
-    items=["BURP SUITE","PYTHON","JAVASCRIPT","LINUX","HTTP/2","XSS","CSRF","SSRF","RECON","REQUEST SMUGGLING","CLICKJACKING","OSINT","OBSIDIAN","OSCP","WEB","CTF"]
-    cols=[GREEN,CYAN,BLUE,PURPLE,MAGENTA,AMBER,RED]
-    def run(dx):
-        x=dx; out=""
-        for i,t in enumerate(items):
-            cw=len(t)*8.4+30; cc=cols[i%len(cols)]
-            out+=(f'<g transform="translate({x:.0f} 22)"><rect width="{cw:.0f}" height="32" rx="8" fill="{cc}" fill-opacity=".08" stroke="{cc}" stroke-opacity=".4"/>'
-                  f'<circle cx="16" cy="16" r="4" fill="{cc}"/>'
-                  f'<text x="{cw/2+8:.0f}" y="21" text-anchor="middle" font-family="{MONO}" font-size="12.5" font-weight="700" letter-spacing=".5" fill="{TEXT}">{t}</text></g>')
-            x+=cw+16
-        return out, x-dx
-    row, span = run(0)
+    W, H = 1160, 104
+    groups = [("OFFENSE", ["Burp Suite","Request Smuggling","Clickjacking","XSS","CSRF","SSRF"]),
+              ("RECON",   ["Subdomain Enum","Wayback","JS Analysis","OSINT"]),
+              ("CRAFT",   ["Python","JavaScript","Linux","HTTP/2","Obsidian"])]
+    body = f'<text x="30" y="34" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">CAPABILITIES</text>'
+    body += f'<line x1="172" y1="29" x2="{W-30}" y2="29" stroke="{HAIR}"/>'
+    y = 64
+    for label, items in groups:
+        body += f'<text x="30" y="{y}" font-family="{MONO}" font-size="11.5" letter-spacing="1.5" fill="{ACCENT}">{label}</text>'
+        x = 132
+        for it in items:
+            body += f'<text x="{x}" y="{y}" font-family="{SANS}" font-size="14.5" fill="{INK}">{escape(it)}</text>'
+            x += len(it) * 8.4 + 26
+            if it != items[-1]:
+                body += f'<text x="{x-16}" y="{y}" font-family="{SANS}" font-size="14.5" fill="{HAIR}">·</text>'
+        y += 22
     return f"""
-<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Skills and techniques">
-<title>Skills</title>
-<defs>
-  <linearGradient id="edge" x1="0" x2="1"><stop offset="0" stop-color="{BG}"/><stop offset=".06" stop-color="{BG}" stop-opacity="0"/><stop offset=".94" stop-color="{BG}" stop-opacity="0"/><stop offset="1" stop-color="{BG}"/></linearGradient>
-</defs>
-<style>
-  .mq{{animation:mq {span/55:.0f}s linear infinite}} @keyframes mq{{from{{transform:translateX(0)}}to{{transform:translateX(-{span:.0f}px)}}}}
-  {RM}
-</style>
-<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14" fill="{PANEL}" stroke="{LINE}"/>
-<svg x="2" y="2" width="{W-4}" height="{H-4}">
-  <g class="mq"><g>{row}</g><g transform="translate({span:.0f} 0)">{row}</g></g>
-</svg>
-<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14" fill="url(#edge)"/>
-</svg>"""
-
-
-def tool_tile(name, tag, ic, c):
-    W, H = 360, 150
-    def rp(x,y,w_,h_,r):
-        return (f"M{x+r} {y} H{x+w_-r} A{r} {r} 0 0 1 {x+w_} {y+r} V{y+h_-r} A{r} {r} 0 0 1 {x+w_-r} {y+h_} "
-                f"H{x+r} A{r} {r} 0 0 1 {x} {y+h_-r} V{y+r} A{r} {r} 0 0 1 {x+r} {y} Z")
-    b=rp(1.5,1.5,W-3,H-3,16)
-    return f"""
-<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{escape(name)}">
-<title>{escape(name)}</title>
-<defs><radialGradient id="g" cx=".15" cy=".2" r=".9"><stop offset="0" stop-color="{c}" stop-opacity=".16"/><stop offset="1" stop-color="{c}" stop-opacity="0"/></radialGradient></defs>
-<style>.sweep{{stroke-dasharray:24 100;animation:sw 5s linear infinite}}@keyframes sw{{to{{stroke-dashoffset:-124}}}}
-.flo{{animation:flo 4s ease-in-out infinite}}@keyframes flo{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-3px)}}}}
-.bk{{animation:bk 1.3s step-end infinite}}@keyframes bk{{50%{{opacity:.2}}}}{RM}</style>
-<rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="16" fill="{PANEL}"/>
-<rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="16" fill="url(#g)"/>
-<rect x="26" y="26" width="56" height="56" rx="14" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".45"/>
-<g class="flo"><g transform="translate(54 54) scale(1.05)">{icon(ic,c)}</g></g>
-<text x="100" y="52" font-family="{SANS}" font-size="24" font-weight="800" fill="{TEXT}">{escape(name)}</text>
-<text x="100" y="76" font-family="{MONO}" font-size="13" fill="{MUTED}">{escape(tag)}</text>
-<text x="26" y="118" font-family="{MONO}" font-size="13" fill="{MUTED}">$ git clone <tspan class="bk" fill="{c}">_</tspan></text>
-<path d="{b}" fill="none" stroke="{c}" stroke-opacity=".2" stroke-width="1.5"/>
-<path class="sweep" d="{b}" pathLength="124" fill="none" stroke="{c}" stroke-width="2.5" stroke-linecap="round"/>
-</svg>"""
-
-
-def panel_head(W, c, ic, title, sub, badge=None):
-    g=(f'<rect x="26" y="26" width="48" height="48" rx="12" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".5"/>'
-       f'<g transform="translate(50 50) scale(.9)">{icon(ic,c)}</g>'
-       f'<text x="90" y="48" font-family="{SANS}" font-size="26" font-weight="800" fill="{TEXT}">{escape(title)}</text>'
-       f'<text x="90" y="72" font-family="{MONO}" font-size="13" fill="{MUTED}">{escape(sub)}</text>')
-    if badge:
-        g+=(f'<rect x="{W-150}" y="30" width="120" height="44" rx="10" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".5"/>'
-            f'<text x="{W-90}" y="58" text-anchor="middle" font-family="{SANS}" font-size="22" font-weight="800" fill="{c}">{escape(badge)}</text>'
-            f'<text x="{W-90}" y="70" text-anchor="middle" font-family="{MONO}" font-size="9" letter-spacing="1" fill="{MUTED}">DISCLOSED</text>')
-    return g
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Capabilities">
+<title>Capabilities</title><rect width="{W}" height="{H}" fill="{BG}"/>{body}</svg>"""
 
 
 def bugbounty():
-    W, H = 1200, 180
-    sectors=[("Search Engine","target"),("Governments","shield"),("Domain Providers","repo"),("Hotel Chains","bookmark"),("& more","bug")]
-    x=36; chips=""
-    for i,(name,ic) in enumerate(sectors):
-        cw=len(name)*9.2+70
-        chips+=(f'<g class="ch" style="animation-delay:{i*.3:.1f}s"><rect x="{x:.0f}" y="104" width="{cw:.0f}" height="48" rx="12" fill="{AMBER}" fill-opacity=".08" stroke="{AMBER}" stroke-opacity=".45"/>'
-                f'<g transform="translate({x+30:.0f} 128) scale(.72)">{icon(ic,AMBER)}</g>'
-                f'<text x="{x+52:.0f}" y="134" font-family="{SANS}" font-size="15" font-weight="700" fill="{TEXT}">{escape(name)}</text></g>')
-        x+=cw+18
+    W, H = 1160, 132
+    sectors = ["Search Engines", "Governments", "Domain Providers", "Hotel Chains", "& more"]
+    body = f'<text x="30" y="34" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">BUG BOUNTY</text>'
+    body += f'<text x="{W-30}" y="34" text-anchor="end" font-family="{MONO}" font-size="12" fill="{FAINT}">reported across sectors</text>'
+    body += f'<line x1="146" y1="29" x2="{W-30}" y2="29" stroke="{HAIR}"/>'
+    x = 30
+    for i, sec in enumerate(sectors):
+        body += f'<text x="{x}" y="92" font-family="{SANS}" font-size="27" font-weight="600" fill="{INK}">{escape(sec)}</text>'
+        x += len(sec) * 15.0 + 34
+        if i < len(sectors) - 1:
+            body += f'<rect x="{x-24}" y="74" width="2" height="22" fill="{ACCENT}" opacity=".5"/>'
+    body += f'<text x="30" y="118" font-family="{MONO}" font-size="12" fill="{FAINT}">more at hacking-notes.com · bug-bounty.blog</text>'
     return f"""
-<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Bug bounty contributions">
-<title>Bug bounty</title>
-<style>.ch{{opacity:0;animation:up .6s ease-out forwards}}@keyframes up{{from{{opacity:0;transform:translateY(12px)}}to{{opacity:1;transform:translateY(0)}}}}{RM}</style>
-<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="16" fill="{PANEL}" stroke="{LINE}"/>
-<rect x="1" y="1" width="6" height="{H-2}" rx="3" fill="{AMBER}"/>
-{panel_head(W, AMBER, "bug", "Bug Bounty", "vulnerabilities reported across these sectors")}
-{chips}
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Bug bounty — reported across sectors">
+<title>Bug bounty</title><rect width="{W}" height="{H}" fill="{BG}"/>{body}</svg>"""
+
+
+def footer():
+    W, H = 1160, 92
+    return f"""
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="footer">
+<style>.cur{{animation:bl 1.1s step-end infinite}}@keyframes bl{{50%{{opacity:0}}}}{RM}</style>
+<line x1="0" y1="22" x2="{W}" y2="22" stroke="{HAIR}"/>
+<text x="0" y="60" font-family="{MONO}" font-size="13" fill="{MUTE}">Hacking-Notes — security research</text>
+<text x="{W}" y="60" text-anchor="end" font-family="{MONO}" font-size="13" fill="{MUTE}">hacking-notes.com <tspan class="cur" fill="{ACCENT}">_</tspan></text>
 </svg>"""
 
-
-def cve_panel():
-    W, H = 1200, 220
-    ids=["CVE-2024-51379","CVE-2024-51380","CVE-2024-51381","CVE-2024-51382","CVE-2024-51484",
-         "CVE-2024-51485","CVE-2024-51486","CVE-2024-51487","CVE-2024-51488","CVE-2024-51489",
-         "CVE-2024-51490","CVE-2024-55008"]
-    x=36; y=108; chips=""; perrow=0
-    for i,cid in enumerate(ids):
-        cw=len(cid)*8.0+22
-        if x+cw>W-36:
-            x=36; y+=42
-        chips+=(f'<g class="ch" style="animation-delay:{i*.12:.2f}s"><rect x="{x:.0f}" y="{y:.0f}" width="{cw:.0f}" height="30" rx="8" fill="{RED}" fill-opacity=".08" stroke="{RED}" stroke-opacity=".4"/>'
-                f'<circle cx="{x+13:.0f}" cy="{y+15:.0f}" r="3.5" fill="{RED}"/>'
-                f'<text x="{x+24:.0f}" y="{y+20:.0f}" font-family="{MONO}" font-size="12.5" font-weight="700" fill="{TEXT}">{cid}</text></g>')
-        x+=cw+12
-    return f"""
-<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="CVE research: 15 disclosed">
-<title>CVE research</title>
-<style>.ch{{opacity:0;animation:up .5s ease-out forwards}}@keyframes up{{from{{opacity:0;transform:scale(.9)}}to{{opacity:1;transform:scale(1)}}}}{RM}</style>
-<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="16" fill="{PANEL}" stroke="{LINE}"/>
-<rect x="1" y="1" width="6" height="{H-2}" rx="3" fill="{RED}"/>
-{panel_head(W, RED, "shield", "CVE Research", "responsibly disclosed & documented · + 3 pending", badge="15")}
-{chips}
-</svg>"""
-
-
-def build_all(sfx=""):
-    w(f"hero{sfx}.svg", hero())
-    w(f"stats{sfx}.svg", stats())
-    w(f"skills{sfx}.svg", skills())
-    w(f"bugbounty{sfx}.svg", bugbounty())
-    w(f"cve{sfx}.svg", cve_panel())
-    TOOLS=[("jwt","JWT","auth testing","key",BLUE),("lazy-js","lazy-js","webpack recon","layers",CYAN),
-           ("wayback","Wayback-Crawler","archive recon","clock",CYAN),("endpoint","Endpoint-JS","js endpoints","target",AMBER),
-           ("dcj","DCJ-Action","exploit server","cursor",MAGENTA),("extensions","Extensions","chrome toolkit","puzzle",PURPLE),
-           ("bookmarks","Bookmarks","resources","bookmark",CYAN),("vulnscan","VulnScan","ai scanner","radar",GREEN),
-           ("bscp","BSCP","exam guide","cert",AMBER),("cve","CVE","research","shield",RED)]
-    for key,name,tag,ic,c in TOOLS:
-        w(f"tools/{key}{sfx}.svg", tool_tile(name, tag, ic, c))
-    w(f"cards/notes{sfx}.svg",   card("~/hacking-notes — live","Hacking Notes",["Red & blue team notes — concise, expert-","curated. The whole methodology, online."],["RED TEAM","BLUE TEAM"],"★ hacking-notes.com",GREEN,m_notes()))
-    w(f"cards/roadmap{sfx}.svg", card("~/hacker-roadmap","Hacker Roadmap",["Structured paths from zero to pro — hobbyist,","bug bounty, certs & a cheap degree route."],["5 PATHS","GUIDE"],"★ start here",CYAN,m_roadmap()))
-    w(f"cards/clickme{sfx}.svg", card("~/clickme — poc","ClickMe",["Multi-step clickjacking framework. Build,","preview & export complex POCs."],["CLICKJACKING","POC"],"★ live demo",MAGENTA,m_clickme()))
-    w(f"cards/smuggler{sfx}.svg",card("~/hr-smuggler","HR-Smuggler",["Detects HTTP request smuggling —","HTTP/1.1 (TE.CL / CL.TE) and HTTP/2."],["HTTP/1.1","HTTP/2"],"★ python",RED,m_smuggler()))
-    w(f"cards/obsidian{sfx}.svg",card("~/burp-obsidian","Burp × Obsidian",["Turn Burp output into a linked Obsidian","vault. Structured bug-bounty note-taking."],["BURP","NOTES"],"★ methodology",PURPLE,m_obsidian()))
-    w(f"cards/subtakeover{sfx}.svg",card("~/subdomain-takeover","Subdomain Takeover",["Enumerate subdomains and flag the ones","pointing at dangling, claimable services."],["RECON","TAKEOVER"],"★ python",GREEN,m_subtakeover()))
 
 def main():
-    import sys
-    mode = sys.argv[1] if len(sys.argv) > 1 else "both"
-    if mode in ("light","both"):
-        use("light"); build_all("")
-    if mode in ("dark","both"):
-        use("dark"); build_all(".dark")
+    w("hero.svg", hero())
+    w("skills.svg", skills())
+    w("bugbounty.svg", bugbounty())
+    w("footer.svg", footer())
+    w("cards/notes.svg",      card("01","Hacking Notes","RED · BLUE TEAM",["Red & blue team methodology, online —","concise notes curated for practitioners."],"hacking-notes.com","book"))
+    w("cards/roadmap.svg",    card("02","Hacker Roadmap","GUIDE",["Structured paths from zero to pro:","hobbyist, bug bounty, certs & degree."],"github.com/Hacking-Notes/Hacker-Roadmap","map"))
+    w("cards/clickme.svg",    card("03","ClickMe","CLICKJACKING",["Multi-step clickjacking framework —","build, preview and export POCs."],"python · hacking-poc.com","cursor"))
+    w("cards/smuggler.svg",   card("04","HR-Smuggler","REQUEST SMUGGLING",["Detects HTTP request smuggling across","HTTP/1.1 (TE.CL / CL.TE) and HTTP/2."],"python · github.com/Hacking-Notes/HR-Smuggler","split"))
+    w("cards/obsidian.svg",   card("05","Burp × Obsidian","NOTE-TAKING",["Turns Burp output into a linked Obsidian","vault for structured bug-bounty notes."],"burp extension · methodology","graph"))
+    w("cards/subtakeover.svg",card("06","Subdomain Takeover","RECON",["Enumerates subdomains and flags those","pointing at dangling, claimable services."],"python · github.com/Hacking-Notes/Subdomain-Takeover","tree"))
+    w("arsenal.svg", index("THE ARSENAL", [
+        ("JWT","chrome · auth testing"), ("lazy-js","chrome · webpack recon"),
+        ("Wayback-Crawler","python · archive recon"), ("Endpoint-JS Explorer","bookmarklet · js endpoints"),
+        ("DCJ-Action","python · exploit server"), ("Extensions","curated chrome toolkit"),
+        ("Bookmarks","curated resources"), ("VulnScan","python · ai scanner"),
+        ("BSCP","burp · exam guide"), ("CVE","research · disclosures"),
+    ]))
+    w("cve.svg", index("CVE RESEARCH", [
+        ("CVE-2024-51379","Stored XSS"), ("CVE-2024-51380","Stored XSS"),
+        ("CVE-2024-51381","CSRF"), ("CVE-2024-51382","CSRF"),
+        ("CVE-2024-51484","CSRF"), ("CVE-2024-51485","CSRF"),
+        ("CVE-2024-51486","Stored XSS"), ("CVE-2024-51487","CSRF"),
+        ("CVE-2024-51488","CSRF"), ("CVE-2024-51489","CSRF"),
+        ("CVE-2024-51490","Stored XSS"), ("CVE-2024-55008","Advisory"),
+    ], right_note="15 DISCLOSED · 3 PENDING"))
+
 
 if __name__ == "__main__":
     main()
