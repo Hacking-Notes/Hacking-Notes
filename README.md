@@ -57,17 +57,17 @@ $ cat ~/.motto
 
 <div align="center">
 
-[![JWT](https://img.shields.io/badge/JWT-auth_testing-0284c7?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/jwt)
-[![lazy-js](https://img.shields.io/badge/lazy--js-webpack_recon-0891b2?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/lazy-js)
-[![Wayback-Crawler](https://img.shields.io/badge/Wayback--Crawler-archive_recon-0891b2?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Wayback-Crawler)
-[![Endpoint-JS](https://img.shields.io/badge/Endpoint--JS-js_endpoints-d97706?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Endpoint-Javascript-Explorer)
-[![DCJ-Action](https://img.shields.io/badge/DCJ--Action-exploit_server-db2777?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/dcj-action)
+<a href="https://github.com/Hacking-Notes/jwt"><img src="assets/tools/jwt.svg" width="19%" alt="JWT" /></a>
+<a href="https://github.com/Hacking-Notes/lazy-js"><img src="assets/tools/lazy-js.svg" width="19%" alt="lazy-js" /></a>
+<a href="https://github.com/Hacking-Notes/Wayback-Crawler"><img src="assets/tools/wayback.svg" width="19%" alt="Wayback-Crawler" /></a>
+<a href="https://github.com/Hacking-Notes/Endpoint-Javascript-Explorer"><img src="assets/tools/endpoint.svg" width="19%" alt="Endpoint-JS" /></a>
+<a href="https://github.com/Hacking-Notes/dcj-action"><img src="assets/tools/dcj.svg" width="19%" alt="DCJ-Action" /></a>
 
-[![Extensions](https://img.shields.io/badge/Extensions-chrome_toolkit-7c3aed?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Extensions)
-[![Bookmarks](https://img.shields.io/badge/Bookmarks-resources-0891b2?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/Bookmarks)
-[![VulnScan](https://img.shields.io/badge/VulnScan-ai_scanner-059669?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/VulnScan)
-[![BSCP](https://img.shields.io/badge/BSCP-exam_guide-d97706?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/BSCP)
-[![CVE](https://img.shields.io/badge/CVE-research-e5484d?style=for-the-badge&labelColor=f6f8fa)](https://github.com/Hacking-Notes/CVE)
+<a href="https://github.com/Hacking-Notes/Extensions"><img src="assets/tools/extensions.svg" width="19%" alt="Extensions" /></a>
+<a href="https://github.com/Hacking-Notes/Bookmarks"><img src="assets/tools/bookmarks.svg" width="19%" alt="Bookmarks" /></a>
+<a href="https://github.com/Hacking-Notes/VulnScan"><img src="assets/tools/vulnscan.svg" width="19%" alt="VulnScan" /></a>
+<a href="https://github.com/Hacking-Notes/BSCP"><img src="assets/tools/bscp.svg" width="19%" alt="BSCP" /></a>
+<a href="https://github.com/Hacking-Notes/CVE"><img src="assets/tools/cve.svg" width="19%" alt="CVE" /></a>
 
 </div>
 
@@ -75,23 +75,15 @@ $ cat ~/.motto
 
 ## 🎯 Contributions
 
-<details open>
-  <summary><b>🐛 &nbsp;Bug Bounty</b> &nbsp;—&nbsp; vulnerabilities reported across these sectors</summary>
-  <br />
-  <div align="center">
-  <kbd> <br> Search Engine <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> Governments / Municipalities <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> Domain Providers <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> Hotel Chains <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> ... <br><br> </kbd>
-  </div>
-  <p align="center">📒 More in my <a href="https://bug-bounty.blog/">blog articles</a>.</p>
-</details>
+<div align="center">
 
-<details>
-  <summary><b>🤝 &nbsp;CVE Research</b> &nbsp;—&nbsp; responsibly disclosed & documented</summary>
-  <br />
-  <div align="center">
-  <kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51490.md">CVE-2024-51490</a> <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51486.md">CVE-2024-51486</a> <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE/blob/main/CVE-2024-51489.md">CVE-2024-51489</a> <br><br> </kbd>&nbsp;&nbsp;<kbd> <br> <a href="https://github.com/Hacking-Notes/CVE">...</a> <br><br> </kbd>
-  </div>
-  <p align="center">🧾 Full collection in the <a href="https://github.com/Hacking-Notes/CVE">CVE repository</a>.</p>
-</details>
+<a href="https://bug-bounty.blog/"><img src="assets/bugbounty.svg" width="100%" alt="Bug bounty contributions" /></a>
+
+<br /><br />
+
+<a href="https://github.com/Hacking-Notes/CVE"><img src="assets/cve.svg" width="100%" alt="CVE research — 15 disclosed" /></a>
+
+</div>
 
 <img src="assets/footer.svg" width="100%" alt="" />
 

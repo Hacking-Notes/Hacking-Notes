@@ -40,6 +40,15 @@ def icon(kind, c, sw=2.4):
     if kind=="shield": return f'<path d="M0 -15 L13 -10 V2 C13 11 0 16 0 16 C0 16 -13 11 -13 2 V-10 Z" {s}/><path d="M-5 0 L-1 5 L6 -5" {s}/>'
     if kind=="wrench": return f'<path d="M6 -10 A7 7 0 1 0 12 -2 L2 8 L-9 13 L-12 10 L-7 -1 Z" {s}/>'
     if kind=="bug":    return f'<ellipse cx="0" cy="3" rx="8" ry="11" {s}/><circle cx="0" cy="-11" r="4.5" {s}/><path d="M-8 -3 H-15 M8 -3 H15 M-8 4 H-15 M8 4 H15 M-7 11 L-13 15 M7 11 L13 15" {s}/>'
+    if kind=="key":    return f'<circle cx="-6" cy="-6" r="7" {s}/><path d="M-1 -1 L12 12 M8 12 L12 12 L12 8 M5 8 L8 8 L8 5" {s}/>'
+    if kind=="layers": return f'<path d="M0 -13 L14 -5 L0 3 L-14 -5 Z" {s}/><path d="M-14 1 L0 9 L14 1" {s}/><path d="M-14 7 L0 15 L14 7" {s}/>'
+    if kind=="clock":  return f'<circle cx="0" cy="0" r="13" {s}/><path d="M0 -7 V0 L6 4" {s}/><path d="M-13 -9 A17 17 0 0 1 -7 -13" {s}/>'
+    if kind=="target": return f'<circle cx="0" cy="0" r="13" {s}/><circle cx="0" cy="0" r="6" {s}/><path d="M0 -16 V-11 M0 11 V16 M-16 0 H-11 M11 0 H16" {s}/>'
+    if kind=="cursor": return f'<path d="M-8 -10 L8 -2 L0 1 L5 11 L1 13 L-3 3 L-9 7 Z" {s}/>'
+    if kind=="puzzle": return f'<path d="M-13 -13 H-3 A3 3 0 0 1 3 -13 H13 V-3 A3 3 0 0 1 13 3 V13 H3 A3 3 0 0 0 -3 13 H-13 V3 A3 3 0 0 0 -13 -3 Z" {s}/>'
+    if kind=="bookmark":return f'<path d="M-9 -14 H9 V15 L0 7 L-9 15 Z" {s}/>'
+    if kind=="radar":  return f'<circle cx="0" cy="0" r="13" {s}/><path d="M0 0 L11 -6" {s}/><path d="M0 0 L0 -13" {s} stroke-opacity=".5"/><circle cx="6" cy="-3" r="1.6" fill="{c}" stroke="none"/>'
+    if kind=="cert":   return f'<rect x="-13" y="-12" width="26" height="18" rx="3" {s}/><circle cx="0" cy="-3" r="4" {s}/><path d="M-3 1 L-5 12 L0 9 L5 12 L3 1" {s}/>'
     return ""
 
 
@@ -121,7 +130,7 @@ def hero():
 def stats():
     W, H = 1200, 160
     tiles = [("490+","FOLLOWERS","user",GREEN),("19","PUBLIC REPOS","repo",BLUE),
-             ("12","CVEs DISCLOSED","shield",RED),("12+","TOOLS SHIPPED","wrench",PURPLE)]
+             ("15","CVEs DISCLOSED","shield",RED),("12+","TOOLS SHIPPED","wrench",PURPLE)]
     tw = W/4; parts=""
     for i,(num,lab,ic,c) in enumerate(tiles):
         cx = tw*i + tw/2
@@ -320,10 +329,102 @@ def skills():
 </svg>"""
 
 
+def tool_tile(name, tag, ic, c):
+    W, H = 360, 150
+    def rp(x,y,w_,h_,r):
+        return (f"M{x+r} {y} H{x+w_-r} A{r} {r} 0 0 1 {x+w_} {y+r} V{y+h_-r} A{r} {r} 0 0 1 {x+w_-r} {y+h_} "
+                f"H{x+r} A{r} {r} 0 0 1 {x} {y+h_-r} V{y+r} A{r} {r} 0 0 1 {x+r} {y} Z")
+    b=rp(1.5,1.5,W-3,H-3,16)
+    return f"""
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{escape(name)}">
+<title>{escape(name)}</title>
+<defs><radialGradient id="g" cx=".15" cy=".2" r=".9"><stop offset="0" stop-color="{c}" stop-opacity=".16"/><stop offset="1" stop-color="{c}" stop-opacity="0"/></radialGradient></defs>
+<style>.sweep{{stroke-dasharray:24 100;animation:sw 5s linear infinite}}@keyframes sw{{to{{stroke-dashoffset:-124}}}}
+.flo{{animation:flo 4s ease-in-out infinite}}@keyframes flo{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-3px)}}}}
+.bk{{animation:bk 1.3s step-end infinite}}@keyframes bk{{50%{{opacity:.2}}}}{RM}</style>
+<rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="16" fill="{PANEL}"/>
+<rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="16" fill="url(#g)"/>
+<rect x="26" y="26" width="56" height="56" rx="14" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".45"/>
+<g class="flo"><g transform="translate(54 54) scale(1.05)">{icon(ic,c)}</g></g>
+<text x="100" y="52" font-family="{SANS}" font-size="24" font-weight="800" fill="{TEXT}">{escape(name)}</text>
+<text x="100" y="76" font-family="{MONO}" font-size="13" fill="{MUTED}">{escape(tag)}</text>
+<text x="26" y="118" font-family="{MONO}" font-size="13" fill="{MUTED}">$ git clone <tspan class="bk" fill="{c}">_</tspan></text>
+<path d="{b}" fill="none" stroke="{c}" stroke-opacity=".2" stroke-width="1.5"/>
+<path class="sweep" d="{b}" pathLength="124" fill="none" stroke="{c}" stroke-width="2.5" stroke-linecap="round"/>
+</svg>"""
+
+
+def panel_head(W, c, ic, title, sub, badge=None):
+    g=(f'<rect x="26" y="26" width="48" height="48" rx="12" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".5"/>'
+       f'<g transform="translate(50 50) scale(.9)">{icon(ic,c)}</g>'
+       f'<text x="90" y="48" font-family="{SANS}" font-size="26" font-weight="800" fill="{TEXT}">{escape(title)}</text>'
+       f'<text x="90" y="72" font-family="{MONO}" font-size="13" fill="{MUTED}">{escape(sub)}</text>')
+    if badge:
+        g+=(f'<rect x="{W-150}" y="30" width="120" height="44" rx="10" fill="{c}" fill-opacity=".10" stroke="{c}" stroke-opacity=".5"/>'
+            f'<text x="{W-90}" y="58" text-anchor="middle" font-family="{SANS}" font-size="22" font-weight="800" fill="{c}">{escape(badge)}</text>'
+            f'<text x="{W-90}" y="70" text-anchor="middle" font-family="{MONO}" font-size="9" letter-spacing="1" fill="{MUTED}">DISCLOSED</text>')
+    return g
+
+
+def bugbounty():
+    W, H = 1200, 180
+    sectors=[("Search Engine","target"),("Governments","shield"),("Domain Providers","repo"),("Hotel Chains","bookmark"),("& more","bug")]
+    x=36; chips=""
+    for i,(name,ic) in enumerate(sectors):
+        cw=len(name)*9.2+70
+        chips+=(f'<g class="ch" style="animation-delay:{i*.3:.1f}s"><rect x="{x:.0f}" y="104" width="{cw:.0f}" height="48" rx="12" fill="{AMBER}" fill-opacity=".08" stroke="{AMBER}" stroke-opacity=".45"/>'
+                f'<g transform="translate({x+30:.0f} 128) scale(.72)">{icon(ic,AMBER)}</g>'
+                f'<text x="{x+52:.0f}" y="134" font-family="{SANS}" font-size="15" font-weight="700" fill="{TEXT}">{escape(name)}</text></g>')
+        x+=cw+18
+    return f"""
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Bug bounty contributions">
+<title>Bug bounty</title>
+<style>.ch{{opacity:0;animation:up .6s ease-out forwards}}@keyframes up{{from{{opacity:0;transform:translateY(12px)}}to{{opacity:1;transform:translateY(0)}}}}{RM}</style>
+<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="16" fill="{PANEL}" stroke="{LINE}"/>
+<rect x="1" y="1" width="6" height="{H-2}" rx="3" fill="{AMBER}"/>
+{panel_head(W, AMBER, "bug", "Bug Bounty", "vulnerabilities reported across these sectors")}
+{chips}
+</svg>"""
+
+
+def cve_panel():
+    W, H = 1200, 220
+    ids=["CVE-2024-51379","CVE-2024-51380","CVE-2024-51381","CVE-2024-51382","CVE-2024-51484",
+         "CVE-2024-51485","CVE-2024-51486","CVE-2024-51487","CVE-2024-51488","CVE-2024-51489",
+         "CVE-2024-51490","CVE-2024-55008"]
+    x=36; y=108; chips=""; perrow=0
+    for i,cid in enumerate(ids):
+        cw=len(cid)*8.0+22
+        if x+cw>W-36:
+            x=36; y+=42
+        chips+=(f'<g class="ch" style="animation-delay:{i*.12:.2f}s"><rect x="{x:.0f}" y="{y:.0f}" width="{cw:.0f}" height="30" rx="8" fill="{RED}" fill-opacity=".08" stroke="{RED}" stroke-opacity=".4"/>'
+                f'<circle cx="{x+13:.0f}" cy="{y+15:.0f}" r="3.5" fill="{RED}"/>'
+                f'<text x="{x+24:.0f}" y="{y+20:.0f}" font-family="{MONO}" font-size="12.5" font-weight="700" fill="{TEXT}">{cid}</text></g>')
+        x+=cw+12
+    return f"""
+<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="CVE research: 15 disclosed">
+<title>CVE research</title>
+<style>.ch{{opacity:0;animation:up .5s ease-out forwards}}@keyframes up{{from{{opacity:0;transform:scale(.9)}}to{{opacity:1;transform:scale(1)}}}}{RM}</style>
+<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="16" fill="{PANEL}" stroke="{LINE}"/>
+<rect x="1" y="1" width="6" height="{H-2}" rx="3" fill="{RED}"/>
+{panel_head(W, RED, "shield", "CVE Research", "responsibly disclosed & documented · + 3 pending", badge="15")}
+{chips}
+</svg>"""
+
+
 def main():
     w("hero.svg", hero())
     w("stats.svg", stats())
     w("skills.svg", skills())
+    w("bugbounty.svg", bugbounty())
+    w("cve.svg", cve_panel())
+    TOOLS=[("jwt","JWT","auth testing","key",BLUE),("lazy-js","lazy-js","webpack recon","layers",CYAN),
+           ("wayback","Wayback-Crawler","archive recon","clock",CYAN),("endpoint","Endpoint-JS","js endpoints","target",AMBER),
+           ("dcj","DCJ-Action","exploit server","cursor",MAGENTA),("extensions","Extensions","chrome toolkit","puzzle",PURPLE),
+           ("bookmarks","Bookmarks","resources","bookmark",CYAN),("vulnscan","VulnScan","ai scanner","radar",GREEN),
+           ("bscp","BSCP","exam guide","cert",AMBER),("cve","CVE","research","shield",RED)]
+    for key,name,tag,ic,c in TOOLS:
+        w(f"tools/{key}.svg", tool_tile(name, tag, ic, c))
     w("cards/notes.svg",   card("~/hacking-notes — live","Hacking Notes",["Red & blue team notes — concise, expert-","curated. The whole methodology, online."],["RED TEAM","BLUE TEAM"],"★ hacking-notes.com",GREEN,m_notes()))
     w("cards/roadmap.svg", card("~/hacker-roadmap","Hacker Roadmap",["Structured paths from zero to pro — hobbyist,","bug bounty, certs & a cheap degree route."],["5 PATHS","GUIDE"],"★ start here",CYAN,m_roadmap()))
     w("cards/clickme.svg", card("~/clickme — poc","ClickMe",["Multi-step clickjacking framework. Build,","preview & export complex POCs."],["CLICKJACKING","POC"],"★ live demo",MAGENTA,m_clickme()))
