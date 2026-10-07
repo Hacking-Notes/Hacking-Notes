@@ -56,6 +56,13 @@ def line_icon(kind):
     return ""
 
 
+HR_STYLE=('.hr{transform-box:fill-box;transform-origin:left;animation:hr 6s ease-in-out infinite}'
+          '@keyframes hr{0%{transform:scaleX(0)}45%,90%{transform:scaleX(1)}100%{transform:scaleX(0)}}')
+
+def hr_accent(x, y, w=70):
+    return f'<rect class="hr" x="{x}" y="{y-1:.0f}" width="{w}" height="2" rx="1" fill="{ACCENT}"/>'
+
+
 def svg(W, H, inner, label):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
             f'role="img" aria-label="{escape(label)}"><title>{escape(label)}</title>{inner}</svg>')
@@ -72,9 +79,9 @@ def hero():
         y = 100 + i*46
         mrows += (f'<text x="1130" y="{y}" text-anchor="end" font-family="{SANS}" font-size="22" font-weight="700" fill="{INK}">{num}</text>'
                   f'<text x="1130" y="{y+16}" text-anchor="end" font-family="{MONO}" font-size="10.5" letter-spacing="1.5" fill="{FAINT}">{lab}</text>')
-    style=(f'<style>.rule{{{{transform-box:fill-box;transform-origin:left;animation:rule 6s ease-in-out infinite}}}}'
-           f'@keyframes rule{{{{0%{{{{transform:scaleX(.1)}}}}50%{{{{transform:scaleX(1)}}}}100%{{{{transform:scaleX(.1)}}}}}}}}'
-           f'.cur{{{{animation:bl 1.1s step-end infinite}}}}@keyframes bl{{{{50%{{{{opacity:0}}}}}}}}{RM}</style>')
+    style=('<style>.rule{transform-box:fill-box;transform-origin:left;animation:rule 6s ease-in-out infinite}'
+           '@keyframes rule{0%{transform:scaleX(.1)}50%{transform:scaleX(1)}100%{transform:scaleX(.1)}}'
+           '.cur{animation:bl 1.1s step-end infinite}@keyframes bl{50%{opacity:0}}' + RM + '</style>')
     inner = (style + panel(W,H) +
         f'<text x="60" y="88" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">{eyebrow}</text>'
         f'<rect class="rule" x="60" y="100" width="150" height="2" rx="1" fill="{ACCENT}"/>'
@@ -88,13 +95,15 @@ def hero():
 def card(idx, title, cat, desc, meta, icon):
     W, H = 560, 196
     d1,d2 = (desc+["",""])[:2]
-    style=(f'<style>.u{{{{transform-box:fill-box;transform-origin:left;animation:u 5s ease-in-out infinite}}}}'
-           f'@keyframes u{{{{0%{{{{transform:scaleX(0)}}}}45%,90%{{{{transform:scaleX(1)}}}}100%{{{{transform:scaleX(0)}}}}}}}}{RM}</style>')
+    style=('<style>.u{transform-box:fill-box;transform-origin:left;animation:u 5s ease-in-out infinite}'
+           '@keyframes u{0%{transform:scaleX(0)}45%,90%{transform:scaleX(1)}100%{transform:scaleX(0)}}'
+           '.ic{transform-box:fill-box;transform-origin:center;animation:ic 4s ease-in-out infinite}'
+           '@keyframes ic{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}' + RM + '</style>')
     inner = (style + panel(W,H,12) +
         f'<circle cx="34" cy="37" r="3" fill="{ACCENT}"/>'
         f'<text x="46" y="42" font-family="{MONO}" font-size="12" letter-spacing="2" fill="{FAINT}">{idx}</text>'
         f'<text x="{W-26}" y="42" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{FAINT}">{escape(cat)}</text>'
-        f'<g transform="translate({W-46} 88)">{line_icon(icon)}</g>'
+        f'<g class="ic" transform="translate({W-46} 88)">{line_icon(icon)}</g>'
         f'<text x="30" y="94" font-family="{SANS}" font-size="26" font-weight="700" fill="{INK}">{escape(title)}</text>'
         f'<rect class="u" x="30" y="106" width="46" height="2" rx="1" fill="{ACCENT}"/>'
         f'<text x="30" y="134" font-family="{SANS}" font-size="14.5" fill="{MUTE}">{escape(d1)}</text>'
@@ -116,8 +125,9 @@ def capabilities():
         body += pl; y = bottom + 16
     H = y + 6
     head = (f'<text x="30" y="36" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">CAPABILITIES</text>'
-            f'<line x1="176" y1="31" x2="{W-30}" y2="31" stroke="{HAIR}"/>')
-    return svg(W,H, panel(W,H)+head+body, "Capabilities")
+            f'<line x1="176" y1="31" x2="{W-30}" y2="31" stroke="{HAIR}"/>' + hr_accent(176, 31))
+    style = f'<style>{HR_STYLE}{RM}</style>'
+    return svg(W,H, style+panel(W,H)+head+body, "Capabilities")
 
 
 def index(title, rows, right_note=None):
@@ -125,7 +135,14 @@ def index(title, rows, right_note=None):
     body=(f'<text x="30" y="40" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">{escape(title)}</text>')
     if right_note:
         body+=f'<text x="{W-30}" y="40" text-anchor="end" font-family="{MONO}" font-size="12" letter-spacing="1.5" fill="{FAINT}">{escape(right_note)}</text>'
-    body+=f'<line x1="30" y1="52" x2="{W-30}" y2="52" stroke="{INK}" stroke-opacity=".55"/>'
+    body+=f'<line x1="30" y1="52" x2="{W-30}" y2="52" stroke="{INK}" stroke-opacity=".55"/>' + hr_accent(30, 52)
+    n=len(rows); dur=max(8, n*1.1)
+    keys="".join(f"{(i/(n-1))*100*0.9:.1f}%{{transform:translateY({i*rh}px)}}" for i in range(n))
+    marker=(f'<rect class="mk" x="22" y="{top+6}" width="3" height="28" rx="1.5" fill="{ACCENT}"/>')
+    style=(f'<style>{HR_STYLE}'
+           f'.mk{{animation:mk {dur:.0f}s steps(1,end) infinite,mkf {dur:.0f}s ease-in-out infinite}}'
+           f'@keyframes mk{{{keys}100%{{transform:translateY(0)}}}}'
+           f'@keyframes mkf{{0%,100%{{opacity:.3}}50%{{opacity:.9}}}}{RM}</style>')
     for i,(name,tag) in enumerate(rows):
         y=top+i*rh+28
         body+=(f'<text x="30" y="{y}" font-family="{MONO}" font-size="12" fill="{FAINT}">{i+1:02d}</text>'
@@ -133,7 +150,7 @@ def index(title, rows, right_note=None):
                f'<text x="{W-30}" y="{y}" text-anchor="end" font-family="{MONO}" font-size="12.5" fill="{MUTE}">{escape(tag)}</text>')
         if i<len(rows)-1:
             body+=f'<line x1="30" y1="{top+i*rh+rh}" x2="{W-30}" y2="{top+i*rh+rh}" stroke="{HAIR}"/>'
-    return svg(W,H, panel(W,H)+body, title)
+    return svg(W,H, style+panel(W,H)+marker+body, title)
 
 
 def bugbounty():
@@ -141,16 +158,17 @@ def bugbounty():
     sectors=["Search Engines","Governments","Domain Providers","Hotel Chains","Domain Registrars","& more"]
     head=(f'<text x="30" y="36" font-family="{MONO}" font-size="12.5" letter-spacing="3.5" fill="{MUTE}">BUG BOUNTY</text>'
           f'<text x="{W-30}" y="36" text-anchor="end" font-family="{MONO}" font-size="12" fill="{FAINT}">reported across sectors</text>'
-          f'<line x1="150" y1="31" x2="{W-30}" y2="31" stroke="{HAIR}"/>')
+          f'<line x1="150" y1="31" x2="{W-30}" y2="31" stroke="{HAIR}"/>' + hr_accent(150, 31))
     pl, bottom = pills(sectors, 30, 58, W-30, h=32, fs=14)
     cap=f'<text x="30" y="{bottom+28:.0f}" font-family="{MONO}" font-size="11.5" fill="{FAINT}">details at hacking-notes.com · bug-bounty.blog</text>'
     H=bottom+44
-    return svg(W,H, panel(W,H)+head+pl+cap, "Bug bounty — reported across sectors")
+    style=f'<style>{HR_STYLE}{RM}</style>'
+    return svg(W,H, style+panel(W,H)+head+pl+cap, "Bug bounty — reported across sectors")
 
 
 def footer():
     W,H=1160,86
-    style=f'<style>.cur{{{{animation:bl 1.1s step-end infinite}}}}@keyframes bl{{{{50%{{{{opacity:0}}}}}}}}{RM}</style>'
+    style='<style>.cur{animation:bl 1.1s step-end infinite}@keyframes bl{50%{opacity:0}}' + RM + '</style>'
     inner=(style+panel(W,H)+
         f'<text x="30" y="52" font-family="{MONO}" font-size="13" fill="{MUTE}">Hacking-Notes — security research</text>'
         f'<text x="{W-30}" y="52" text-anchor="end" font-family="{MONO}" font-size="13" fill="{MUTE}">hacking-notes.com <tspan class="cur" fill="{ACCENT}">_</tspan></text>')
