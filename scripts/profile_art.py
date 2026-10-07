@@ -45,15 +45,34 @@ def pills(items, x0, y0, maxx, h=28, fs=12.5):
     return out, y + h
 
 
-def line_icon(kind):
-    s=f'fill="none" stroke="{INK}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"'
+def line_icon(kind, c=None, sw=1.6):
+    c = c or INK
+    s=f'fill="none" stroke="{c}" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round"'
     if kind=="cursor": return f'<path d="M-9 -11 L9 -2 L1 1 L6 12 L2 14 L-3 3 L-9 8 Z" {s}/>'
     if kind=="split":  return f'<path d="M-12 -10 H12 M-12 0 H3 M-12 10 H12" {s}/><path d="M7 -3 L13 1 L7 5" {s}/>'
     if kind=="tree":   return f'<path d="M0 -12 V-4 M0 -4 H-11 V2 M0 -4 H11 V2 M0 -4 V2" {s}/><circle cx="0" cy="-12" r="2.4" {s}/><circle cx="-11" cy="6" r="2.4" {s}/><circle cx="0" cy="6" r="2.4" {s}/><circle cx="11" cy="6" r="2.4" {s}/>'
     if kind=="graph":  return f'<circle cx="0" cy="0" r="3" {s}/><circle cx="-11" cy="-8" r="2.2" {s}/><circle cx="12" cy="-6" r="2.2" {s}/><circle cx="8" cy="10" r="2.2" {s}/><path d="M0 0 L-11 -8 M0 0 L12 -6 M0 0 L8 10" {s}/>'
     if kind=="book":   return f'<path d="M-11 -11 H9 A2 2 0 0 1 11 -9 V12 H-9 A2 2 0 0 1 -11 10 Z" {s}/><path d="M-11 8 H9 M-4 -11 V8" {s}/>'
     if kind=="map":    return f'<path d="M-12 -8 L-4 -11 L4 -8 L12 -11 V9 L4 12 L-4 9 L-12 12 Z" {s}/><path d="M-4 -11 V9 M4 -8 V12" {s}/>'
+    if kind=="people": return f'<circle cx="-5" cy="-4" r="3.6" {s}/><circle cx="6" cy="-5" r="2.8" {s}/><path d="M-11 8 c0 -6.5 12 -6.5 12 0" {s}/><path d="M2 6 c1.2 -5 11 -4.5 11 1.5" {s}/>'
+    if kind=="globe":  return f'<circle cx="0" cy="0" r="10" {s}/><path d="M-10 0 H10 M0 -10 V10 M-6.5 -7 C-2.5 -3 -2.5 3 -6.5 7 M6.5 -7 C2.5 -3 2.5 3 6.5 7" {s}/>'
+    if kind=="pen":    return f'<path d="M-9 9 V4 L5 -10 L10 -5 L-4 9 Z" {s}/><path d="M2 -7 L7 -2" {s}/>'
+    if kind=="chat":   return f'<path d="M-11 -7 H11 V4 H-3 L-8 9 V4 H-11 Z" {s}/><circle cx="-4" cy="-1.5" r="1.2" fill="{c}" stroke="none"/><circle cx="0" cy="-1.5" r="1.2" fill="{c}" stroke="none"/><circle cx="4" cy="-1.5" r="1.2" fill="{c}" stroke="none"/>'
     return ""
+
+
+def chip_button(icon, text, accent_icon=True):
+    """A rounded hairline pill-button: accent line icon + label. Own link."""
+    H = 44; fs = 14.5
+    tw = len(text) * fs * 0.56
+    W = int(30 + 24 + tw + 22)
+    ic = ACCENT if accent_icon else INK
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
+            f'role="img" aria-label="{escape(text)}"><title>{escape(text)}</title>'
+            f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="{(H-2)//2}" fill="{BG}" stroke="{HAIR}"/>'
+            f'<g transform="translate(28 {H/2:.0f})">{line_icon(icon, ic, 1.8)}</g>'
+            f'<text x="48" y="{H/2+5:.0f}" font-family="{SANS}" font-size="{fs}" font-weight="600" fill="{INK}">{escape(text)}</text>'
+            f'</svg>')
 
 
 HR_STYLE=('.hr{transform-box:fill-box;transform-origin:left;animation:hr 6s ease-in-out infinite}'
@@ -93,17 +112,19 @@ def hero():
 
 
 def star_chip(W, stars, live):
+    """Rounded chip pinned to the card's top-right, well above the separator."""
+    yt, h = 24, 24
     if live:
         txt = "live"; w = len(txt) * 7.2 + 36; x = W - 26 - w
-        return (f'<rect x="{x:.0f}" y="170" width="{w:.0f}" height="22" rx="11" fill="none" stroke="{HAIR}"/>'
-                f'<circle cx="{x+16:.0f}" cy="181" r="3.5" fill="{ACCENT}"/>'
-                f'<text x="{x+27:.0f}" y="185" font-family="{MONO}" font-size="12" fill="{INK}">{txt}</text>')
+        return (f'<rect x="{x:.0f}" y="{yt}" width="{w:.0f}" height="{h}" rx="{h/2:.0f}" fill="none" stroke="{HAIR}"/>'
+                f'<circle cx="{x+16:.0f}" cy="{yt+h/2:.0f}" r="3.5" fill="{ACCENT}"/>'
+                f'<text x="{x+27:.0f}" y="{yt+h/2+4:.0f}" font-family="{MONO}" font-size="12" fill="{INK}">{txt}</text>')
     s = f"{stars/1000:.1f}k" if stars >= 1000 else str(stars)
     w = len(s) * 7.4 + 42; x = W - 26 - w
-    star = (f'<path transform="translate({x+17:.0f} 181) scale(.52)" '
+    star = (f'<path transform="translate({x+17:.0f} {yt+h/2:.0f}) scale(.52)" '
             f'd="M0 -11 L3.2 -3.4 L11 -2.6 L5.2 2.6 L6.8 10.4 L0 6.2 L-6.8 10.4 L-5.2 2.6 L-11 -2.6 L-3.2 -3.4 Z" fill="{ACCENT}"/>')
-    return (f'<rect x="{x:.0f}" y="170" width="{w:.0f}" height="22" rx="11" fill="none" stroke="{HAIR}"/>'
-            f'{star}<text x="{x+29:.0f}" y="185" font-family="{MONO}" font-size="12" fill="{INK}">{s}</text>')
+    return (f'<rect x="{x:.0f}" y="{yt}" width="{w:.0f}" height="{h}" rx="{h/2:.0f}" fill="none" stroke="{HAIR}"/>'
+            f'{star}<text x="{x+29:.0f}" y="{yt+h/2+4:.0f}" font-family="{MONO}" font-size="12" fill="{INK}">{s}</text>')
 
 
 def card(idx, title, cat, desc, meta, icon, stars=None, live=False):
@@ -116,7 +137,7 @@ def card(idx, title, cat, desc, meta, icon, stars=None, live=False):
     inner = (style + panel(W,H,12) +
         f'<circle cx="34" cy="37" r="3" fill="{ACCENT}"/>'
         f'<text x="46" y="42" font-family="{MONO}" font-size="12" letter-spacing="2" fill="{FAINT}">{idx}</text>'
-        f'<text x="{W-26}" y="42" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{FAINT}">{escape(cat)}</text>'
+        f'<text x="72" y="42" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{FAINT}">· {escape(cat)}</text>'
         f'<g transform="translate({W-46} 88)"><g class="ic">{line_icon(icon)}</g></g>'
         f'<text x="30" y="94" font-family="{SANS}" font-size="26" font-weight="700" fill="{INK}">{escape(title)}</text>'
         f'<rect class="u" x="30" y="106" width="46" height="2" rx="1" fill="{ACCENT}"/>'
@@ -208,6 +229,10 @@ CVES=[("CVE-2024-51379","Stored XSS"),("CVE-2024-51380","Stored XSS"),("CVE-2024
 
 def build(sfx):
     wr(f"hero{sfx}.svg", hero())
+    wr(f"hdr-followers{sfx}.svg", chip_button("people", "489 followers"))
+    wr(f"hdr-website{sfx}.svg", chip_button("globe", "hacking-notes.com"))
+    wr(f"hdr-blog{sfx}.svg", chip_button("pen", "blog"))
+    wr(f"hdr-discord{sfx}.svg", chip_button("chat", "discord"))
     wr(f"skills{sfx}.svg", capabilities())
     wr(f"bugbounty{sfx}.svg", bugbounty())
     wr(f"footer{sfx}.svg", footer())

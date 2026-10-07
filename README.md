@@ -6,10 +6,10 @@
 
 <br />
 
-<a href="https://github.com/Hacking-Notes"><img src="https://img.shields.io/github/followers/Hacking-Notes?style=flat-square&logo=github&label=followers&color=3e63dd" alt="Followers" /></a>
-&nbsp;<a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/website-hacking--notes.com-3e63dd?style=flat-square" alt="Website" /></a>
-&nbsp;<a href="https://hacking-notes.medium.com/"><img src="https://img.shields.io/badge/blog-medium-6e56cf?style=flat-square" alt="Blog" /></a>
-&nbsp;<a href="https://discord.gg/r68ameNHrD"><img src="https://img.shields.io/badge/discord-join-0e7490?style=flat-square" alt="Discord" /></a>
+<a href="https://github.com/Hacking-Notes?tab=followers"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hdr-followers-dark.svg"><img src="assets/hdr-followers.svg" height="38" alt="489 followers" /></picture></a>
+&nbsp;<a href="https://hacking-notes.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hdr-website-dark.svg"><img src="assets/hdr-website.svg" height="38" alt="Website" /></picture></a>
+&nbsp;<a href="https://hacking-notes.medium.com/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hdr-blog-dark.svg"><img src="assets/hdr-blog.svg" height="38" alt="Blog" /></picture></a>
+&nbsp;<a href="https://discord.gg/r68ameNHrD"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hdr-discord-dark.svg"><img src="assets/hdr-discord.svg" height="38" alt="Discord" /></picture></a>
 
 </div>
 
