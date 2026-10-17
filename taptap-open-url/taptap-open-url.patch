@@ -1,0 +1,231 @@
+diff --git a/app/src/main/java/com/kieronquinn/app/taptap/components/columbus/actions/custom/OpenUrlAction.kt b/app/src/main/java/com/kieronquinn/app/taptap/components/columbus/actions/custom/OpenUrlAction.kt
+new file mode 100644
+index 0000000..66d13ba
+--- /dev/null
++++ b/app/src/main/java/com/kieronquinn/app/taptap/components/columbus/actions/custom/OpenUrlAction.kt
+@@ -0,0 +1,59 @@
++package com.kieronquinn.app.taptap.components.columbus.actions.custom
++
++import android.content.ActivityNotFoundException
++import android.content.Context
++import android.content.Intent
++import android.net.Uri
++import android.widget.Toast
++import androidx.lifecycle.Lifecycle
++import com.google.android.columbus.feedback.FeedbackEffect
++import com.google.android.columbus.sensors.GestureSensor
++import com.kieronquinn.app.taptap.R
++import com.kieronquinn.app.taptap.components.columbus.actions.TapTapAction
++import com.kieronquinn.app.taptap.components.columbus.gates.TapTapWhenGate
++
++class OpenUrlAction(
++    serviceLifecycle: Lifecycle,
++    private val context: Context,
++    private val url: String,
++    whenGates: List<TapTapWhenGate>,
++    effects: Set<FeedbackEffect>
++) : TapTapAction(
++    serviceLifecycle, context, whenGates, effects
++) {
++
++    companion object {
++        /**
++         *  Adds https:// to URLs entered without a scheme (eg. "google.com"), leaves anything
++         *  with a scheme (http, https, intent, tel, etc.) untouched.
++         */
++        fun normaliseUrl(input: String): String {
++            val trimmed = input.trim()
++            if(trimmed.isEmpty()) return trimmed
++            return if(Uri.parse(trimmed).scheme.isNullOrBlank()){
++                "https://$trimmed"
++            }else trimmed
++        }
++    }
++
++    override val tag = "OpenUrlAction"
++
++    override suspend fun onTriggered(
++        detectionProperties: GestureSensor.DetectionProperties,
++        isTripleTap: Boolean
++    ) {
++        if(showOverlayNotificationIfNeeded()) return
++        try {
++            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
++                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
++            }
++            context.startActivity(intent)
++        }catch (e: ActivityNotFoundException){
++            e.printStackTrace()
++            Toast.makeText(context, R.string.action_open_url_toast, Toast.LENGTH_LONG).show()
++        }catch (e: Exception){
++            e.printStackTrace()
++        }
++    }
++
++}
+diff --git a/app/src/main/java/com/kieronquinn/app/taptap/models/action/TapTapActionDirectory.kt b/app/src/main/java/com/kieronquinn/app/taptap/models/action/TapTapActionDirectory.kt
+index e5ff718..4586c10 100644
+--- a/app/src/main/java/com/kieronquinn/app/taptap/models/action/TapTapActionDirectory.kt
++++ b/app/src/main/java/com/kieronquinn/app/taptap/models/action/TapTapActionDirectory.kt
+@@ -64,6 +64,17 @@ enum class TapTapActionDirectory(
+         ActionDataTypes.APP_SHORTCUT,
+         actionRequirement = arrayOf(ActionRequirement.Shizuku)
+     ),
++    OPEN_URL(
++        OpenUrlAction::class.java,
++        TapTapActionCategory.LAUNCH,
++        R.string.action_open_url,
++        R.string.action_open_url_desc,
++        R.drawable.ic_action_open_url,
++        null,
++        R.string.action_open_url_desc_formattable,
++        ActionDataTypes.URL,
++        actionRequirement = arrayOf(ActionRequirement.DrawOverOtherAppsPermission)
++    ),
+     LAUNCH_ASSISTANT(
+         LaunchAssistantAction::class.java,
+         TapTapActionCategory.LAUNCH,
+@@ -505,7 +516,8 @@ enum class ActionDataTypes {
+     TASKER_TASK,
+     SHORTCUT,
+     APP_SHORTCUT,
+-    QUICK_SETTING
++    QUICK_SETTING,
++    URL
+ }
+ 
+ sealed class ActionSupportedRequirement(@StringRes val description: Int) {
+diff --git a/app/src/main/java/com/kieronquinn/app/taptap/repositories/actions/ActionsRepository.kt b/app/src/main/java/com/kieronquinn/app/taptap/repositories/actions/ActionsRepository.kt
+index 1a9f147..4db974a 100644
+--- a/app/src/main/java/com/kieronquinn/app/taptap/repositories/actions/ActionsRepository.kt
++++ b/app/src/main/java/com/kieronquinn/app/taptap/repositories/actions/ActionsRepository.kt
+@@ -297,7 +297,7 @@ class ActionsRepositoryImpl(
+     ): Boolean {
+         return when (data) {
+             //Those that require a picker are satisfied if the extra data is included
+-            ActionDataTypes.PACKAGE_NAME, ActionDataTypes.APP_SHORTCUT, ActionDataTypes.SHORTCUT, ActionDataTypes.TASKER_TASK, ActionDataTypes.QUICK_SETTING -> extraData.isNotBlank()
++            ActionDataTypes.PACKAGE_NAME, ActionDataTypes.APP_SHORTCUT, ActionDataTypes.SHORTCUT, ActionDataTypes.TASKER_TASK, ActionDataTypes.QUICK_SETTING, ActionDataTypes.URL -> extraData.isNotBlank()
+         }
+     }
+ 
+@@ -356,6 +356,7 @@ class ActionsRepositoryImpl(
+                 ).packageName
+             )
+             ActionDataTypes.TASKER_TASK -> extraData
++            ActionDataTypes.URL -> extraData
+             ActionDataTypes.QUICK_SETTING -> {
+                 val component = ComponentName.unflattenFromString(extraData)
+                 context.packageManager.getServiceLabel(component) ?: context.packageManager.getApplicationLabel(component?.packageName)
+@@ -511,6 +512,13 @@ class ActionsRepositoryImpl(
+             ALT_TAB -> AltTabAction(serviceLifecycle, context, whenGates, emptySet())
+             FLASHLIGHT -> FlashlightAction(serviceLifecycle, context, whenGates, emptySet())
+             TASKER_EVENT -> TaskerEventAction(serviceLifecycle, context, whenGates, emptySet())
++            OPEN_URL -> OpenUrlAction(
++                serviceLifecycle,
++                context,
++                action.extraData,
++                whenGates,
++                emptySet()
++            )
+             TASKER_TASK -> TaskerTaskAction(
+                 serviceLifecycle,
+                 context,
+diff --git a/app/src/main/java/com/kieronquinn/app/taptap/ui/screens/settings/actions/selector/SettingsActionsAddGenericFragment.kt b/app/src/main/java/com/kieronquinn/app/taptap/ui/screens/settings/actions/selector/SettingsActionsAddGenericFragment.kt
+index c374fd3..7fe2b4b 100644
+--- a/app/src/main/java/com/kieronquinn/app/taptap/ui/screens/settings/actions/selector/SettingsActionsAddGenericFragment.kt
++++ b/app/src/main/java/com/kieronquinn/app/taptap/ui/screens/settings/actions/selector/SettingsActionsAddGenericFragment.kt
+@@ -5,19 +5,24 @@ import android.content.Intent
+ import android.net.Uri
+ import android.os.Bundle
+ import android.provider.Settings
++import android.text.InputType
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
++import android.widget.EditText
++import android.widget.FrameLayout
+ import android.widget.Toast
+ import androidx.activity.result.contract.ActivityResultContracts
+ import androidx.core.os.bundleOf
+ import androidx.fragment.app.setFragmentResult
+ import androidx.fragment.app.setFragmentResultListener
+ import androidx.viewbinding.ViewBinding
++import com.google.android.material.dialog.MaterialAlertDialogBuilder
+ import com.google.gson.Gson
+ import com.kieronquinn.app.taptap.BuildConfig
+ import com.kieronquinn.app.taptap.R
+ import com.kieronquinn.app.taptap.components.accessibility.TapTapAccessibilityRouter
++import com.kieronquinn.app.taptap.components.columbus.actions.custom.OpenUrlAction
+ import com.kieronquinn.app.taptap.models.action.ActionDataTypes
+ import com.kieronquinn.app.taptap.models.action.ActionRequirement
+ import com.kieronquinn.app.taptap.models.action.TapTapActionDirectory
+@@ -182,10 +187,37 @@ abstract class SettingsActionsAddGenericFragment<T : ViewBinding>(inflate: (Layo
+                 //Quick Setting picker handles action result itself
+                 viewModel.showQuickSettingPicker()
+             }
++            ActionDataTypes.URL -> {
++                showUrlInputDialog(action)
++            }
+             else -> {}
+         }
+     }
+ 
++    private fun showUrlInputDialog(action: TapTapActionDirectory) {
++        val padding = resources.getDimensionPixelSize(R.dimen.margin_16)
++        val input = EditText(requireContext()).apply {
++            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
++            hint = getString(R.string.action_open_url_dialog_hint)
++            isSingleLine = true
++        }
++        val container = FrameLayout(requireContext()).apply {
++            setPadding(padding, padding / 2, padding, 0)
++            addView(input)
++        }
++        MaterialAlertDialogBuilder(requireContext())
++            .setTitle(R.string.action_open_url_dialog_title)
++            .setView(container)
++            .setPositiveButton(android.R.string.ok) { _, _ ->
++                val url = OpenUrlAction.normaliseUrl(input.text.toString())
++                whenResumed {
++                    handleAction(action, url, isReturningData = true)
++                }
++            }
++            .setNegativeButton(android.R.string.cancel, null)
++            .show()
++    }
++
+     /**
+      *  Requests all the permissions, either by opening the settings and awaiting a resume
+      *  or by using runtime permissions if possible. If all permissions are already granted,
+diff --git a/app/src/main/res/drawable/ic_action_open_url.xml b/app/src/main/res/drawable/ic_action_open_url.xml
+new file mode 100644
+index 0000000..2e32b0e
+--- /dev/null
++++ b/app/src/main/res/drawable/ic_action_open_url.xml
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++  <path
++      android:fillColor="?android:textColorPrimary"
++      android:pathData="M3.9,12c0,-1.71 1.39,-3.1 3.1,-3.1h4V7H7c-2.76,0 -5,2.24 -5,5s2.24,5 5,5h4v-1.9H7c-1.71,0 -3.1,-1.39 -3.1,-3.1zM8,13h8v-2H8v2zM17,7h-4v1.9h4c1.71,0 3.1,1.39 3.1,3.1s-1.39,3.1 -3.1,3.1h-4V17h4c2.76,0 5,-2.24 5,-5s-2.24,-5 -5,-5z"/>
++</vector>
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+index 29f1c37..7a70e4e 100644
+--- a/app/src/main/res/values/strings.xml
++++ b/app/src/main/res/values/strings.xml
+@@ -401,6 +401,12 @@
+     <string name="action_launch_shortcut">Launch a shortcut</string>
+     <string name="action_launch_shortcut_desc">Launch a shortcut such as Google Maps directions</string>
+     <string name="action_launch_shortcut_desc_formattable">Launch %1s (shortcut into the app)</string>
++    <string name="action_open_url">Open a URL</string>
++    <string name="action_open_url_desc">Open a predefined web address in your browser</string>
++    <string name="action_open_url_desc_formattable">Open %1s</string>
++    <string name="action_open_url_dialog_title">Enter a URL</string>
++    <string name="action_open_url_dialog_hint">https://example.com</string>
++    <string name="action_open_url_toast">No app found to open this URL</string>
+     <string name="action_launch_shortcut_toast">This shortcut is currently not supported</string>
+     <string name="action_launch_app_shortcut">Launch App Shortcut</string>
+     <string name="action_launch_app_shortcut_desc">Launch an App Shortcut, usually a deep link into an app such as a chat conversation</string>

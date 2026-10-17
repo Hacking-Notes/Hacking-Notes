@@ -1,0 +1,58 @@
+name: Build TapTap (Open URL action)
+
+on:
+  push:
+    paths:
+      - 'taptap-open-url/**'
+      - '.github/workflows/build-taptap-open-url.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAPTAP_COMMIT: e4dce333fa8f2fe4e73bec64b52fec6dbe34ab7c
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone TapTap
+        run: |
+          git clone https://github.com/KieronQuinn/TapTap.git taptap-src
+          git -C taptap-src checkout "$TAPTAP_COMMIT"
+
+      - name: Apply Open URL patch
+        run: git -C taptap-src apply --verbose "$GITHUB_WORKSPACE/taptap-open-url/taptap-open-url.patch"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build debug APK
+        working-directory: taptap-src
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon :app:assembleDebug
+
+      - name: Collect APK
+        run: |
+          mkdir -p taptap-open-url/apk
+          cp taptap-src/app/build/outputs/apk/debug/app-debug.apk taptap-open-url/apk/TapTap-OpenURL-debug.apk
+          sha256sum taptap-open-url/apk/TapTap-OpenURL-debug.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TapTap-OpenURL-debug
+          path: taptap-open-url/apk/TapTap-OpenURL-debug.apk
+
+      - name: Commit APK to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f taptap-open-url/apk/TapTap-OpenURL-debug.apk
+          git commit -m "Add built TapTap Open URL APK" || exit 0
+          git push
